@@ -4,8 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        console.log(req.body)
-        let { firstName, lastName, email, age, password,  userImg, role,  google } = req.body
+        let { firstName, lastName, email, age, password,  userImg, role, favorite, buyed,  google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -19,13 +18,14 @@ const userControllers = {
                     email,
                     password: hashPass,
                     role,
+                    favorite,
+                    buyed,
                     userImg,
                     google
                 })
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
-                const { _id } = newUser
-                res.json({ success: true, response: { firstName, lastName, userImg, token, _id, role }, error: null })
+                res.json({ success: true, response: { newUser, token }, error: null })
             }
         } catch (error) {
             console.log(error)
@@ -42,11 +42,12 @@ const userControllers = {
             if (!isPassword) throw new Error("Email or password incorrect");
             const token = jwt.sign({ ...user }, process.env.SECRETKEY)
             res.json({ success: true, response: { 
-                role: user.role, token, 
+                role: user.role, 
                 firstName: user.firstName, 
                 img: user.userImg, 
                 lastName: user.lastName, 
-                _id: user._id 
+                _id: user._id, 
+                token 
             }})
         } catch (error) {
             res.json({ success: false, response: error.message })
