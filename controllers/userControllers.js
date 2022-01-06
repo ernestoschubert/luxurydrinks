@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
     addUser: async (req, res) => {
-        let { password, email, userImg, lastName, name, google } = req.body
+        console.log(req.body)
+        let { firstName, lastName, email, age, password,  userImg,  google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -22,14 +23,15 @@ const userControllers = {
                 })
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
-                const { _id, userType, userImg, firstName, lastName, token } = newUser
+                const { _id, userType } = newUser
                 res.json({ success: true, response: { firstName, lastName, userImg, token, _id, userType }, error: null })
             }
         } catch (error) {
+            console.log(error)
             res.json({ success: false, response: null, error: error })
         }
     },
-    signin: async (req, res) => {
+    logIn: async (req, res) => {
         const { email, password, google } = req.body
         try {
             const user = await User.findOne({ email })
@@ -38,7 +40,13 @@ const userControllers = {
             const isPassword = bcryptjs.compareSync(password, user.password);
             if (!isPassword) throw new Error("Email or password incorrect");
             const token = jwt.sign({ ...user }, process.env.SECRETKEY)
-            res.json({ success: true, response: { range: user.range, token, name: user.name, img: user.img, lastName: user.lastName, _id: user._id } })
+            res.json({ success: true, response: { 
+                userType: user.userType, token, 
+                firstName: user.firstName, 
+                img: user.userImg, 
+                lastName: user.lastName, 
+                _id: user._id 
+            }})
         } catch (error) {
             res.json({ success: false, response: error.message })
         }
@@ -52,7 +60,7 @@ const userControllers = {
     },
     getUsers: async (req, res) => {
         try {
-            if (req.user.range === 'A' || req.user.range === 'B') {
+            if (req.user.userType === 'A' || req.user.userType === 'B') {
                 const users = await User.find()
                 res.json({ success: true, users })
             } else {
@@ -66,12 +74,12 @@ const userControllers = {
         const userBody = req.body
         let userUpdated
         try {
-            if (req.user.range === 'A') {
+            if (req.user.userType === 'A') {
                 const id = req.params.id
                 userUpdated = await User.findOneAndUpdate({ _id: id }, userBody, { new: true })
                 res.json({ success: true, userUpdated })
-            } else if (req.user.range === 'C' || req.user.range === 'B') {
-                if (!userBody.range) {
+            } else if (req.user.userType === 'C' || req.user.userType === 'B') {
+                if (!userBody.userType) {
                     userUpdated = await User.findOneAndUpdate({ _id: req.user._id }, userBody, { new: true })
                     res.json({ success: true, userUpdated })
                 } else {
@@ -86,16 +94,16 @@ const userControllers = {
     },
     deleteUser: async (req, res) => {
         try {
-            if (req.user.range === 'A' || req.user.range === 'B') {
+            if (req.user.userType === 'admin' || req.user.userType === 'mod') {
                 const id = req.params.id
                 const user = await User.findOne({ _id: id })
-                if (user.range !== 'A') {
+                if (user.userType !== 'admin') {
                     const deletedUser = await User.findOneAndDelete({ _id: id })
                     res.json({ success: true, msg: 'User was deleted successfully ', deletedId: deletedUser._id })
                 } else {
                     res.json({ success: false })
                 }
-            } else if (req.user.range === 'C') {
+            } else if (req.user.userType === 'visitor') {
                 await User.findOneAndDelete({ _id: req.user._id })
                 res.json({ success: true, msg: 'The account has been deleted successfully ' })
             } else {
