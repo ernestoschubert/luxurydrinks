@@ -1,0 +1,53 @@
+html * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.home{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+
+    grid-area: heading;
+    color: #fff;
+    font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
+    letter-spacing: .1em;
+    z-index: 1;
+    align-self: center;
+    text-transform: uppercase;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 2vw;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+  }
+button{
+ text-decoration: none;
+font-family: gillsans,helvetica,arial,sans-serif;
+letter-spacing: .05em;
+line-height: 50%;
+font-size: 2rem;
+font-weight: 700;
+padding: 2vw 4vw;
+text-transform: uppercase;
+display: inline-block;
+color: #fff;
+border: 2px solid transparent;
+border-radius: 8px;
+background-color: #c8102e;
+}
+
+button:hover{
+    background-color: #fff;
+    color: #c8102e;
+    cursor: pointer;
+}
+
+
