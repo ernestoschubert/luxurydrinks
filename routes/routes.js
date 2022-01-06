@@ -4,8 +4,23 @@ const { addUser, getUsers, logIn, authUser, deleteUser, updateUser } = userContr
 const passport = require('../config/passport');
 
 
+// USERS
+
 Router.route('/user/signup')
-    .post(addUser)
+.post(addUser)
+Router.route('/user/login')
+.post(logIn)
+Router.route('/user/auth')
+.get(passport.authenticate('jwt', { session: false }), authUser)
+
+Router.route('/admin/users')
+    .get(passport.authenticate('jwt', { session: false }), getUsers)
+Router.route('/admin/user/:id')
+    .put(passport.authenticate('jwt', { session: false }), updateUser)
+    .delete(passport.authenticate('jwt', { session: false }), deleteUser)
+
+// DRINKS
+
+
 
 module.exports = Router;
-

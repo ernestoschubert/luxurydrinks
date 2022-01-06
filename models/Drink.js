@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const drinkSchema = new mongoose.Schema({
-    name: {type: String, require: true},
+    drinkName: {type: String, require: true},
     type: {type: String, require: true},
+    drinkImg: {type: String, require: true},
     abv:  {type: Number, require: true},
     price: {type: Number, require: true},
     stock: {type: Number, require: true},

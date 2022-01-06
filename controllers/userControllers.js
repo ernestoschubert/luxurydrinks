@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 const userControllers = {
     addUser: async (req, res) => {
         console.log(req.body)
-        let { firstName, lastName, email, age, password,  userImg,  google } = req.body
+        let { firstName, lastName, email, age, password,  userImg, role,  google } = req.body
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
@@ -18,13 +18,14 @@ const userControllers = {
                     age,
                     email,
                     password: hashPass,
+                    role,
                     userImg,
                     google
                 })
                 await newUser.save()
                 const token = jwt.sign({ ...newUser }, process.env.SECRETKEY)
-                const { _id, userType } = newUser
-                res.json({ success: true, response: { firstName, lastName, userImg, token, _id, userType }, error: null })
+                const { _id } = newUser
+                res.json({ success: true, response: { firstName, lastName, userImg, token, _id, role }, error: null })
             }
         } catch (error) {
             console.log(error)
@@ -41,7 +42,7 @@ const userControllers = {
             if (!isPassword) throw new Error("Email or password incorrect");
             const token = jwt.sign({ ...user }, process.env.SECRETKEY)
             res.json({ success: true, response: { 
-                userType: user.userType, token, 
+                role: user.role, token, 
                 firstName: user.firstName, 
                 img: user.userImg, 
                 lastName: user.lastName, 
@@ -60,7 +61,7 @@ const userControllers = {
     },
     getUsers: async (req, res) => {
         try {
-            if (req.user.userType === 'A' || req.user.userType === 'B') {
+            if (req.user.role === 'admin' || req.user.role === 'mod') {
                 const users = await User.find()
                 res.json({ success: true, users })
             } else {
@@ -74,12 +75,12 @@ const userControllers = {
         const userBody = req.body
         let userUpdated
         try {
-            if (req.user.userType === 'A') {
+            if (req.user.role === 'admin') {
                 const id = req.params.id
                 userUpdated = await User.findOneAndUpdate({ _id: id }, userBody, { new: true })
                 res.json({ success: true, userUpdated })
-            } else if (req.user.userType === 'C' || req.user.userType === 'B') {
-                if (!userBody.userType) {
+            } else if (req.user.role === 'visitor' || req.user.role === 'mod') {
+                if (!userBody.role) {
                     userUpdated = await User.findOneAndUpdate({ _id: req.user._id }, userBody, { new: true })
                     res.json({ success: true, userUpdated })
                 } else {
@@ -94,16 +95,16 @@ const userControllers = {
     },
     deleteUser: async (req, res) => {
         try {
-            if (req.user.userType === 'admin' || req.user.userType === 'mod') {
+            if (req.user.role === 'admin' || req.user.role === 'mod') {
                 const id = req.params.id
                 const user = await User.findOne({ _id: id })
-                if (user.userType !== 'admin') {
+                if (user.role !== 'admin') {
                     const deletedUser = await User.findOneAndDelete({ _id: id })
                     res.json({ success: true, msg: 'User was deleted successfully ', deletedId: deletedUser._id })
                 } else {
                     res.json({ success: false })
                 }
-            } else if (req.user.userType === 'visitor') {
+            } else if (req.user.role === 'visitor') {
                 await User.findOneAndDelete({ _id: req.user._id })
                 res.json({ success: true, msg: 'The account has been deleted successfully ' })
             } else {
