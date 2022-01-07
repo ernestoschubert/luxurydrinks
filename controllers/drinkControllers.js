@@ -1,5 +1,5 @@
 const Drink = require('../models/Drink')
-
+const Cocktail = require('../models/Cocktail')
 const drinkControllers = {
     addDrink: async(req, res) =>{
         const { 
@@ -85,6 +85,15 @@ const drinkControllers = {
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
+        }
+    },
+    getCocktailDrink: async (req, res) => {
+        try {
+            const drinkCocktails  = await Cocktail.find({drinkId: req.params.id}).populate('drink')
+            res.json({ success: true, response: drinkCocktails})
+        } catch(error){
+            console.log(error)
+            res.json({success: false, response: null, error: error})
         }
     }
 }

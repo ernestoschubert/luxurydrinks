@@ -114,6 +114,15 @@ const userControllers = {
             res.json({ success: false, response: null, error: error })
         }
     },
+    getUserFavorites: async (req, res) => {
+        try {
+            const drinkCocktails  = await Cocktail.find({drinkId: req.params.id}).populate('drink')
+            res.json({ success: true, response: drinkCocktails})
+        } catch(error){
+            console.log(error)
+            res.json({success: false, response: null, error: error})
+        }
+    }
 }
 
 module.exports = userControllers
