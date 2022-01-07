@@ -66,27 +66,29 @@ const userControllers = {
                 const users = await User.find()
                 res.json({ success: true, users })
             } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
+                res.json({ success: false, error: 'Unauthorized User, you must be an admin or mod' })
             }
-        } catch (error) {
+        } catch(error) {
+            res.json({ success: false, response: null, error: error })
+        }
+    },
+    getUser: async (req, res) => {
+        try {
+            if (req.user.role === 'admin' || req.user.role === 'mod') {
+                const user = await User.find({ _id: req.params.id })
+                res.json({ success: true, user })
+            } else {
+                res.json({ success: false, error: 'Unauthorized User, you must be an admin or mod' })
+            }
+        } catch(error) {
             res.json({ success: false, response: null, error: error })
         }
     },
     updateUser: async (req, res) => {
-        const userBody = req.body
-        let userUpdated
         try {
             if (req.user.role === 'admin') {
-                const id = req.params.id
-                userUpdated = await User.findOneAndUpdate({ _id: id }, userBody, { new: true })
-                res.json({ success: true, userUpdated })
-            } else if (req.user.role === 'visitor' || req.user.role === 'mod') {
-                if (!userBody.role) {
-                    userUpdated = await User.findOneAndUpdate({ _id: req.user._id }, userBody, { new: true })
-                    res.json({ success: true, userUpdated })
-                } else {
-                    res.json({ success: false })
-                }
+                const userUpdated = await User.findOneAndUpdate({_id: req.params.id}, {...req.body})
+                res.json({ success: true, userUpdated, body: req.body })
             } else {
                 res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
             }
@@ -96,18 +98,15 @@ const userControllers = {
     },
     deleteUser: async (req, res) => {
         try {
-            if (req.user.role === 'admin' || req.user.role === 'mod') {
+            if (req.user.role === 'admin') {
                 const id = req.params.id
-                const user = await User.findOne({ _id: id })
-                if (user.role !== 'admin') {
+                const userFinded = await User.findOne({ _id: id })
+                if (userFinded.role !== 'admin') {
                     const deletedUser = await User.findOneAndDelete({ _id: id })
                     res.json({ success: true, msg: 'User was deleted successfully ', deletedId: deletedUser._id })
                 } else {
                     res.json({ success: false })
                 }
-            } else if (req.user.role === 'visitor') {
-                await User.findOneAndDelete({ _id: req.user._id })
-                res.json({ success: true, msg: 'The account has been deleted successfully ' })
             } else {
                 res.json({ success: false, error: 'Unauthorized User' })
             }
@@ -116,4 +115,5 @@ const userControllers = {
         }
     },
 }
+
 module.exports = userControllers
