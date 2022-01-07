@@ -74,7 +74,6 @@ const Navbar = () => {
             Cocktails
           </Link>
         </div>
-        <div></div>
       </div>
     </nav>
   );

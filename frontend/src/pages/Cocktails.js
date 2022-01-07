@@ -5,9 +5,7 @@ import Footer from "../components/Footer";
 const Cocktail = () => {
   return (
     <div>
-      <Navbar/>
       <Cocktails/>
-      <Footer/>
     </div>
   );
 };

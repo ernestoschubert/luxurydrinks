@@ -1,68 +1,60 @@
+import {Link} from 'react-router-dom'
 const Footer = () => {
   return (
-    <footer class="footer bg-white relative pt-1 border-b-2 border-blue-700">
+    <footer class="footer bg-red-600 relative pt-1 border-b-2 border-black">
       <div class="container mx-auto px-6">
         <div class="sm:flex sm:mt-8">
           <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+          <ul class="m-2 flex  ">
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-yt.png"
+              alt="youtube"
+              class="w-30 h-30"
+            />
+          </li>
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-fb.png"
+              alt="facebook"
+              class="w-30 h-30"
+            />
+          </li>
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-ig.png"
+              alt="instagram"
+              class="w-30 h-30"
+            />
+          </li>
+        </ul>
             <div class="flex flex-col">
-              <span class="font-bold text-gray-700 uppercase mb-2">
-                Footer header 1
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">
-                Footer header 2
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700 text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700 text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-            </div>
-            <div class="flex flex-col">
-              <span class="font-bold text-gray-700 uppercase mt-4 md:mt-0 mb-2">
-                Footer header 3
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
-              <span class="my-2">
-                <a href="#" class="text-blue-700  text-md hover:text-blue-500">
-                  link 1
-                </a>
-              </span>
+            <div class="text-sm lg:flex-grow ">
+          <Link
+            to="/"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+          >
+            Home
+          </Link>
+          <Link
+            to="/Nosotros"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+          >
+            Nosotros
+          </Link>
+          <Link
+            to="/NuestrosGins"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+          >
+            Nuestros Gins
+          </Link>
+          <Link
+            to="/Cocktails"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+          >
+            Cocktails
+          </Link>
+        </div>
             </div>
           </div>
         </div>
