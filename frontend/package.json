@@ -18,6 +18,8 @@
     "react-slick": "^0.28.1",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
+    "sass": "^1.46.0",
+    "scss": "^0.2.4",
     "web-vitals": "^2.1.2"
   },
   "scripts": {

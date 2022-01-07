@@ -1,13 +1,17 @@
 import React from "react";
+import "tailwindcss/tailwind.css";
 import "../styles/main.css";
-import Carousels from "./Carousels";
+import Carrusel from "./carrusel";
 
-function Main (){
-    return(
+
+
+
+function Main() {
+
+    return (
         <div className="fondoMain">
-            <Carousels/>
+            <Carrusel/>
         </div>
-    )
+    );
 }
-
-export default Main
+export default Main;
