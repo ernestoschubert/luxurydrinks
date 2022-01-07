@@ -73,6 +73,18 @@ const Navbar = () => {
           >
             Cocktails
           </Link>
+          <Link
+            to="/Registrarse"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+          >
+            Registarse
+          </Link>
+          <Link
+            to="/Loguearse"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+          >
+            Loguearse
+          </Link>
         </div>
       </div>
     </nav>

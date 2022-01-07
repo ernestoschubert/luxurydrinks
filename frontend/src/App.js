@@ -7,6 +7,8 @@ import Cocktails from './pages/Cocktails'
 import NuestrosGins from './pages/NuestrosGins'
 import { withRouter } from "./utils/withRouter";
 import Footer from './components/Footer'
+import SignUp from './pages/SignUp';
+import Login from "./pages/LogIn";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/Nosotros" element={<Nosotros/>} />
           <Route path="/Cocktails" element={<Cocktails/>} />
           <Route path="/NuestrosGins" element={<NuestrosGins/>}/>
+          <Route path="/Registrarse" element={<SignUp/>}/>
+          <Route path="/Loguearse" element={<Login/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

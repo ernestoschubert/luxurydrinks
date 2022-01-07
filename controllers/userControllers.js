@@ -9,7 +9,7 @@ const userControllers = {
         try {
             const userExists = await User.findOne({ email })
             if (userExists) {
-                res.json({ success: false, error: "Email already in use", response: null })
+                res.json({ success: false, error: "Este mail ya esta en uso", response: null })
             } else {
                 const hashPass = bcryptjs.hashSync(password, 10)
                 const newUser = new User({
@@ -37,10 +37,10 @@ const userControllers = {
         const { email, password, google } = req.body
         try {
             const user = await User.findOne({ email })
-            if (!user) throw new Error("Email or password incorrect");
-            if (user.googleAccount && !google) throw new Error("Invalid email");
+            if (!user) throw new Error("Mail o contraseña incorrectas!");
+            if (user.googleAccount && !google) throw new Error("Mail invalido");
             const isPassword = bcryptjs.compareSync(password, user.password);
-            if (!isPassword) throw new Error("Email or password incorrect");
+            if (!isPassword) throw new Error("Mail o contraseña incorrectas!");
             const token = jwt.sign({ ...user }, process.env.SECRETKEY)
             res.json({ success: true, response: { 
                 role: user.role, 
@@ -67,7 +67,7 @@ const userControllers = {
                 const users = await User.find()
                 res.json({ success: true, users })
             } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be an admin or mod' })
+                res.json({ success: false, error: 'Usuario no autorizado, debe ser administrador' })
             }
         } catch(error) {
             res.json({ success: false, response: null, error: error })
@@ -91,7 +91,7 @@ const userControllers = {
                 const userUpdated = await User.findOneAndUpdate({_id: req.params.id}, {...req.body})
                 res.json({ success: true, userUpdated, body: req.body })
             } else {
-                res.json({ success: false, error: 'Unauthorized User, you must be an admin' })
+                res.json({ success: false, error: 'Usuario no autorizado, debe ser administrador' })
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
