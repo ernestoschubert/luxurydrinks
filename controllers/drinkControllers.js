@@ -9,7 +9,9 @@ const drinkControllers = {
             abv, 
             price, 
             stock, 
-            description 
+            description,
+            userFavorites,
+            userBuyed
         } = req.body
         try {
             if(req.user.role === 'admin' || req.user.role === 'mod'){
