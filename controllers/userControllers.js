@@ -107,12 +107,6 @@ const userControllers = {
                 } else {
                     res.json({ success: false })
                 }
-<<<<<<< HEAD
-            } else if (req.user.role === 'visitor') {
-                await User.findOneAndDelete({ _id: req.user._id })
-                res.json({ success: true, msg: 'La cuenta ha sido eliminada con éxito' })
-=======
->>>>>>> 68544523179cd879bc6b141d9e73bdb68ff21936
             } else {
                 res.json({ success: false, error: 'Unauthorized User' })
             }
