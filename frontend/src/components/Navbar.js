@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="flex items-center justify-between flex-wrap bg-red-600 p-2">
+    <nav class="flex items-center justify-between flex-wrap bg-red-600 p-4 ">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
           <img src="./assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
