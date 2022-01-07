@@ -19,7 +19,7 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.46.0",
     "scss": "^0.2.4",
-    "sweetalert2": "^11.3.3",
+    "sweetalert2": "^11.3.4",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
