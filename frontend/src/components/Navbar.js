@@ -1,10 +1,13 @@
 import {FaFacebookF} from 'react-icons/fa' 
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav class="flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <Link to="/" >
         <img src="./assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
+        </Link>
       </div>
       <div class="block lg:hidden">
         <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
@@ -31,30 +34,30 @@ const Navbar = () => {
             </li>
         </ul>
         <div class="text-sm lg:flex-grow ">
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base"
+          <Link
+            to="/"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
           >
             Home
-          </a>
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base"
+          </Link>
+          <Link
+            to="/Nosotros"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
           >
             Nosotros
-          </a>
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base"
+          </Link>
+          <Link
+            to="/NuestrosGins"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
           >
             Nuestros Gins
-          </a>
-          <a
-            href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base"
+          </Link>
+          <Link
+            to="/Cocktails"
+            class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
           >
             Cocktails
-          </a>
+          </Link>
         </div>
         <div>
         </div>
