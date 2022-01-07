@@ -2,12 +2,13 @@ const Router = require('express').Router();
 const userControllers = require('../controllers/userControllers')
 const { addUser, getUsers, logIn, authUser, deleteUser, updateUser } = userControllers
 const passport = require('../config/passport');
+const validator = require('../controllers/validator');
 
 
 // USERS
 
 Router.route('/user/signup')
-.post(addUser)
+.post(validator, addUser)
 Router.route('/user/login')
 .post(logIn)
 Router.route('/user/auth')
