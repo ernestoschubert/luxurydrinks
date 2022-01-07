@@ -1,0 +1,42 @@
+.fondoMain {
+    display  : flex;
+    flex-wrap: wrap;
+    background-image: url("https://fondosmil.com/fondo/33460.jpg");
+    align-items    : center;
+    text-align     : center;
+    justify-content: center;
+}
+
+.tarjeta {
+    font-family     : 'Century Gothic';
+    font-size       : 15pt;
+    font-weight     : bold;
+    margin          : 1rem;
+    width           : 250px;
+    box-shadow      : 0 15px 25px rgba(10, 10, 10, 0.575);
+    height          : 380px;
+    border-radius   : 6px;
+    backdrop-filter : blur(10px);
+    -webkit-backdrop-filter: blur(100px);
+    background-color: rgba(158, 157, 157, 0.377);
+    padding-left    : 2rem;
+    color           : #c8102e;
+    text-shadow     : 0 5px 5px rgba(10, 10, 10, 0.575);
+    align-items     : center;
+    text-align      : center;
+}
+
+.tarjeta img {
+    padding: 0.5rem 1rem 0rem 0rem;
+    width  : auto;
+}
+
+.centralTar :hover {
+
+    box-shadow: 0 15px 25px rgba(116, 5, 5, 0.575);
+
+}
+.imgPierre{
+    padding: 5rem 0rem 1rem 2rem !important;
+    width: 60% !important;
+}
