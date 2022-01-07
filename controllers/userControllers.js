@@ -1,6 +1,7 @@
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Drink = require('../models/Drink')
 
 const userControllers = {
     addUser: async (req, res) => {
@@ -112,15 +113,6 @@ const userControllers = {
             }
         } catch (error) {
             res.json({ success: false, response: null, error: error })
-        }
-    },
-    getUserFavorites: async (req, res) => {
-        try {
-            const drinkCocktails  = await Cocktail.find({drinkId: req.params.id}).populate('drink')
-            res.json({ success: true, response: drinkCocktails})
-        } catch(error){
-            console.log(error)
-            res.json({success: false, response: null, error: error})
         }
     }
 }
