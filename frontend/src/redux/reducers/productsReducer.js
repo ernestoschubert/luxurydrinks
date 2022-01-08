@@ -9,10 +9,12 @@ const productsReducer = ( state = initialState, action) => {
         case 'GET_PRODUCTS':
             return{
                 ...state,
-                products: action.payload,
+                products: action.payload.drinks,
+                auxiliar:action.payload.drinks,
                 loading:false
             }
         case 'FILTER_PRODUCTS':
+            console.log(action.payload)
             let filtrado = action.payload.products.filter((product => product.drinkName.toLowerCase().startsWith(action.payload.value.toLowerCase().trim())))
             return{
                 ...state,

@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   return (
     <nav class="flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <Link to="/" >
-        <img src="./assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
+        <Link to="/">
+          <img src="./assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
       <div class="block lg:hidden">
@@ -20,17 +21,41 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
-      <div class="w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col" >
+      <div class="w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
         <ul class="m-2 flex  ">
-            <li class='mr-4'>
-                <img src='./assets/social/icon-white-yt.png' alt="youtube" class="w-30 h-30" />
-            </li>
-            <li class='mr-4'>
-                <img src='./assets/social/icon-white-fb.png' alt="facebook" class="w-30 h-30" />
-            </li>
-            <li class='mr-4'>
-                <img src='./assets/social/icon-white-ig.png' alt="instagram" class="w-30 h-30" />
-            </li>
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-yt.png"
+              alt="youtube"
+              class="w-30 h-30"
+            />
+          </li>
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-fb.png"
+              alt="facebook"
+              class="w-30 h-30"
+            />
+          </li>
+          <li class="mr-4">
+            <img
+              src="./assets/social/icon-white-ig.png"
+              alt="instagram"
+              class="w-30 h-30"
+            />
+          </li>
+          <li>
+            <div class="flex space-x-5">
+              <div class="relative">
+              <FaShoppingCart class="text-3xl" />
+                <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
+                  <div class="min-w-[.5rem] inline-flex items-center justify-center h-5 text-xl text-white bg-yellow-500 rounded-full px-1">
+                    2
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
         <div class="text-sm lg:flex-grow ">
           <Link
@@ -58,8 +83,7 @@ const Navbar = () => {
             Cocktails
           </Link>
         </div>
-        <div>
-        </div>
+        <div></div>
       </div>
     </nav>
   );

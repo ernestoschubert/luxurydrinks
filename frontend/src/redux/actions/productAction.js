@@ -12,6 +12,7 @@ const citiesActions = {
             }
     }},
     filterProducts: ( products, value) => {
+        console.log(products,value)
         return(dispatch,getState) => {
             dispatch({type:'FILTER_PRODUCTS',payload:{products,value}})
         }
