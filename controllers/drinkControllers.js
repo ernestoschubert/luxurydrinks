@@ -2,17 +2,8 @@ const Drink = require("../models/Drink");
 
 const drinkControllers = {
   addDrink: async (req, res) => {
-    const {
-      drinkName,
-      type,
-      drinkImg,
-      abv,
-      price,
-      stock,
-      description,
-      userFavorites,
-      userBuyed,
-    } = req.body;
+    const { drinkName, type, drinkImg, abv, price, stock, description } =
+      req.body;
     try {
       if (req.user.role === "admin" || req.user.role === "mod") {
         const drinkExists = await Drink.findOne({ drinkName });
@@ -50,16 +41,8 @@ const drinkControllers = {
   },
   getDrinks: async (req, res) => {
     try {
-      if (req.user.role === "admin" || req.user.role === "mod") {
-        const drinks = await Drink.find();
-        res.json({ success: true, drinks });
-      } else {
-        res.json({
-          success: false,
-          response: null,
-          error: "Unauthorized User, you must be an admin or mod",
-        });
-      }
+      const drinks = await Drink.find();
+      res.json({ success: true, drinks });
     } catch (error) {
       res.json({ success: false, response: null, error: error });
     }

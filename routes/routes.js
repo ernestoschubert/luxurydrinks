@@ -30,7 +30,7 @@ Router.route('/admin/user/:id')
 // DRINKS
 
 Router.route('/admin/drinks')
-    .get(passport.authenticate('jwt', { session: false }), getDrinks)
+    .get(getDrinks)
 
 Router.route('/admin/adddrink')
     .post(passport.authenticate('jwt', { session: false }), addDrink)
