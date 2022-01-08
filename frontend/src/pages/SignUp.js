@@ -149,9 +149,9 @@ const SignUp = () => {
         <Form.Control type="text" placeholder="Imagen" ref={userImg} />{" "}
       </Form.Group>
 
-      <div className="d-flex justify-content-center align-center container-buttons">
+      <div className="d-flex container-buttons">
         <Button className="button-send" type="submit" class="">
-          Registrarse{" "}
+          Registrarse
         </Button>
 
         {/* <span className="o-google">o</span> */}
