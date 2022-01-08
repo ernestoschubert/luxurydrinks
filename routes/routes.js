@@ -3,8 +3,8 @@ const userControllers = require('../controllers/userControllers')
 const drinkControllers = require('../controllers/drinkControllers')
 const cocktailControllers = require('../controllers/cocktailControllers');
 const { addUser, getUsers, getUser, logIn, authUser, deleteUser, updateUser } = userControllers
-const { addDrink, getDrinks, getDrink, updateDrink, deleteDrink, getCocktailDrink } = drinkControllers
-const { addCocktail, getCocktails, getCocktail, updateCocktail, deleteCocktail } = cocktailControllers
+const { addDrink, getDrinks, getDrink, updateDrink, deleteDrink, getUserFavorites, getUserBuyed } = drinkControllers
+const { addCocktail, getCocktails, getCocktail, updateCocktail, deleteCocktail, getCocktailDrink } = cocktailControllers
 const passport = require('../config/passport');
 const validator = require('../controllers/validator');
 
@@ -36,10 +36,17 @@ Router.route('/admin/adddrink')
     .post(passport.authenticate('jwt', { session: false }), addDrink)
 
 Router.route('/admin/drink/:id')
-    // .get(passport.authenticate('jwt', { session: false }), getDrink)
-    .get(passport.authenticate('jwt', { session: false }), getCocktailDrink)
+    .get(passport.authenticate('jwt', { session: false }), getDrink)
     .put(passport.authenticate('jwt', { session: false }), updateDrink)
     .delete(passport.authenticate('jwt', { session: false }), deleteDrink)
+    
+Router.route('/admin/drinkcocktails/:id')
+    .get(passport.authenticate('jwt', { session: false }), getCocktailDrink)
+
+Router.route('/drink/userfavorites/:id')
+    .put(passport.authenticate('jwt', { session: false }), getUserFavorites)
+Router.route('/drink/userbuyed/:id')
+    .put(passport.authenticate('jwt', { session: false }), getUserBuyed)
 
 // COCKTAILS
 

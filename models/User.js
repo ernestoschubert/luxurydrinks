@@ -8,13 +8,6 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     userImg: { type: String },
     role: { type: String, default: 'member' },
-    favorite: [{
-        drinkId: { type: mongoose.Types.ObjectId, ref: 'drink' }
-    }],
-    buyed: [{
-        drinkId: { type: mongoose.Types.ObjectId, ref: 'drink' },
-        quantity: {type: Number}
-    }],
     google: { type: Boolean, default: false }
 });
 

@@ -1,5 +1,5 @@
 const Drink = require('../models/Drink')
-const Cocktail = require('../models/Cocktail')
+
 const drinkControllers = {
     addDrink: async(req, res) =>{
         const { 
@@ -24,7 +24,9 @@ const drinkControllers = {
                         abv, 
                         price, 
                         stock, 
-                        description 
+                        description,
+                        userFavorites,
+                        userBuyed
                     })
                     await newDrink.save()
                     res.json({ success: true, response: { newDrink }, error: null })
@@ -87,10 +89,19 @@ const drinkControllers = {
             res.json({ success: false, response: null, error: error })
         }
     },
-    getCocktailDrink: async (req, res) => {
+    getUserFavorites: async (req, res) => {
         try {
-            const drinkCocktails  = await Cocktail.find({drinkId: req.params.id}).populate('drink')
-            res.json({ success: true, response: drinkCocktails})
+            const userFavorites  = await Drink.find({userId: req.params.id}).populate('userFavorites.userId')
+            res.json({ success: true, response: userFavorites})
+        } catch(error){
+            console.log(error)
+            res.json({success: false, response: null, error: error})
+        }
+    },
+    getUserBuyed: async (req, res) => {
+        try {
+            const userBuyed  = await Drink.find({ userId: req.params.id }).populate('userBuyed.userId')
+            res.json({ success: true, response: userBuyed})
         } catch(error){
             console.log(error)
             res.json({success: false, response: null, error: error})

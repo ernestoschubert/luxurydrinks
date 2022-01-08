@@ -25,6 +25,7 @@
     "express": "^4.17.2",
     "joi": "^17.5.0",
     "mongoose": "^6.1.5",
+    "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "react-bootstrap": "^2.1.0"
