@@ -30,7 +30,7 @@ const SignUp = () => {
     const age = useRef();
 
 
-    const crearUsuario = async(e)=>{
+    const crearUsuario = async(e)=>{    
         e.preventDefault()
         if( firstName.current.value != '' && lastName.current.value != '' && email.current.value && password.current.value && userImg.current.value && age.current.value){
           try{
@@ -49,7 +49,13 @@ const SignUp = () => {
                 title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
                 icon: 'success'
               })
-            }else{
+            } else if(respuesta.data.error) {
+                Alert.fire({ 
+                    title: `${respuesta.data.error}`,
+                    icon: 'error'
+                 })
+            }
+            else{
               respuesta.data.errors.map(e=> {
                 Alert.fire({
                   title: e.message,

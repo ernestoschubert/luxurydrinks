@@ -16,6 +16,7 @@ const validador = (req, res, next) => {
         }),
         password:joi.string().min(5).trim().required().messages({
             'string.empty' : 'Debes completar este campo',
+            'string.min': 'La contraseña tener un minimo de 5 caracteres'
         }),
         userImg:joi.string().min(5).trim().required().messages({
             'string.min': 'Introduzca una direccion valida'
