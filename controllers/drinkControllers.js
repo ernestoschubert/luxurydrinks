@@ -42,12 +42,9 @@ const drinkControllers = {
     },
     getDrinks: async(req, res) => {
         try {
-                if(req.user.role === 'admin' || req.user.role === 'mod') {
                     const drinks = await Drink.find()
                     res.json({ success: true, drinks })
-                } else {
-                    res.json({ success: false, response: null, error: 'Unauthorized User, you must be an admin or mod' })
-                }
+
             } catch(error) {
                 res.json({ success: false, response: null, error: error })
             }
