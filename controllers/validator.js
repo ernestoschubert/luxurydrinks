@@ -10,7 +10,9 @@ const validador = (req, res, next) => {
             'string.empty' : 'Debes completar este campo',
             'string.min' : 'apellido no permitido',
         }),
-        age: joi.number(),
+        age: joi.number().messages({
+            'number.base': 'Debes tener 18 años o mas!'
+        }),
         email:joi.string().trim().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().messages({
             'string.email' : 'Debes usar una cuenta de mail valida'
         }),

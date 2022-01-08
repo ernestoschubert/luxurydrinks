@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import usersActions from "../redux/actions/authActions";
 import Swal from "sweetalert2";
+import GoogleLogin from 'react-google-login';
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -28,48 +30,87 @@ const SignUp = () => {
   const userImg = useRef();
   const age = useRef();
 
-    const crearUsuario = async(e)=>{    
-        e.preventDefault()
-        if( firstName.current.value != '' && lastName.current.value != '' && email.current.value && password.current.value && userImg.current.value && age.current.value){
-          try{
-            const respuesta = await dispatch(usersActions.signUpUser({
-              firstName : firstName.current.value,
-              lastName : lastName.current.value,
-              email : email.current.value,
-              password : password.current.value,
-              userImg : userImg.current.value,
-              age: age.current.value
-            }))
-    
-            console.log(respuesta)
-            if(respuesta.data.success){
-              Alert.fire({
-                title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
-                icon: 'success'
-              })
-            } else if(respuesta.data.error) {
-                Alert.fire({ 
-                    title: `${respuesta.data.error}`,
-                    icon: 'error'
-                 })
-            }
-            else{
-              respuesta.data.errors.map(e=> {
-                Alert.fire({
-                  title: e.message,
-                  icon: 'error'
-                })
-              })
-            }
-    
-          }catch(err){console.log(err)}
-        } else {
+  const crearUsuario = async (e) => {
+    e.preventDefault()
+    if (firstName.current.value != '' && lastName.current.value != '' && email.current.value && password.current.value && userImg.current.value && age.current.value) {
+      try {
+        const respuesta = await dispatch(usersActions.signUpUser({
+          firstName: firstName.current.value,
+          lastName: lastName.current.value,
+          email: email.current.value,
+          password: password.current.value,
+          userImg: userImg.current.value,
+          age: age.current.value >= 18 ? age.current.value : Alert.fire({title: 'Debes tener 18 o mas!', icon: 'error'})
+        }))
+
+        console.log(respuesta)
+        if (respuesta.data.success) {
           Alert.fire({
-            title: 'Complete los campos porfavor!',
+            title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
+            icon: 'success'
+          })
+        } else if (respuesta.data.error) {
+          Alert.fire({
+            title: `${respuesta.data.error}`,
             icon: 'error'
           })
         }
-      } 
+        else {
+          respuesta.data.errors.map(e => {
+            Alert.fire({
+              title: e.message,
+              icon: 'error'
+            })
+          })
+        }
+
+      } catch (err) { console.log(err) }
+    } else {
+      Alert.fire({
+        title: 'Complete los campos porfavor!',
+        icon: 'error'
+      })
+    }
+  }
+
+
+  const responseGoogle = async (respuesta) => {
+    console.log(respuesta);
+    let usuarioGoogle = {
+      firstName: respuesta.profileObj.givenName, 
+      // apellido: respuesta.profileObj.familyName ? respuesta.profileObj.familyName : 'null',
+      lastName: respuesta.profileObj.familyName,
+      email: respuesta.profileObj.email,
+      password: respuesta.profileObj.googleId,
+      userImg: respuesta.profileObj.imageUrl,
+      google: true,
+      age: 18
+    }
+    await dispatch (usersActions.signUpUser(usuarioGoogle))
+    .then(res => {
+      if (res.data.success) {
+        console.log(res)
+        Alert.fire({
+          icon: 'success',
+          title: 'Tu cuenta ha sido creada'
+        })
+      }
+      else{
+        console.log(res)
+        Alert.fire({
+        title: res.data.error.errors.message,
+        icon: 'error',
+      })
+    }
+    })
+    .catch((error) => {
+      console.log(error)
+      Alert.fire({
+          icon: 'error',
+          title: 'Algo salio mal! Vuelve en un rato!'
+        })
+  })
+  }
 
   return (
     <Form className="form-container" variant="light" onSubmit={crearUsuario}>
@@ -115,22 +156,18 @@ const SignUp = () => {
 
         {/* <span className="o-google">o</span> */}
 
-        {/* <GoogleLogin
-                                    clientId="298582516064-getr6393pgro6pje2hs218l17t27bdv5.apps.googleusercontent.com"
-                                    render={(renderProps) => (
-                                        <button onClick={renderProps.onClick} className="btn-google button-send" disabled={renderProps.disabled}>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />
-                                        </button>
-                                    )}
-                                    buttonText="Registarse con Google"
-                                    onSuccess={responseGoogle}
-                                    onFailure={responseGoogle}
-                                    cookiePolicy={"single_host_origin"}
-                                /> */}
+        <GoogleLogin
+          clientId="251218806552-1ecbg0qlvip7gnl9qi6v0f1ifs18junr.apps.googleusercontent.com"
+          render={(renderProps) => (
+            <button onClick={renderProps.onClick} className="btn-google button-send" disabled={renderProps.disabled}>
+              <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />
+            </button>
+          )}
+          buttonText="Registarse con Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
       </div>
     </Form>
   );

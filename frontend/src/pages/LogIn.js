@@ -3,6 +3,8 @@ import { Form, Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import { useDispatch } from "react-redux";
 import usersActions from '../redux/actions/authActions';
+import GoogleLogin from 'react-google-login';
+import { FcGoogle } from "react-icons/fc";
 
 
 const LogIn = () => {
@@ -63,6 +65,40 @@ const LogIn = () => {
       }
   }
 
+  const responseGoogle = async (respuesta) => {
+    let usuarioGoogle = {
+
+      email: respuesta.profileObj.email,
+      password: respuesta.profileObj.googleId,
+      flagGoogle: true
+
+    }
+    await dispatch(usersActions.signInUser(usuarioGoogle))
+    .then(res => {
+      if (res.data.success){
+        console.log(res)
+        Alert.fire({
+          icon: 'success',
+          title: 'Bienvenido/a '+res.data.response.firstName
+        })
+      }
+      else{
+      console.log(res)
+      Alert.fire({
+        title: res.data.error.errors.message,
+        icon: 'error'
+      })
+    }
+    })
+    .catch((error) => {
+      console.log(error)
+      Alert.fire({
+          icon: 'error',
+          title: 'Debe registrarse antes de ingresar'
+        })
+  })
+  }
+
 
     return (
         <Form className="d-flex flex-column form-container col-10" variant="light" onSubmit={loguearse}>
@@ -87,14 +123,11 @@ const LogIn = () => {
 
                 {/* <span className="o-google">o</span> */}
 
-                {/* <GoogleLogin
+                <GoogleLogin
         clientId="298582516064-getr6393pgro6pje2hs218l17t27bdv5.apps.googleusercontent.com"
         render={(renderProps) => (
             <button onClick={renderProps.onClick} className="btn-google button-send" disabled={renderProps.disabled}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+               
                 <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />
             </button>
         )}
@@ -102,7 +135,7 @@ const LogIn = () => {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
         cookiePolicy={"single_host_origin"}
-    /> */}
+    />
 
             </div>
 
