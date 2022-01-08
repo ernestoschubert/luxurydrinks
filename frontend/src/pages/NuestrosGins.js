@@ -12,7 +12,7 @@ const NuestrosGins = (props) => {
   }, []);
   
   return (
-    <div class=" flex items-center justify-center flex-col">
+    <div class=" flex items-center justify-center flex-col w-2/3 ">
       <div class="w-72 m-4">
         <div class="relative flex items-center justify-center">
         <input type="text" class="px-4 py-2 w-80" 
