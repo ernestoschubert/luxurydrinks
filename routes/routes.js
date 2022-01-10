@@ -2,9 +2,9 @@ const Router = require('express').Router();
 const userControllers = require('../controllers/userControllers')
 const drinkControllers = require('../controllers/drinkControllers')
 const cocktailControllers = require('../controllers/cocktailControllers');
-const { addUser, getUsers, getUser, logIn, authUser, deleteUser, updateUser } = userControllers
-const { addDrink, getDrinks, getDrink, updateDrink, deleteDrink, getUserFavorites, getUserBuyed } = drinkControllers
-const { addCocktail, getCocktails, getCocktail, updateCocktail, deleteCocktail, getCocktailDrink } = cocktailControllers
+const { addUser, getUsers, getUser, logIn, authUser, deleteUser, updateUser, addCart } = userControllers
+const { addDrink, getDrinks, getDrink, updateDrink, deleteDrink, addUserFavorites } = drinkControllers
+const { addCocktail, getCocktails, getCocktail, updateCocktail, deleteCocktail, getDrinkCocktail } = cocktailControllers
 const passport = require('../config/passport');
 
 
@@ -15,6 +15,9 @@ Router.route('/user/signup')
 
 Router.route('/user/login')
     .post(logIn)
+
+Router.route('/user/cart')
+    .get(passport.authenticate('jwt', { session: false }), addCart)
 
 Router.route('/user/auth')
     .get(passport.authenticate('jwt', { session: false }), authUser)
@@ -29,8 +32,8 @@ Router.route('/admin/user/:id')
 
 // DRINKS
 
-Router.route('/admin/drinks')
-    .get(passport.authenticate('jwt', { session: false }), getDrinks)
+Router.route('/drinks')
+    .get(getDrinks)
 
 Router.route('/admin/adddrink')
     .post(passport.authenticate('jwt', { session: false }), addDrink)
@@ -40,18 +43,13 @@ Router.route('/admin/drink/:id')
     .put(passport.authenticate('jwt', { session: false }), updateDrink)
     .delete(passport.authenticate('jwt', { session: false }), deleteDrink)
     
-Router.route('/admin/drinkcocktails/:id')
-    .get(passport.authenticate('jwt', { session: false }), getCocktailDrink)
-
-Router.route('/drink/userfavorites/:id')
-    .put(passport.authenticate('jwt', { session: false }), getUserFavorites)
-Router.route('/drink/userbuyed/:id')
-    .put(passport.authenticate('jwt', { session: false }), getUserBuyed)
+Router.route('/drinks/favorites/:id')
+    .put(passport.authenticate('jwt', { session: false }), addUserFavorites)
 
 // COCKTAILS
 
-Router.route('/admin/cocktails')
-    .get(passport.authenticate('jwt', { session: false }), getCocktails)
+Router.route('/cocktails')
+    .get(getCocktails)
 
 Router.route('/admin/addcocktail')
     .post(passport.authenticate('jwt', { session: false }), addCocktail)
@@ -60,6 +58,9 @@ Router.route('/admin/cocktail/:id')
     .get(passport.authenticate('jwt', { session: false }), getCocktail)
     .put(passport.authenticate('jwt', { session: false }), updateCocktail)
     .delete(passport.authenticate('jwt', { session: false }), deleteCocktail)
+
+Router.route('/drinkcocktails/:id')
+    .get(getDrinkCocktail)
 
 
 module.exports = Router;

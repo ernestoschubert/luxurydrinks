@@ -45,12 +45,8 @@ const cocktailControllers = {
     },
     getCocktails: async(req, res) => {
         try {
-            if(req.user.role === 'admin' || req.user.role === 'mod') {
-                const cocktails = await Cocktail.find()
-                res.json({ success: true, cocktails })
-            } else {
-                res.json({ success: false, response: null, error: 'Unauthorized User, you must be an admin or mod' })
-            }
+            const cocktails = await Cocktail.find()
+            res.json({ success: true, cocktails })
         } catch(error) {
             res.json({ success: false, response: null, error: error })
         }
@@ -92,7 +88,7 @@ const cocktailControllers = {
             res.json({ success: false, response: null, error: error })
         }
     },
-    getCocktailDrink: async (req, res) => {
+    getDrinkCocktail: async (req, res) => {
         try {
             const drinkCocktails  = await Cocktail.find({drinkId: req.params.id}).populate('drinkId')
             res.json({ success: true, response: drinkCocktails})

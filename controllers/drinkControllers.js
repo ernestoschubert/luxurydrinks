@@ -44,15 +44,11 @@ const drinkControllers = {
     },
     getDrinks: async(req, res) => {
         try {
-                if(req.user.role === 'admin' || req.user.role === 'mod') {
-                    const drinks = await Drink.find()
-                    res.json({ success: true, drinks })
-                } else {
-                    res.json({ success: false, response: null, error: 'Unauthorized User, you must be an admin or mod' })
-                }
-            } catch(error) {
-                res.json({ success: false, response: null, error: error })
-            }
+            const drinks = await Drink.find()
+            res.json({ success: true, drinks })
+        } catch(error) {
+            res.json({ success: false, response: null, error: error })
+        }
     },
     getDrink: async(req, res) => {
         try {
@@ -91,22 +87,19 @@ const drinkControllers = {
             res.json({ success: false, response: null, error: error })
         }
     },
-    getUserFavorites: async (req, res) => {
+    addUserFavorites: async (req, res) =>{
         try {
-            const userFavorites  = await Drink.find({userId: req.params.id}).populate('userFavorites.userId')
-            res.json({ success: true, response: userFavorites})
-        } catch(error){
-            console.log(error)
-            res.json({success: false, response: null, error: error})
-        }
-    },
-    getUserBuyed: async (req, res) => {
-        try {
-            const userBuyed  = await Drink.find({ userId: req.params.id }).populate('userBuyed.userId')
-            res.json({ success: true, response: userBuyed})
-        } catch(error){
-            console.log(error)
-            res.json({success: false, response: null, error: error})
+            const { userId } = req.body
+            const drink = await Drink.findOne({ _id: req.params.id })
+                if (drink.userFavorites.includes(userId)) {
+                    const drinkUnFav = await Drink.findOneAndUpdate({ _id: req.params.id }, { $pull: { userFavorites: userId} }, { new: true })
+                    return res.json({ success: true, response: drinkUnFav.userFavorites })
+                } else {
+                    const drinkFav = Drink.findOneAndUpdate({ _id: req.params.id }, { $push: { userFavorites: userId } }, { new: true })
+                    return res.json({  success: true, response: drinkFav.userFavorites })
+                }
+        } catch(error) { 
+            return res.json({ success: false, response: error })
         }
     }
 }
