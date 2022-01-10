@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
 import productAction from "../redux/actions/productAction";
+import "../styles/carrusel.css"
 
 const NuestrosGins = (props) => {
   const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
@@ -12,7 +13,7 @@ const NuestrosGins = (props) => {
   }, []);
   
   return (
-    <div class=" flex items-center justify-center flex-col w-2/3 ">
+    <div class=" flex items-center justify-center flex-col w-2/3 " className="fondoMain">
       <div class="w-72 m-4">
         <div class="relative flex items-center justify-center">
         <input type="text" class="px-4 py-2 w-80" 
