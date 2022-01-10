@@ -6,13 +6,13 @@ const { addUser, getUsers, getUser, logIn, authUser, deleteUser, updateUser, add
 const { addDrink, getDrinks, getDrink, updateDrink, deleteDrink, addUserFavorites } = drinkControllers
 const { addCocktail, getCocktails, getCocktail, updateCocktail, deleteCocktail, getDrinkCocktail } = cocktailControllers
 const passport = require('../config/passport');
+const validator = require('../controllers/validator');
 
 
 // USERS
 
 Router.route('/user/signup')
-    .post(addUser)
-
+.post(validator, addUser)
 Router.route('/user/login')
     .post(logIn)
 
