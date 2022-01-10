@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+
+.cocktailsHeader {
+    background-image: url('../components/assetsCocktails/cocktails.jpeg');
+    width: 100vw;
+    height: 50vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.subtittleCocktails {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
+    color: #dc2626;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.cardsCocktails {
+  font-family: "Tajawal", Arial;
+  background-image: url('https://fondosmil.com/fondo/33460.jpg');
+}

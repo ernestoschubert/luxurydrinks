@@ -1,29 +1,33 @@
 .fondoMain {
-    display  : flex;
-    flex-wrap: wrap;
+    display         : flex;
+    flex-wrap       : wrap;
     background-image: url("https://fondosmil.com/fondo/33460.jpg");
-    align-items    : center;
-    text-align     : center;
-    justify-content: center;
+    align-items     : center;
+    text-align      : center;
+    justify-content : center;
+    width           : 100%;
+    border-top      : red;
+    border-style    : groove;
 }
 
 .tarjeta {
-    font-family     : 'Century Gothic';
-    font-size       : 15pt;
-    font-weight     : bold;
-    margin          : 1rem;
-    width           : 250px;
-    box-shadow      : 0 15px 25px rgba(10, 10, 10, 0.575);
-    height          : 380px;
-    border-radius   : 6px;
-    backdrop-filter : blur(10px);
+    font-family  : 'Century Gothic';
+    font-size    : 15pt;
+    font-weight  : bold;
+    margin       : 1rem;
+    width        : 250px;
+    box-shadow   : 0 15px 25px rgba(10, 10, 10, 0.575);
+    height       : 380px;
+    border-radius: 6px;
+
+    backdrop-filter        : blur(10px);
     -webkit-backdrop-filter: blur(100px);
-    background-color: rgba(158, 157, 157, 0.377);
-    padding-left    : 2rem;
-    color           : #c8102e;
-    text-shadow     : 0 5px 5px rgba(10, 10, 10, 0.575);
-    align-items     : center;
-    text-align      : center;
+    background-color       : rgba(158, 157, 157, 0.377);
+    padding-left           : 2rem;
+    color                  : #c8102e;
+    text-shadow            : 0 5px 5px rgba(10, 10, 10, 0.575);
+    align-items            : center;
+    text-align             : center;
 }
 
 .tarjeta img {
@@ -36,7 +40,100 @@
     box-shadow: 0 15px 25px rgba(116, 5, 5, 0.575);
 
 }
-.imgPierre{
+
+.imgPierre {
     padding: 5rem 0rem 1rem 2rem !important;
+<<<<<<< HEAD
     width: 60% !important;
 }
+=======
+    width  : 60% !important;
+}
+
+.mainvideo {
+    background-image: url("https://www.solofondos.com/wp-content/uploads/2016/10/Wallpaper-rojo-HD.jpg");
+    height          : 70vh;
+    border-top      : red;
+    border-style    : groove;
+    display         : flex;
+    justify-content : space-between;
+}
+
+.video {
+    padding: 3rem;
+}
+
+.textCall {
+    display: flex;
+    flex-direction: column;
+    color          : white;
+    font-family    : 'Century Gothic';
+    font-size      : 44pt;
+    font-weight    : bold;
+    width          : 50%;
+    justify-content: center;
+    text-align     : center;
+    text-shadow    : 0 5px 5px rgba(10, 10, 10, 0.575);
+}
+.botonRegistrar{
+    width: 50%;
+    margin-left: 10rem ;
+}
+
+@-webkit-keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+  .slider {
+    background: rgba(255, 255, 255, 0);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 65vh;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .slider::before, .slider::after {
+    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+  .slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  .slider::before {
+    left: 0;
+    top: 0;
+  }
+  .slider .slide-track {
+    -webkit-animation: scroll 40s linear infinite;
+            animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+  .slider .slide {
+    height: 100px;
+    width: 250px;
+  }
+  .slide{
+    padding: 1rem 10rem;
+  }
+>>>>>>> 260899fcc03dbe6d9ccee9f022c970668cd07542
