@@ -12,7 +12,7 @@ const validator = require('../controllers/validator');
 // USERS
 
 Router.route('/user/signup')
-.post(validator, addUser)
+    .post(validator, addUser)
 Router.route('/user/login')
     .post(logIn)
 
@@ -61,6 +61,9 @@ Router.route('/admin/cocktail/:id')
 
 Router.route('/drinkcocktails/:id')
     .get(getDrinkCocktail)
+
+// CART
+
 
 
 module.exports = Router;
