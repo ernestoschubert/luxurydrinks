@@ -32,7 +32,7 @@ const SignUp = () => {
 
   const crearUsuario = async (e) => {
     e.preventDefault()
-    if (firstName.current.value != '' && lastName.current.value != '' && email.current.value && password.current.value && userImg.current.value && age.current.value) {
+    if (firstName.current.value !== '' && lastName.current.value !== '' && email.current.value && password.current.value && userImg.current.value && age.current.value) {
       try {
         const respuesta = await dispatch(usersActions.signUpUser({
           firstName: firstName.current.value,
