@@ -11,10 +11,9 @@ const citiesActions = {
                 console.error('Error trying to fetch')
             }
     }},
-    filterProducts: ( products, value) => {
-        console.log(products,value)
+    filterProducts: ( filter,products, value) => {
         return(dispatch,getState) => {
-            dispatch({type:'FILTER_PRODUCTS',payload:{products,value}})
+            dispatch({type:'FILTER_PRODUCTS',payload:{filter,products,value}})
         }
     }
 }

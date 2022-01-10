@@ -48,19 +48,19 @@ const Footer = () => {
                 </Link>
                 <Link
                   to="/Nosotros"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+                  class="block mt-4 lg:inline-block lg:mt-0  text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-white border-transparent"
                 >
                   Nosotros
                 </Link>
                 <Link
                   to="/NuestrosGins"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                  class="block mt-4 lg:inline-block lg:mt-0  text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-white border-transparent"
                 >
                   Nuestros Gins
                 </Link>
                 <Link
                   to="/Cocktails"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                  class="block mt-4 lg:inline-block lg:mt-0  text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-white border-transparent"
                 >
                   Cocktails
                 </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
         <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
           <div class="sm:w-2/3 text-center py-6">
             <p class="text-sm text-blue-700 font-bold mb-2">
-              © 2022 by Luxury Drinks
+              © {new Date().getFullYear()} by Luxury Drinks
             </p>
           </div>
         </div>
