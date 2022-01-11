@@ -45,3 +45,69 @@ code {
 
 
 /* FIN CSS FORM */
+
+
+/* CSS PANEL ADMIN */
+
+.title-panel {
+  font-size: 2rem;
+  border: 1px solid black;
+  padding: 3rem 3rem 3rem 3rem;
+  width: 30%;
+  background-color:black;
+  color: white;
+}
+
+.container-nav-panel {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
+ 
+}
+
+.container-box {
+  display: flex;
+  justify-content: space-around;
+  margin: 2% 0;
+}
+
+.box-usuarios {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+}
+
+.container-box-ultimos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box-ultimos {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+  margin-bottom: 3%;
+}
+
+.h3-box-ultimos {
+  font-size: 1.9rem;
+  margin: 2%;
+  font-weight: bold;
+}
+
+.img-admin {
+  width: 8vw;
+  margin: 2%;
+}
+
+.container-img-title {
+  display: flex;
+  align-items: center;
+}
+
+.title-admin {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* FIN CSS PANEL ADMIN */

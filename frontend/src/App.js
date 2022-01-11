@@ -10,8 +10,10 @@ import Footer from './components/Footer'
 import SignUp from './pages/SignUp';
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
+import PanelAdmin from "./components/panelAdmin";
 
 const Gin = withRouter(GinNoProps)
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           <Route path="/Gin/:id" element={<Gin/>}/>
           <Route path="/Registrarse" element={<SignUp/>}/>
           <Route path="/Loguearse" element={<Login/>}/>
+          <Route path="/panelAdmin" element={<PanelAdmin />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
