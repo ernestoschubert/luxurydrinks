@@ -1,7 +1,7 @@
 const initialState = {
     loading: true,
-    products:[],
-    auxiliar:[]
+    products: null,
+    auxiliar: []
 }
 
 const productsReducer = ( state = initialState, action) => {

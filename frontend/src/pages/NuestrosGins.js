@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
-import productAction from "../redux/actions/productAction";
+import productActions from "../redux/actions/productAction";
 
 const NuestrosGins = (props) => {
   const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  filterProducts: productAction.filterProducts,
-  fetchProducts: productAction.fetchProducts,
+  filterProducts: productActions.filterProducts,
+  fetchProducts: productActions.fetchProducts,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(NuestrosGins);
