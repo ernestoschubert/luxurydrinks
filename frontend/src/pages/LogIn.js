@@ -51,7 +51,7 @@ const LogIn = () => {
           }else{
             console.log(respuesta)
             Alert.fire({
-            title: respuesta.error[0].message,
+            title: respuesta.data.response,
             icon: 'error'
           })}
           
@@ -60,7 +60,8 @@ const LogIn = () => {
         Alert.fire({
           icon: 'error',
           title: 'Completa los campos',
-          background: 'white'
+          background: 'black',
+          color: 'white'
         })
       }
   }

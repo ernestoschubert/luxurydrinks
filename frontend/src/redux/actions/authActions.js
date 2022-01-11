@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const usersActions = {
+const authActions = {
     signUpUser: (newUser) => {
         return async (dispatch, getState) => {
             const res = await axios.post('http://localhost:4000/api/user/signup', newUser)
@@ -56,6 +56,7 @@ const usersActions = {
                 const res = await axios.get('http://localhost:4000/api/admin/users', {
                     headers: { 'Authorization': 'Bearer ' + token }
                 })
+                console.log(res);
                 dispatch({ type: 'GET_USERS', payload: res.data.users })
                 return res.data.users
             } catch (error) {
@@ -83,4 +84,4 @@ const usersActions = {
 
 }
 
-export default usersActions
+export default authActions

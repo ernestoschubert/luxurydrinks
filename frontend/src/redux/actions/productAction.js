@@ -3,9 +3,8 @@ import axios from "axios"
 const productActions = {
 
     fetchProducts: () => {
-        console.log("llegó")
         return async(dispatch, getState) => {
-            const res = await axios.get("http://localhost:4000/api/admin/drinks")
+            const res = await axios.get("http://localhost:4000/api/drinks")
             if(res.data.success){
                 dispatch({type:'GET_PRODUCTS',payload:res.data})
             }else{

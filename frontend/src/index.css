@@ -75,6 +75,9 @@ code {
   height: 50vh;
   width: 30%;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
 }
 
 .container-box-ultimos {
@@ -109,5 +112,22 @@ code {
   font-size: 2rem;
   font-weight: bold;
 }
+
+.usuario-panel-foto {
+  width: 8%;
+  border-radius: 50%;
+}
+
+.box-usuarios div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+}
+
 
 /* FIN CSS PANEL ADMIN */
