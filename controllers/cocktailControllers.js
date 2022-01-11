@@ -3,34 +3,14 @@ const Drink = require('../models/Drink')
 
 const cocktailControllers = {
     addCocktail: async(req, res) =>{
-        const { 
-            cocktailName,
-            description,
-            cocktailImg,
-            flour,
-            difficulty,
-            serve,
-            ingredients,
-            howToMake,
-            drinkId
-        } = req.body
+        const { cocktailName } = req.body
         try {
             if(req.user.role === 'admin' || req.user.role === 'mod'){
                 const cocktailExists = await Cocktail.findOne({ cocktailName })
                 if (cocktailExists) {
                     res.json({ success: false, error: "This cocktail is already in database", response: null })
                 } else {
-                    const newCocktail = new Cocktail({
-                        cocktailName,
-                        description,
-                        cocktailImg,
-                        flour,
-                        difficulty,
-                        serve,
-                        ingredients,
-                        howToMake,
-                        drinkId
-                    })
+                    const newCocktail = new Cocktail(req.body)
                     await newCocktail.save()
                     res.json({ success: true, response: { newCocktail }, error: null })
                 }
@@ -53,15 +33,11 @@ const cocktailControllers = {
     },
     getCocktail: async(req, res) => {
         try {
-                if(req.user.role === 'admin' || req.user.role === 'mod') {
-                    const cocktail = await Cocktail.find({_id: req.params.id})
-                    res.json({ success: true, cocktail })
-                } else {
-                    res.json({ success: false, response: null, error: 'Unauthorized User, you must be an admin or mod' })
-                }
-            } catch(error) {
-                res.json({ success: false, response: null, error: error })
-            }
+            const cocktail = await Cocktail.find({_id: req.params.id}).populate('drinkId')
+            res.json({ success: true, cocktail })
+        } catch(error) {
+            res.json({ success: false, response: null, error: error })
+        }
     },
     updateCocktail: async(req, res) => {
         try {

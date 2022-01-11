@@ -8,7 +8,7 @@ const drinkSchema = new mongoose.Schema({
     price: { type: Number, require: true },
     stock: { type: Number, require: true },
     description: { type: String, require: true },    
-    userFavorites: [{  type: mongoose.Types.ObjectId, ref: 'drink' }]
+    userFavorites: {  type: Array, default: [] }
 });
 
 const Drink = mongoose.model('drink', drinkSchema);

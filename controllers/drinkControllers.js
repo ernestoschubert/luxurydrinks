@@ -2,34 +2,14 @@ const Drink = require('../models/Drink')
 
 const drinkControllers = {
     addDrink: async(req, res) =>{
-        const { 
-            drinkName, 
-            type, 
-            drinkImg, 
-            abv, 
-            price, 
-            stock, 
-            description,
-            userFavorites,
-            userBuyed
-        } = req.body
+        const { drinkName } = req.body
         try {
             if(req.user.role === 'admin' || req.user.role === 'mod'){
                 const drinkExists = await Drink.findOne({ drinkName })
                 if (drinkExists) {
                     res.json({ success: false, error: "This drink is already in database", response: null })
                 } else {
-                    const newDrink = new Drink({
-                        drinkName, 
-                        type, 
-                        drinkImg, 
-                        abv, 
-                        price, 
-                        stock, 
-                        description,
-                        userFavorites,
-                        userBuyed
-                    })
+                    const newDrink = new Drink(req.body)
                     await newDrink.save()
                     res.json({ success: true, response: { newDrink }, error: null })
                 }
@@ -52,15 +32,11 @@ const drinkControllers = {
     },
     getDrink: async(req, res) => {
         try {
-                if(req.user.role === 'admin' || req.user.role === 'mod') {
-                    const drink = await Drink.find({_id: req.params.id})
-                    res.json({ success: true, drink })
-                } else {
-                    res.json({ success: false, response: null, error: 'Unauthorized User, you must be an admin or mod' })
-                }
-            } catch(error) {
-                res.json({ success: false, response: null, error: error })
-            }
+            const drink = await Drink.find({_id: req.params.id})
+            res.json({ success: true, drink })
+        } catch(error) {
+            res.json({ success: false, response: null, error: error })
+        }
     },
     updateDrink: async(req, res) => {
         try {

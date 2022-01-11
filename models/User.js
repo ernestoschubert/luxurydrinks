@@ -8,9 +8,10 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     userImg: { type: String },
     role: { type: String, default: 'member' },
-    cart: { type: Array, default: []},
     google: { type: Boolean, default: false }
-});
+}, 
+    { timestamps: true }
+);
 
 const User = mongoose.model('user', userSchema);
 
