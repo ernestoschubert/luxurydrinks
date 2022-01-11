@@ -9,6 +9,9 @@ import { withRouter } from "./utils/withRouter";
 import Footer from './components/Footer'
 import SignUp from './pages/SignUp';
 import Login from "./pages/LogIn";
+import GinNoProps from "./pages/Gin";
+
+const Gin = withRouter(GinNoProps)
 
 function App() {
   return (
@@ -20,6 +23,7 @@ function App() {
           <Route path="/Nosotros" element={<Nosotros/>} />
           <Route path="/Cocktails" element={<Cocktails/>} />
           <Route path="/NuestrosGins" element={<NuestrosGins/>}/>
+          <Route path="/Gin/:id" element={<Gin/>}/>
           <Route path="/Registrarse" element={<SignUp/>}/>
           <Route path="/Loguearse" element={<Login/>}/>
         </Routes>

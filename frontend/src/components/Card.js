@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ card }) => {
   return (
     <>
+    <Link to={`/Gin/${card._id}`} >
       <div class="wrapper antialiased text-gray-900 ">
         <div>
           <img
@@ -36,6 +39,7 @@ const Card = ({ card }) => {
           </div>
         </div>
       </div>
+    </Link>
     </>
   );
 };
