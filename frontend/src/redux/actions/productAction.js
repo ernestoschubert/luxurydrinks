@@ -1,8 +1,9 @@
 import axios from "axios"
 
-const citiesActions = {
+const productActions = {
 
     fetchProducts: () => {
+        console.log("llegó")
         return async(dispatch, getState) => {
             const res = await axios.get("http://localhost:4000/api/admin/drinks")
             if(res.data.success){
@@ -18,4 +19,4 @@ const citiesActions = {
     }
 }
 
-export default citiesActions
+export default productActions
