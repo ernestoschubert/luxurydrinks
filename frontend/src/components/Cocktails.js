@@ -11,8 +11,6 @@ function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
   }, []);
-  console.log(props);
-  console.log(props.todosLosCocktails);
 
   if (props.todosLosCocktails === null) {
     return (
@@ -23,7 +21,7 @@ function Cocteles(props) {
     );
   } else {
     return (
-      <>
+      <div className="mainCocktails">
         <div className="cocktailsHeader">
           <h1 className="tittleCocktails">Cocktails</h1>
         </div>
@@ -33,7 +31,7 @@ function Cocteles(props) {
         {props.todosLosCocktails.length > 0 ? (
           props.todosLosCocktails.map((element) => {
             return (
-              <div>
+              <div className="mainCards">
                 <div className="cardsCocktails">
                   <div class="min-h-max w-full bg-white-00 mb-8">
                     <div class="max-w-screen-md mx-4 px-20 pt-40">
@@ -68,7 +66,7 @@ function Cocteles(props) {
             </Alert>
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
