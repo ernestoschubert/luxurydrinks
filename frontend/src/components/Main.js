@@ -28,12 +28,11 @@ function Main() {
                     <p>Accede a todos nuestros productos ingresando aca</p>
                     <button className="buttonAccess">REGISTRATE</button>
                 </div>
-                
+
             </div>
             <div className="mainCocktail">
                
-                    
-                
+
             </div>
         </div>
     );
