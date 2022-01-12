@@ -1,7 +1,27 @@
+import React, { useEffect } from "react";
 import "../styles/cocktails.css";
 import LogoLuxury from "../components/assetsCocktails/luxuriuslogo.png";
+import productAction from '../redux/actions/productAction';
+//import Loader from './Loader';
+import { connect } from "react-redux";
 
-const Cocteles = () => {
+const Cocteles = (props) => {
+
+  useEffect(() => {
+    props.arrayCocktails();
+  }, []);
+
+  // const auxCocktails = props.auxiliar;
+  // const filtrar = props.filtrar;
+
+  // if (props.todosLosCocktails == null) {
+  //   return (
+  //     <div>
+  //       <Loader />
+  //     </div>
+  //   );
+  // } else {
+
   return (
     <div>
       <div className="cocktailsHeader">
@@ -36,5 +56,18 @@ const Cocteles = () => {
     </div>
   );
 };
+//};
 
-export default Cocteles;
+const mapStateToProps = (state) => {
+  return {
+    todosLosCocktails: state.productsReducer.products,
+    auxiliar: state.cityReducers.auxiliar,
+  };
+};
+
+const mapDispatchToProps = {
+  arrayCocktails: productAction.fetchProducts,
+  filtrar: productAction.filterProducts,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cocteles);

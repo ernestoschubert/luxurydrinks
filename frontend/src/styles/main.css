@@ -69,6 +69,15 @@
   display         : flex;
   justify-content : space-between;
 }
+.mainCocktail {
+  background-image: url("https://previews.123rf.com/images/redchanka/redchanka1702/redchanka170200028/71245966-fondo-de-piedras-blancas-hermosa-textura-para-el-dise%C3%B1o.jpg");
+  background-position: center;
+  height          : 70vh;
+  border-top      : red;
+  border-style    : groove;
+  display         : flex;
+  justify-content : space-between;
+}
 
 .video {
   padding: 3rem;
