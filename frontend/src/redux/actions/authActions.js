@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Swal from "sweetalert2";
+
 
 const authActions = {
     signUpUser: (newUser) => {
@@ -56,7 +58,6 @@ const authActions = {
                 const res = await axios.get('http://localhost:4000/api/admin/users', {
                     headers: { 'Authorization': 'Bearer ' + token }
                 })
-                console.log(res);
                 dispatch({ type: 'GET_USERS', payload: res.data.users })
                 return res.data.users
             } catch (error) {
@@ -69,10 +70,15 @@ const authActions = {
         return async (dispatch, getState) => {
             try {
                 const token = localStorage.getItem('token')
-                const res = await axios.delete(`http://localhost:4000/admin/user/${userId}`, {
+                const res = await axios.delete(`http://localhost:4000/api/admin/user/${userId}`, {
                     headers: { 'Authorization': 'Bearer ' + token }
                 })
+                console.log(res);
                 dispatch({ type: 'DELETE_USER', payload: res.data.deletedId })
+
+                if(res.data.msg) {
+                    Swal.fire({title: 'Borrado de la BD!', position: 'center', background: 'black', color: 'white', toast: true})
+                }
 
                 return res.data.users
             } catch (error) {

@@ -44,11 +44,16 @@ const productsReducer = (state = initialState, action) => {
             }
             return 0;
           }));
-      }
+      }  
       return {
         ...state,
         auxiliar: filtrado,
       };
+      case "DELETE_PRODUCT" :
+      return { 
+        ...state,
+        products: state.products.filter(userDB => userDB._id !== action.payload)
+      }
     default:
       return state;
   }
