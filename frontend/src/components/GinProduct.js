@@ -36,7 +36,8 @@ const GinProduct = ({ currentGin }) => {
           {currentGin.drinkName}
         </h3>
         <span class="text-gray-500 m-10 text-4xl">${currentGin.price}</span>
-        <p>{currentGin.description}</p>
+        <p class="text-left " >{currentGin.description}</p>
+        <p class="font-bold text-3xl " >Stock:{currentGin.stock}</p>
         <div class="m-10 flex flex-col items-center">
           <label class="text-gray-700 text-xl">Cantidad:</label>
           <div class=" h-10 w-32 flex">
