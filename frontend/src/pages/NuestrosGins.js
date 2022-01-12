@@ -1,40 +1,38 @@
-import { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import Card from "../components/Card";
-import Loader from "../components/Loader";
-import productAction from "../redux/actions/productAction";
+import { useState } from "react"
+import Loader from "../components/Loader"
+import Card from '../components/Card'
+import productAction from '../redux/actions/productAction'
+import { connect } from 'react-redux'
 
-const NuestrosGins = (props) => {
-  const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-  
+const NuestrosGins = () => {
+  const [cards, setCards] = useState(4)
+  const [loading, setLoading] = useState(true)
+  let auxiliar;
+
   return (
-    <div class=" flex items-center justify-center flex-col w-2/3 ">
-      <div class="w-72 m-4">
-        <div class="relative flex items-center justify-center">
-        <input type="text" class="px-4 py-2 w-80" 
-        placeholder="Search..."
-        onChange={(e) => filterProducts(products, e.target.value)}
-        />
-            <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24">
-                <path
-                    d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-            </svg>
-        </div>
-      </div>
-      <div class="grid grid-cols-3 gap-4 place-content-center">
-        {loading ? (
+    <div class="min-h-full min-w-min" >
+      <div>filtros</div>
+      <div class="grid-cols-3 w-max h-max">
+        {loading ?
           <Loader />
-        ) : (
-          auxiliar &&
-          auxiliar.map((product, index) => <Card card={product} key={index} />)
-        )}
+          :
+          cards && cards.map((card, index) => (
+            <Card card={card} key={index} />
+          ))
+        }
       </div>
-    </div>
+    
+      
+  <div class="grid grid-cols-3 gap-4 place-content-center">
+    {loading ? (
+      <Loader />
+    ) : (
+      auxiliar &&
+      auxiliar.map((product, index) => <Card card={product} key={index} />)
+    )}
+  </div>
+  </div>
   );
 };
 

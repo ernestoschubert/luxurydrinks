@@ -1,0 +1,104 @@
+.fondoMain {
+  display         : flex;
+  flex-wrap       : wrap;
+  background-image: url("https://fondosmil.com/fondo/33460.jpg");
+  align-items     : center;
+  text-align      : center;
+  justify-content : center;
+  width           : 100%;
+  border-top      : red;
+  border-style    : groove;
+}
+
+.tarjeta {
+  position               : absolute;
+  font-family            : 'Century Gothic';
+  font-size              : 12pt;
+  font-weight            : bold;
+  margin                 : 1rem;
+  width                  : 250px;
+  box-shadow             : 0 15px 25px rgba(10, 10, 10, 0.575);
+  height                 : 380px;
+  border-radius          : 6px;
+  backdrop-filter        : blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  background-color       : rgba(158, 157, 157, 0.377);
+  padding-left           : 1.5rem;
+  color                  : #c8102e;
+  text-shadow            : 0 5px 5px rgba(10, 10, 10, 0.575);
+  align-items            : center;
+  text-align             : center;
+}
+@media (max-width: 376px){
+  .tarjeta{
+    font-size: 10pt;
+  }
+  .video{
+    display: none;
+  }
+  .textCall{
+    justify-content: start;
+    font-size: 30pt !important;
+    width: 100% !important;
+  }
+  
+}
+
+.tarjeta img {
+  padding: 0.5rem 2rem 0rem 0rem;
+  width  : auto;
+}
+
+.centralTar :hover {
+
+  box-shadow: 0 15px 25px rgba(116, 5, 5, 0.575);
+
+}
+
+.imgPierre {
+  padding: 5rem 0rem 1rem 2rem !important;
+  width  : 60% !important;
+}
+
+.mainvideo {
+  background-image: url("https://www.solofondos.com/wp-content/uploads/2016/10/Wallpaper-rojo-HD.jpg");
+  background-position: center;
+  height          : 70vh;
+  border-top      : red;
+  border-style    : groove;
+  display         : flex;
+  justify-content : space-between;
+}
+
+.video {
+  padding: 3rem;
+}
+
+.textCall {
+  display        : flex;
+  flex-direction : column;
+  color          : white;
+  font-family    : 'Century Gothic';
+  font-size      : 44pt;
+  font-weight    : bold;
+  width          : 50%;
+  justify-content: center;
+  text-align     : center;
+  text-shadow    : 0 5px 5px rgba(10, 10, 10, 0.575);
+}
+
+.buttonAccess {
+  margin-top: 2rem;
+  padding         : 20px 10px;
+  background-color: rgb(248, 8, 8);
+  color           : #fff;
+  border-radius   : 5px;
+  font-size: 24px;
+}
+
+.buttonAccess:hover {
+  background-color: #fff;
+  color           : rgb(248, 8, 8);
+  transition      : .5%;
+
+}
