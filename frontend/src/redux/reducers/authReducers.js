@@ -1,10 +1,10 @@
-const usersReducer = (
+const authReducers = (
     state = {
         user: null,
         token: null,
         img: null,
         role: null,
-        users: null,
+        users: [],
     }, action) => {
     if (action.type === 'LOG_USER') {
         localStorage.setItem('token', action.payload.token);
@@ -41,4 +41,4 @@ const usersReducer = (
 }
 
 
-export default usersReducer;
+export default authReducers;

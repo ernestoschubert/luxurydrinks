@@ -14,11 +14,14 @@ const Navbar = () => {
     <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
-          <img src="./assets/logoluxury.png" alt="logo" class="w-30 h-20" />
+          <img src="/assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
       <div class="block lg:hidden">
-        <button onClick={() => setMenu(!menu)} class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+        <button
+          onClick={() => setMenu(!menu)}
+          class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+        >
           <svg
             class="fill-current h-10 w-10"
             viewBox="0 0 20 20"
@@ -33,27 +36,30 @@ const Navbar = () => {
         <ul class="m-2 flex  ">
           {/* <li class="mr-4">
             <img
-              src="./assets/social/icon-white-yt.png"
+              src="/assets/social/icon-white-yt.png"
               alt="youtube"
               class="w-30 h-30"
             />
           </li>
           <li class="mr-4">
             <img
-              src="./assets/social/icon-white-fb.png"
+              src="/assets/social/icon-white-fb.png"
               alt="facebook"
               class="w-30 h-30"
             />
           </li>
           <li class="mr-4">
             <img
-              src="./assets/social/icon-white-ig.png"
+              src="/assets/social/icon-white-ig.png"
               alt="instagram"
               class="w-30 h-30"
             />
           </li> */}
           <li>
-            <div class="flex space-x-5 cursor-pointer" onClick={() => setDropdown(!dropdown)}>
+            <div
+              class="flex space-x-5 cursor-pointer"
+              onClick={() => setDropdown(!dropdown)}
+            >
               <div class="relative">
                 <FaShoppingCart class="text-5xl" />
                 <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">

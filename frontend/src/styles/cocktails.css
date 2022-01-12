@@ -10,9 +10,13 @@
     align-items: center;
     text-align: center;
 }
+.tittleCocktails {
+  font-size: 10rem;
+}
 .subtittleCocktails {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    padding: 1rem;
     font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
     color: #dc2626;
     text-transform: uppercase;
@@ -21,8 +25,19 @@
     align-items: center;
     font-weight: bold;
 }
+.mainCocktails {
+  background-image: url('https://fondosmil.com/fondo/33460.jpg');
+}
 
 .cardsCocktails {
   font-family: "Tajawal", Arial;
-  background-image: url('https://fondosmil.com/fondo/33460.jpg');
+}
+.mainCards{
+  display: flex;
+  justify-content: center;
+}
+.loading{
+  text-align: center;
+  color: rgba(128, 128, 128, 0.76);
+  margin-top: 1rem;
 }
