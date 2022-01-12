@@ -1,12 +1,23 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import usersActions from "../redux/actions/authActions";
 import Swal from "sweetalert2";
-import GoogleLogin from 'react-google-login';
+import GoogleLogin from "react-google-login";
 import { FcGoogle } from "react-icons/fc";
+import { app } from "../services/firebase";
 
 const SignUp = () => {
+  const [file, setFile] = useState("")
+  const [currentFile,setCurrentFile] = useState([])
+
+  const firstName = useRef();
+  const lastName = useRef();
+  const email = useRef();
+  const password = useRef();
+  const userImg = useRef();
+  const age = useRef();
+
   const dispatch = useDispatch();
 
   const Alert = Swal.mixin({
@@ -23,94 +34,106 @@ const SignUp = () => {
     },
   });
 
-  const firstName = useRef();
-  const lastName = useRef();
-  const email = useRef();
-  const password = useRef();
-  const userImg = useRef();
-  const age = useRef();
+  const archivoHandler = async (e)=> {
 
+    const archivo = e.target.files[0];
+    const storageRef = app.storage().ref();
+    const archivoPath = storageRef.child(archivo.name);
+    await archivoPath.put(archivo);
+    const enlaceUrl = await archivoPath.getDownloadURL();
+    setFile(enlaceUrl);
+  }
+  
   const crearUsuario = async (e) => {
-    e.preventDefault()
-    if (firstName.current.value != '' && lastName.current.value != '' && email.current.value && password.current.value && userImg.current.value && age.current.value) {
+    e.preventDefault();
+    if (
+      firstName.current.value !== "" &&
+      lastName.current.value !== "" &&
+      email.current.value &&
+      password.current.value &&
+      userImg.current.value &&
+      age.current.value
+    ) {
       try {
-        const respuesta = await dispatch(usersActions.signUpUser({
-          firstName: firstName.current.value,
-          lastName: lastName.current.value,
-          email: email.current.value,
-          password: password.current.value,
-          userImg: userImg.current.value,
-          age: age.current.value >= 18 ? age.current.value : Alert.fire({title: 'Debes tener 18 o mas!', icon: 'error'})
-        }))
+        const respuesta = await dispatch(
+          usersActions.signUpUser({
+            firstName: firstName.current.value,
+            lastName: lastName.current.value,
+            email: email.current.value,
+            password: password.current.value,
+            userImg: file,
+            age:
+              age.current.value >= 18
+                ? age.current.value
+                : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" }),
+          })
+        );
 
-        console.log(respuesta)
         if (respuesta.data.success) {
           Alert.fire({
             title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
-            icon: 'success'
-          })
+            icon: "success",
+          });
         } else if (respuesta.data.error) {
           Alert.fire({
             title: `${respuesta.data.error}`,
-            icon: 'error'
-          })
-        }
-        else {
-          respuesta.data.errors.map(e => {
+            icon: "error",
+          });
+        } else {
+          respuesta.data.errors.map((e) => {
             Alert.fire({
               title: e.message,
-              icon: 'error'
-            })
-          })
+              icon: "error",
+            });
+          });
         }
-
-      } catch (err) { console.log(err) }
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       Alert.fire({
-        title: 'Complete los campos porfavor!',
-        icon: 'error'
-      })
+        title: "Complete los campos porfavor!",
+        icon: "error",
+      });
     }
-  }
-
+  };
 
   const responseGoogle = async (respuesta) => {
     console.log(respuesta);
     let usuarioGoogle = {
-      firstName: respuesta.profileObj.givenName, 
+      firstName: respuesta.profileObj.givenName,
       // apellido: respuesta.profileObj.familyName ? respuesta.profileObj.familyName : 'null',
       lastName: respuesta.profileObj.familyName,
       email: respuesta.profileObj.email,
       password: respuesta.profileObj.googleId,
       userImg: respuesta.profileObj.imageUrl,
       google: true,
-      age: 18
-    }
-    await dispatch (usersActions.signUpUser(usuarioGoogle))
-    .then(res => {
-      if (res.data.success) {
-        console.log(res)
-        Alert.fire({
-          icon: 'success',
-          title: 'Tu cuenta ha sido creada'
-        })
-      }
-      else{
-        console.log(res)
-        Alert.fire({
-        title: res.data.error.errors.message,
-        icon: 'error',
+      age: 18,
+    };
+    await dispatch(usersActions.signUpUser(usuarioGoogle))
+      .then((res) => {
+        if (res.data.success) {
+          console.log(res);
+          Alert.fire({
+            icon: "success",
+            title: "Tu cuenta ha sido creada",
+          });
+        } else {
+          console.log(res);
+          Alert.fire({
+            title: res.data.error.errors.message,
+            icon: "error",
+          });
+        }
       })
-    }
-    })
-    .catch((error) => {
-      console.log(error)
-      Alert.fire({
-          icon: 'error',
-          title: 'Algo salio mal! Vuelve en un rato!'
-        })
-  })
-  }
+      .catch((error) => {
+        console.log(error);
+        Alert.fire({
+          icon: "error",
+          title: "Algo salio mal! Vuelve en un rato!",
+        });
+      });
+  };
 
   return (
     <Form className="form-container" variant="light" onSubmit={crearUsuario}>
@@ -139,27 +162,38 @@ const SignUp = () => {
         <Form.Control type="password" placeholder="Contraseña" ref={password} />{" "}
       </Form.Group>
 
-      <Form.Group className="mb-5 col-6" controlId="formBasicNombre">
+      <Form.Group className="mb-5 col-6" controlId="formBasicAge">
         <Form.Label className="text-light"> Edad </Form.Label>{" "}
         <Form.Control type="number" placeholder="Edad" ref={age} />{" "}
       </Form.Group>
-
-      <Form.Group className="mb-5 " controlId="formBasicImage">
-        <Form.Label className="text-light"> URL de imagen </Form.Label>{" "}
-        <Form.Control type="text" placeholder="Imagen" ref={userImg} />{" "}
-      </Form.Group>
+      
+      <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white m-5">
+        <svg
+          class="w-8 h-8"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+        </svg>
+        <span class="mt-2 text-base leading-normal">Select a file</span>
+        <input type="file" class="hidden" ref={userImg} onChange={archivoHandler} />
+      </label>
+      {file && <img src={file} alt="avatar" class="h-min w-min m-5" />}
 
       <div className="d-flex container-buttons">
         <Button className="button-send" type="submit" class="">
           Registrarse
         </Button>
 
-        {/* <span className="o-google">o</span> */}
-
         <GoogleLogin
           clientId="251218806552-1ecbg0qlvip7gnl9qi6v0f1ifs18junr.apps.googleusercontent.com"
           render={(renderProps) => (
-            <button onClick={renderProps.onClick} className="btn-google button-send" disabled={renderProps.disabled}>
+            <button
+              onClick={renderProps.onClick}
+              className="btn-google button-send"
+              disabled={renderProps.disabled}
+            >
               <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />
             </button>
           )}

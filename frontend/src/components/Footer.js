@@ -1,109 +1,71 @@
-import { Link } from "react-router-dom";
-
+import {Link} from 'react-router-dom'
 const Footer = () => {
   return (
-    <footer class="footer bg-red-600 relative pt-1 border-b-2 border-blue-700">
-      <div class="container mx-auto px-6">
-        <div class="sm:flex sm:mt-8">
-          <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
-          <ul class="m-2 flex  ">
-          <li class="mr-4">
-            <img
-              src="./assets/social/icon-white-yt.png"
-              alt="youtube"
-              class="w-30 h-30"
-            />
-          </li>
-          <li class="mr-4">
-            <img
-              src="./assets/social/icon-white-fb.png"
-              alt="facebook"
-              class="w-30 h-30"
-            />
-          </li>
-          <li class="mr-4">
-            <img
-              src="./assets/social/icon-white-ig.png"
-              alt="instagram"
-              class="w-30 h-30"
-            />
-          </li>
-        </ul>
-            <div class="flex flex-col">
-              <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <Link to="/">
-                  <img
-                    src="./assets/luxuriuslogo.png"
-                    alt="logo"
-                    class="w-30 h-20"
-                  />
-                </Link>
-              </div>
-              <div class="text-sm lg:flex-grow ">
-                <Link
-                  to="/"
-                  class="block mt-4 lg:inline-block lg:mt-0  text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-white border-transparent"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/Nosotros"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
-                >
-                  Nosotros
-                </Link>
-                <Link
-                  to="/NuestrosGins"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-                >
-                  Nuestros Gins
-                </Link>
-                <Link
-                  to="/Cocktails"
-                  class="block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-                >
-                  Cocktails
-                </Link>
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <ul class="m-2 flex  ">
-                <li class="mr-4">
-                  <img
-                    src="./assets/social/icon-white-yt.png"
-                    alt="youtube"
-                    class="w-30 h-30"
-                  />
-                </li>
-                <li class="mr-4">
-                  <img
-                    src="./assets/social/icon-white-fb.png"
-                    alt="facebook"
-                    class="w-30 h-30"
-                  />
-                </li>
-                <li class="mr-4">
-                  <img
-                    src="./assets/social/icon-white-ig.png"
-                    alt="instagram"
-                    class="w-30 h-30"
-                  />
-                </li>
-              </ul>
-            </div>
+    <footer class="relative bg-red-600 pt-8 pb-6">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap text-left lg:text-left">
+      <div class="w-full lg:w-6/12 px-4">
+        <h4 class="text-5xl fonat-semibold text-neutral-50">No te pierdas ninguna novedad!</h4>
+        <h5 class="text-4xl mt-0 mb-2 text-neutral-50">
+          Síguenos en nuestras redes sociales.
+        </h5>
+        <div class="mt-6 lg:mb-0 mb-6">
+          <button class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+            <i class="fab fa-twitter"></i></button><button class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+            <i class="fab fa-facebook-square"></i></button><button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+            <i class="fab fa-instagram"></i></button>
+        </div>
+      </div>
+      <div class="w-full lg:w-6/12 px-4">
+        <div class="flex flex-wrap items-top mb-6">
+          <div class="w-full lg:w-4/12 px-4 ml-auto">
+            <span class="block uppercase text-neutral-50 text-4xl font-semibold mb-2">Links</span>
+            <ul class="list-unstyled">
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://www.creative-tim.com/presentation?ref=njs-profile">Home</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://blog.creative-tim.com?ref=njs-profile">Nosotros</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://www.github.com/creativetimofficial?ref=njs-profile">Nuestros Gins</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile">Cocktails</a>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full lg:w-4/12 px-4">
+            <span class="block uppercase text-neutral-50 text-4xl font-semibold mb-2">Comprar</span>
+            <ul class="list-unstyled">
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">Tienda</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://creative-tim.com/terms?ref=njs-profile">Ingresa</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://creative-tim.com/privacy?ref=njs-profile">Registrate</a>
+              </li>
+              <li>
+                <a class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl" href="https://creative-tim.com/contact-us?ref=njs-profile">Contacto</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="container mx-auto px-6">
-        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
-          <div class="sm:w-2/3 text-center py-6">
-            <p class="text-sm text-blue-700 font-bold mb-2">
-              © 2022 by Luxury Drinks
-            </p>
-          </div>
+    </div>
+    <hr class="my-6 border-blueGray-300"/>
+    <div class="flex flex-wrap items-center md:justify-between justify-center">
+      <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+        <div class="text-2xl text-neutral-50 font-semibold py-1">
+          Copyright © <span id="get-current-year">2022</span><a href="https://www.creative-tim.com/product/notus-js" class="text-neutral-50 hover:text-gray-800" target="_blank"> LUXURYDRINKS S.R.L</a>
+          <a href="https://www.creative-tim.com?ref=njs-profile" class="text-neutral-50 hover:text-blueGray-800"> import company</a>.
         </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</footer>
   );
 };
 

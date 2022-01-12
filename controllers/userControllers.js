@@ -41,7 +41,11 @@ const userControllers = {
             if (user.googleAccount && !google) throw new Error("Mail invalido");
             const isPassword = bcryptjs.compareSync(password, user.password);
             if (!isPassword) throw new Error("Mail o contraseña incorrectas!");
-            const token = jwt.sign({ ...user }, process.env.SECRETKEY)
+            const token = jwt.sign(
+                    { ...user }, 
+                    process.env.SECRETKEY, 
+                    {expiresIn: "3d"}
+                )
             res.json({ success: true, response: { 
                 role: user.role, 
                 firstName: user.firstName, 

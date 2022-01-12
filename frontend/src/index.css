@@ -45,3 +45,141 @@ code {
 
 
 /* FIN CSS FORM */
+
+
+/* CSS PANEL ADMIN */
+
+.title-panel {
+  font-size: 2rem;
+  border: 1px solid black;
+  padding: 3rem 3rem 3rem 3rem;
+  width: 30%;
+  background-color:black;
+  color: white;
+}
+
+.container-nav-panel {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
+ 
+}
+
+.container-box {
+  display: flex;
+  justify-content: space-around;
+  margin: 2% 0;
+}
+
+.box-usuarios {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+.box-bebidas {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+}
+
+.container-box-ultimos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box-ultimos {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+  margin-bottom: 3%;
+}
+
+.h3-box-ultimos {
+  font-size: 1.9rem;
+  margin: 2%;
+  font-weight: bold;
+}
+
+.img-admin {
+  width: 8vw;
+  margin: 2%;
+}
+
+.container-img-title {
+  display: flex;
+  align-items: center;
+}
+
+.title-admin {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.usuario-panel-foto {
+  width: 8%;
+  border-radius: 50%;
+}
+
+.box-usuarios div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.box-bebidas div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+}
+
+
+
+.ultimos-usuarios-map {
+  display: flex;
+}
+
+.box-ultimos div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.icon-admin:hover {
+  cursor: pointer;
+}
+
+.scrollbar {
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  background: repeating-linear-gradient(
+45deg
+, black, transparent 100px);
+}
+/* FIN CSS PANEL ADMIN */

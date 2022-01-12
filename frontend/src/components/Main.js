@@ -26,11 +26,14 @@ function Main() {
                 </div>
                 <div className="textCall">
                     <p>Accede a todos nuestros productos ingresando aca</p>
-                    <div class="border-4 border-red-600 rounded-lg px-3 py-2 text-white-400 cursor-pointer hover:bg-red-600 hover:text-white-200 botonRegistrar">
-                        Registrate
-                    </div>
+                    <button className="buttonAccess">REGISTRATE</button>
                 </div>
-
+                
+            </div>
+            <div className="mainCocktail">
+               
+                    
+                
             </div>
         </div>
     );
