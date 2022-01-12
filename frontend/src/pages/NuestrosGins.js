@@ -42,7 +42,7 @@ const NuestrosGins = (props) => {
         {loading ? (
           <Loader />
         ):
-          cards && cards.map((card, index) => (
+          auxiliar && auxiliar.map((card, index) => (
             <Card card={card} key={index} />
           ))
         }
