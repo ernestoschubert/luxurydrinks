@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 import SignUp from './pages/SignUp';
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
-import PanelAdmin from "./components/panelAdmin";
+import PanelAdmin from "./components/PanelAdmin";
 import authActions from "./redux/actions/authActions";
 import {connect} from 'react-redux'
 
