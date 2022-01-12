@@ -75,30 +75,31 @@ function Carrusel() {
         <div className="fondoMain">
             <div class="slider">
                 <div class="slide-track">
-                    {carruselItems.map((bebida, key) => {
-                         if(bebida.id >= 11  ){ 
+                    {carruselItems.map((bebida) => {
+                        if (bebida.id >= 11) {
                             return (
-                         <div className="slide" key={key}>
-                         <div class="tarjeta">
-                             <img className="imgPierre" src={bebida.imagen}
-                                 alt={bebida.nombre} />
-                             <p>{bebida.nombre}</p>
-                         </div>
-                         </div>
-                            ) }
-                            else{
-                                return(
-                                    <div className="slide">
+                                <div className="slide">
+                                    <div class="tarjeta">
+                                        <img className="imgPierre" src={bebida.imagen}
+                                            alt="image" />
+                                        <p>{bebida.nombre}</p>
+                                    </div>
+                                </div>
+                            )
+                        }
+                        else {
+                            return (
+                                <div className="slide">
                                     <div class="tarjeta">
                                         <img src={bebida.imagen}
                                             alt="image" />
                                         <p>{bebida.nombre}</p>
                                     </div>
-                                    </div>
-                                )
-                            }
-            }
-            )}
+                                </div>
+                            )
+                        }
+                    }
+                    )}
                 </div>
             </div>
         </div>

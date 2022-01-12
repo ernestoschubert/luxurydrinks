@@ -1,0 +1,12 @@
+.navtexto {
+    font-size   : 15pt !important;
+    padding-left: 1rem !important;
+}
+
+.btn-menu {
+    margin-right: 30px;
+    font-size   : 30px;
+    color       : #fff;
+    cursor      : pointer;
+    display     : none;
+}

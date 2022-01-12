@@ -41,12 +41,23 @@ const NuestrosGins = (props) => {
       <div class="grid grid-cols-3 gap-4 place-content-center">
         {loading ? (
           <Loader />
-        ) : (
-          auxiliar &&
-          auxiliar.map((product, index) => <Card card={product} key={index} />)
-        )}
+        ):
+          cards && cards.map((card, index) => (
+            <Card card={card} key={index} />
+          ))
+        }
       </div>
-    </div>
+    
+      
+  <div class="grid grid-cols-3 gap-4 place-content-center">
+    {loading ? (
+      <Loader />
+    ) : (
+      auxiliar &&
+      auxiliar.map((product, index) => <Card card={product} key={index} />)
+    )}
+  </div>
+  </div>
   );
 };
 
