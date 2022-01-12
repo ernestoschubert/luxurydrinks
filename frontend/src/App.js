@@ -1,5 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nosotros from './pages/Nosotros'
@@ -10,12 +11,22 @@ import Footer from './components/Footer'
 import SignUp from './pages/SignUp';
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
-import PanelAdmin from "./components/panelAdmin";
+import PanelAdmin from "./components/PanelAdmin";
+import authActions from "./redux/actions/authActions";
+import {connect} from 'react-redux'
 
 const Gin = withRouter(GinNoProps)
 
 
-function App() {
+function App(props) {
+
+  useEffect(()=>{
+    const { authUser} = props
+    if(localStorage.getItem('token')){
+      authUser(localStorage.getItem('token'))
+    }
+  },[])
+
   return (
     <>
       <BrowserRouter>
@@ -36,4 +47,13 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    token: state.authReducers.token,
+  }
+}
+const mapDispatchToProps = {
+  authUser: authActions.authUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

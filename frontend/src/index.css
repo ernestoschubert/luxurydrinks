@@ -75,6 +75,19 @@ code {
   height: 50vh;
   width: 30%;
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+.box-bebidas {
+  height: 50vh;
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
 }
 
 .container-box-ultimos {
@@ -110,4 +123,63 @@ code {
   font-weight: bold;
 }
 
+.usuario-panel-foto {
+  width: 8%;
+  border-radius: 50%;
+}
+
+.box-usuarios div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.box-bebidas div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+}
+
+
+
+.ultimos-usuarios-map {
+  display: flex;
+}
+
+.box-ultimos div {
+  display: flex;
+  gap: 2%;
+  margin: 1%;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.icon-admin:hover {
+  cursor: pointer;
+}
+
+.scrollbar {
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  background: repeating-linear-gradient(
+45deg
+, black, transparent 100px);
+}
 /* FIN CSS PANEL ADMIN */

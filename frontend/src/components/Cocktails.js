@@ -4,7 +4,6 @@ import LogoLuxury from "../components/assetsCocktails/luxuriuslogo.png";
 import productActions from "../redux/actions/productAction";
 import Loader from "./Loader";
 import { connect } from "react-redux";
-import { Navbar } from "reactstrap";
 import Footer from "../components/Footer";
 import Alert from "react-bootstrap/Alert";
 
