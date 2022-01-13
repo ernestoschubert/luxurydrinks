@@ -10,3 +10,27 @@
     cursor      : pointer;
     display     : none;
 }
+
+/* CART */
+
+
+.cart{
+    position: relative;
+    cursor: pointer;
+}
+.cart span{
+    position: absolute;
+    top: -1rem;
+    right: -1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(235, 0, 47);
+    padding: 0rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+    background-color: rgb(253, 253, 253);
+}

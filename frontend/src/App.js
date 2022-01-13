@@ -13,7 +13,9 @@ import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
+import Cart from './components/Cart'
 import {connect} from 'react-redux'
+import DataProvider from "./DataProvider";
 
 const Gin = withRouter(GinNoProps)
 
@@ -29,20 +31,23 @@ function App(props) {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Nosotros" element={<Nosotros/>} />
-          <Route path="/Cocktails" element={<Cocktails/>} />
-          <Route path="/NuestrosGins" element={<NuestrosGins/>}/>
-          <Route path="/Gin/:id" element={<Gin/>}/>
-          <Route path="/Registrarse" element={<SignUp/>}/>
-          <Route path="/Loguearse" element={<Login/>}/>
-          <Route path="/panelAdmin" element={<PanelAdmin />} />
-        </Routes>
-        <Footer/>
-      </BrowserRouter>
+      <DataProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Cart />
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/Nosotros" element={<Nosotros/>} />
+            <Route path="/Cocktails" element={<Cocktails/>} />
+            <Route path="/NuestrosGins" element={<NuestrosGins/>}/>
+            <Route path="/Gin/:id" element={<Gin/>}/>
+            <Route path="/Registrarse" element={<SignUp/>}/>
+            <Route path="/Loguearse" element={<Login/>}/>
+            <Route path="/panelAdmin" element={<PanelAdmin />} />
+          </Routes>
+          <Footer/>
+        </BrowserRouter>
+      </DataProvider>
     </>
   );
 }

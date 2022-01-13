@@ -4,12 +4,12 @@ import LogoLuxury from "../components/assetsCocktails/luxuriuslogo.png";
 import productActions from "../redux/actions/productAction";
 import Loader from "./Loader";
 import { connect } from "react-redux";
-import Footer from "../components/Footer";
 import Alert from "react-bootstrap/Alert";
 
 function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (props.todosLosCocktails === null) {

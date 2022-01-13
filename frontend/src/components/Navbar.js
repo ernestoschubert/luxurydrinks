@@ -1,12 +1,22 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { DataContext } from "../DataProvider";
 import "../styles/navbar.css"
 
 const Navbar = () => {
-  const [dropdown, setDropdown] = useState(false)
+  // const [dropdown, setDropdown] = useState(false)
   const [menu, setMenu] = useState(true)
 
+  const value = useContext(DataContext);
+  const [carrito] = value.carrito;
+  const [menuCart, setMenuCart] = value.menuCart;
+
+
+  const toogleMenu = () =>{
+    setMenuCart(!menuCart)
+  }
+ 
 
   return (
 
@@ -16,6 +26,12 @@ const Navbar = () => {
         <Link to="/">
           <img src="/assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
         </Link>
+      </div>
+      <div className="cart" onClick={toogleMenu}>
+        <FaShoppingCart class="text-5xl" />
+        <span className="item__total"> 
+           {carrito.length}
+        </span>
       </div>
       <div class="block lg:hidden">
         <button
@@ -56,11 +72,12 @@ const Navbar = () => {
             />
           </li> */}
           <li>
-            <div
-              class="flex space-x-5 cursor-pointer"
+
+            {/* <div
+              class="flex space-x-5 cursor-pointer padding-2"
               onClick={() => setDropdown(!dropdown)}
             >
-              <div class="relative">
+              <div class="relative top-0 right-10">
                 <FaShoppingCart class="text-5xl" />
                 <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
                   <div class="min-w-[.5rem] inline-flex items-center justify-center h-5 text-xl text-white bg-yellow-500 rounded-full px-1">
@@ -108,7 +125,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </>
-            ) : null}
+            ) : null} */}
           </li>
         </ul>
         {menu ? (
