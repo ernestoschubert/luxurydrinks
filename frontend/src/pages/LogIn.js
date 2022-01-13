@@ -5,10 +5,9 @@ import { useDispatch } from "react-redux";
 import usersActions from '../redux/actions/authActions';
 import GoogleLogin from 'react-google-login';
 import { FcGoogle } from "react-icons/fc";
-
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
-
     const Alert = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -22,7 +21,7 @@ const LogIn = () => {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
-
+    const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const email = useRef()
@@ -46,6 +45,7 @@ const LogIn = () => {
               title: `Bienvenido ${respuesta.data.response.firstName}`,
               icon: 'success'
             })
+            navigate('/')
             email.current.value = ''
             password.current.value = ''
           }else{
@@ -82,6 +82,7 @@ const LogIn = () => {
           icon: 'success',
           title: 'Bienvenido/a '+res.data.response.firstName
         })
+        navigate('/')
       }
       else{
       console.log(res)

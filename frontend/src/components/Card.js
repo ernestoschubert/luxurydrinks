@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Card = ({ card }) => {
   return (
     <>
-    <Link to={`/Gin/${card._id}`} >
+    <Link to={`/Gin/${card._id}`} class="no-underline" >
       <div class="wrapper antialiased text-gray-900 ">
         <div>
           <img

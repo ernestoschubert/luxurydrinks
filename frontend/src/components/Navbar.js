@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { FaShoppingCart, FaTrashAlt, FaSignInAlt } from "react-icons/fa";
 import { useState } from "react";
-import "../styles/navbar.css"
+import "../styles/navbar.css";
+import { connect } from "react-redux";
+import authActions from "../redux/actions/authActions";
 
-const Navbar = () => {
-  const [dropdown, setDropdown] = useState(false)
-  const [menu, setMenu] = useState(true)
+const Navbar = (props) => {
+  const [dropdown, setDropdown] = useState(false);
+  const [menu, setMenu] = useState(true);
 
-
+  const handleLogOut = () => {
+    props.logOut();
+  };
+  console.log(props.role)
   return (
-
-
     <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
@@ -34,27 +37,6 @@ const Navbar = () => {
       </div>
       <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
         <ul class="m-2 flex  ">
-          {/* <li class="mr-4">
-            <img
-              src="/assets/social/icon-white-yt.png"
-              alt="youtube"
-              class="w-30 h-30"
-            />
-          </li>
-          <li class="mr-4">
-            <img
-              src="/assets/social/icon-white-fb.png"
-              alt="facebook"
-              class="w-30 h-30"
-            />
-          </li>
-          <li class="mr-4">
-            <img
-              src="/assets/social/icon-white-ig.png"
-              alt="instagram"
-              class="w-30 h-30"
-            />
-          </li> */}
           <li>
             <div
               class="flex space-x-5 cursor-pointer"
@@ -112,52 +94,77 @@ const Navbar = () => {
           </li>
         </ul>
         {menu ? (
-              <>
-        <div class="lg:flex-grow">
-          <Link
-            to="/"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
-            >
-            Home
-          </Link>
-          <Link
-            to="/Nosotros"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
-            >
-            Nosotros
-          </Link>
-          <Link
-            to="/NuestrosGins"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-            >
-            Nuestros Gins
-          </Link>
-          <Link
-            to="/Cocktails"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-            >
-            Cocktails
-          </Link>
-          <Link
-            to="/Registrarse"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-            >
-            Registrate
-          </Link>
-          <Link
-            to="/Loguearse"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
-            >
-            Ingresa
-          </Link>
-          
-        </div>
-        </>) : null}
+          <>
+            <div class="lg:flex-grow">
+              <Link
+                to="/"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+              >
+                Home
+              </Link>
+              <Link
+                to="/Nosotros"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+              >
+                Nosotros
+              </Link>
+              <Link
+                to="/NuestrosGins"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+              >
+                Nuestros Gins
+              </Link>
+              <Link
+                to="/Cocktails"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+              >
+                Cocktails
+              </Link>
+              {!props.user ? (
+                <>
+                  <Link
+                    to="/Registrarse"
+                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                  >
+                    Registrate
+                  </Link>
+                  <Link
+                    to="/Loguearse"
+                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                  >
+                    Ingresa
+                  </Link>
+                </>
+              ) : (
+                <FaSignInAlt
+                  class="cursor-pointer text-5xl inline mb-2"
+                  onClick={() => handleLogOut()}
+                />
+              )}
+              {props.role === "admin" && (
+                <Link
+                  to="/panelAdmin"
+                  class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                >
+                  Configuracion
+                </Link>
+              )}
+            </div>
+          </>
+        ) : null}
       </div>
-      
     </nav>
+  );
+};
 
-  )
-}
+const mapStateToProps = (state) => {
+  return {
+    user: state.authReducers.user,
+    role: state.authReducers.role,
+  };
+};
 
-export default Navbar
+const mapDispatchToProps = {
+  logOut: authActions.logOut,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

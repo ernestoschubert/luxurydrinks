@@ -2,58 +2,59 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nosotros from './pages/Nosotros'
-import Cocktails from './pages/Cocktails'
-import NuestrosGins from './pages/NuestrosGins'
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Nosotros from "./pages/Nosotros";
+import Cocktails from "./pages/Cocktails";
+import NuestrosGins from "./pages/NuestrosGins";
 import { withRouter } from "./utils/withRouter";
-import Footer from './components/Footer'
-import SignUp from './pages/SignUp';
+import Footer from "./components/Footer";
+import SignUp from "./pages/SignUp";
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 
-const Gin = withRouter(GinNoProps)
-
+const Gin = withRouter(GinNoProps);
 
 function App(props) {
-
-  useEffect(()=>{
-    const { authUser} = props
-    if(localStorage.getItem('token')){
-      authUser(localStorage.getItem('token'))
+  useEffect(() => {
+    const { authUser } = props;
+    if (localStorage.getItem("token")) {
+      authUser(localStorage.getItem("token"));
     }
-  },[])
+  }, []);
+
 
   return (
     <>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/Nosotros" element={<Nosotros/>} />
-          <Route path="/Cocktails" element={<Cocktails/>} />
-          <Route path="/NuestrosGins" element={<NuestrosGins/>}/>
-          <Route path="/Gin/:id" element={<Gin/>}/>
-          <Route path="/Registrarse" element={<SignUp/>}/>
-          <Route path="/Loguearse" element={<Login/>}/>
-          <Route path="/panelAdmin" element={<PanelAdmin />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Nosotros" element={<Nosotros />} />
+          <Route path="/Cocktails" element={<Cocktails />} />
+          <Route path="/NuestrosGins" element={<NuestrosGins />} />
+          <Route path="/Gin/:id" element={<Gin />} />
+          {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
+          {!props.user && <Route path="/Loguearse" element={<Login />} />}
+          {props.role === 'admin' && <Route path="/panelAdmin" element={<PanelAdmin />} />}
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );
 }
 
 const mapStateToProps = (state) => {
-  return{
+  return {
     token: state.authReducers.token,
-  }
-}
+    user: state.authReducers.user,
+    role: state.authReducers.role
+  };
+};
 const mapDispatchToProps = {
-  authUser: authActions.authUser
-}
+  authUser: authActions.authUser,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -13,7 +13,7 @@ const authReducers = (
             user: action.payload,
             token: action.payload.token,
             img: action.payload.img,
-            role: action.payload.range
+            role: action.payload.role
         }
 
     } else if (action.type === 'LOG_OUT') {

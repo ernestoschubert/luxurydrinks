@@ -65,7 +65,7 @@ const GinProduct = ({ currentGin }) => {
         </div>
         <div class="flex justify-center m-10">
           <button class="px-20 py-4 bg-red-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
-            Order Now
+            Comprar
           </button>
         </div>
       </div>

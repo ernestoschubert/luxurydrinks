@@ -6,10 +6,15 @@ import Swal from "sweetalert2";
 import GoogleLogin from "react-google-login";
 import { FcGoogle } from "react-icons/fc";
 import { app } from "../services/firebase";
+import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [file, setFile] = useState("")
-  const [currentFile,setCurrentFile] = useState([])
+  const [file, setFile] = useState("");
+  const [fileUrl, setFileUrl] = useState(null);
+  const [fileTarget, setFileTarget] = useState("");
+
+  const navigate = useNavigate();
 
   const firstName = useRef();
   const lastName = useRef();
@@ -34,18 +39,35 @@ const SignUp = () => {
     },
   });
 
-  const archivoHandler = async (e)=> {
+  const archivoHandler = (e) => {
+    setFileTarget(e.target.files[0]);
+    const image = e.target.files[0];
+    const imageUrl = URL.createObjectURL(image);
+    setFileUrl(imageUrl);
+  };
 
-    const archivo = e.target.files[0];
-    const storageRef = app.storage().ref();
-    const archivoPath = storageRef.child(archivo.name);
-    await archivoPath.put(archivo);
-    const enlaceUrl = await archivoPath.getDownloadURL();
-    setFile(enlaceUrl);
-  }
-  
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Esta seguro que quiere eliminar esta imagen?",
+      showCancelButton: true,
+      confirmButtonText: "Eliminar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Eliminado!", "", "success");
+        userImg.current.value = "";
+        setFileUrl("");
+      }
+    });
+  };
+
   const crearUsuario = async (e) => {
     e.preventDefault();
+
+    const storageRef = app.storage().ref();
+    const archivoPath = storageRef.child(fileTarget?.name);
+    await archivoPath.put(fileTarget);
+    const enlaceUrl = await archivoPath.getDownloadURL();
+    setFile(enlaceUrl);
     if (
       firstName.current.value !== "" &&
       lastName.current.value !== "" &&
@@ -74,18 +96,19 @@ const SignUp = () => {
             title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
             icon: "success",
           });
+          navigate('/')
         } else if (respuesta.data.error) {
           Alert.fire({
             title: `${respuesta.data.error}`,
             icon: "error",
           });
         } else {
-          respuesta.data.errors.map((e) => {
+          respuesta.data.errors.map((e) => (
             Alert.fire({
               title: e.message,
               icon: "error",
-            });
-          });
+            })
+          ))
         }
       } catch (err) {
         console.log(err);
@@ -99,7 +122,6 @@ const SignUp = () => {
   };
 
   const responseGoogle = async (respuesta) => {
-    console.log(respuesta);
     let usuarioGoogle = {
       firstName: respuesta.profileObj.givenName,
       // apellido: respuesta.profileObj.familyName ? respuesta.profileObj.familyName : 'null',
@@ -166,7 +188,7 @@ const SignUp = () => {
         <Form.Label className="text-light"> Edad </Form.Label>{" "}
         <Form.Control type="number" placeholder="Edad" ref={age} />{" "}
       </Form.Group>
-      
+
       <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white m-5">
         <svg
           class="w-8 h-8"
@@ -177,9 +199,22 @@ const SignUp = () => {
           <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
         </svg>
         <span class="mt-2 text-base leading-normal">Select a file</span>
-        <input type="file" class="hidden" ref={userImg} onChange={archivoHandler} />
+        <input
+          type="file"
+          class="hidden"
+          ref={userImg}
+          onChange={archivoHandler}
+        />
       </label>
-      {file && <img src={file} alt="avatar" class="h-min w-min m-5" />}
+      {fileUrl && (
+        <div>
+          <FaTrash
+            class=" text-red-500 cursor-pointer"
+            onClick={() => handleDelete()}
+          />
+          <img src={fileUrl} alt="avatar" class="h-40 w-50 m-5" />
+        </div>
+      )}
 
       <div className="d-flex container-buttons">
         <Button className="button-send" type="submit" class="">
