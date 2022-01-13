@@ -26,7 +26,7 @@ const Navbar = (props) => {
     <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
-          <img src="/assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
+          <img src="/assets/logoluxury.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
       <div className="cart" onClick={toogleMenu}>

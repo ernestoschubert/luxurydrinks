@@ -111,3 +111,12 @@
   transition      : .5%;
 
 }
+.bg-luxury{
+  background-color: rgba(12, 1, 1, 0.459);
+}
+.bg-luxury:hover{
+  background-color: rgba(206, 13, 13, 0.986);
+}
+.fondo-ladrillos{
+  background-image: url('https://s1.1zoom.me/big3/585/Texture_Brick_Wall_White_545270_3000x1682.jpg');
+}
