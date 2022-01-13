@@ -10,6 +10,10 @@
 }
 .tittleNosotros {
   font-size: 8rem;
+  font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .containerNosotros {
@@ -25,8 +29,6 @@
 }
 
 .container {
-  /* width: 1000px;
-  position: relative; */
   display: flex;
   flex-wrap: wrap;
   align-self: center;

@@ -38,7 +38,16 @@ const productActions = {
             }
 
         }
-    }
+    },
+    fetchUnCoctel: (id, props) => {
+        return (dispatch, getState) => {
+          axios
+            .get('http://localhost:4000/api/drinks'+id)
+            .then((respuesta) =>
+              dispatch({ type: "FETCH_UNA_CITY", payload: respuesta.data })
+            )
+        };
+      },
 }
 
 export default productActions
