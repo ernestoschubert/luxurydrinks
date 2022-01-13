@@ -1,11 +1,16 @@
 import useCounter from "../hooks/useCounter";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DataContext } from "../DataProvider";
+
 
 const GinProduct = ({ currentGin }) => {
   const [favorite, setFavorite] = useState(false);
   const counter = useCounter(0, currentGin.stock);
   const { aumentar, disminuir, value } = counter;
+
+  const values = useContext(DataContext);
+  const addCarrito = values.addCarrito;
 
   const handleFavorite = () => {
     setFavorite(!favorite);

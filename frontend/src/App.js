@@ -13,7 +13,11 @@ import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
-import { connect } from "react-redux";
+import Cart from './components/Cart'
+import {connect} from 'react-redux'
+import DataProvider from "./DataProvider";
+
+const Gin = withRouter(GinNoProps)
 
 const Gin = withRouter(GinNoProps);
 

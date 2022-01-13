@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaTrashAlt, FaSignInAlt } from "react-icons/fa";
-import { useState } from "react";
-import "../styles/navbar.css";
-import { connect } from "react-redux";
-import authActions from "../redux/actions/authActions";
+import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { useState, useContext } from "react";
+import { DataContext } from "../DataProvider";
+import "../styles/navbar.css"
 
 const Navbar = (props) => {
-  const [dropdown, setDropdown] = useState(false);
-  const [menu, setMenu] = useState(true);
+  // const [dropdown, setDropdown] = useState(false)
+  const [menu, setMenu] = useState(true)
+
+  const value = useContext(DataContext);
+  const [carrito] = value.carrito;
+  const [menuCart, setMenuCart] = value.menuCart;
+
+
+  const toogleMenu = () =>{
+    setMenuCart(!menuCart)
+  }
+ 
 
   const handleLogOut = () => {
     props.logOut();
@@ -19,6 +28,12 @@ const Navbar = (props) => {
         <Link to="/">
           <img src="/assets/luxuriuslogo.png" alt="logo" class="w-30 h-20" />
         </Link>
+      </div>
+      <div className="cart" onClick={toogleMenu}>
+        <FaShoppingCart class="text-5xl" />
+        <span className="item__total"> 
+           {carrito.length}
+        </span>
       </div>
       <div class="block lg:hidden">
         <button
@@ -38,11 +53,12 @@ const Navbar = (props) => {
       <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
         <ul class="m-2 flex  ">
           <li>
-            <div
-              class="flex space-x-5 cursor-pointer"
+
+            {/* <div
+              class="flex space-x-5 cursor-pointer padding-2"
               onClick={() => setDropdown(!dropdown)}
             >
-              <div class="relative">
+              <div class="relative top-0 right-10">
                 <FaShoppingCart class="text-5xl" />
                 <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
                   <div class="min-w-[.5rem] inline-flex items-center justify-center h-5 text-xl text-white bg-yellow-500 rounded-full px-1">
@@ -90,7 +106,7 @@ const Navbar = (props) => {
                   </div>
                 </div>
               </>
-            ) : null}
+            ) : null} */}
           </li>
         </ul>
         {menu ? (

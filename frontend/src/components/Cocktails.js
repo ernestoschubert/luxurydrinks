@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
-    //eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (props.todosLosCocktails === null) {

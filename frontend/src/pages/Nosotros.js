@@ -13,11 +13,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1835</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" alt="sir trevor" />
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" alt="sir trevor 2"/>
                 <h3>El Fundador</h3>
               </div>
             </div>
@@ -34,10 +34,10 @@ const Nosotros = () => {
             <div class="face face1">
             <div className="containerYearCard">
             <h4 className="yearCardNosotros">1876</h4>
-            <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083e36a548.png" />
+            <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083e36a548.png" alt="5"/>
             </div>
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083e36a548.png" />
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083e36a548.png" alt="6"/>
                 <h3>Nace Beefeater</h3>
               </div>
             </div>
@@ -53,10 +53,10 @@ const Nosotros = () => {
             <div class="face face1">
             <div className="containerYearCard">
             <h4 className="yearCardNosotros">1963</h4>
-            <img className="yearCardNosotros" width="80" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083c06577c.jpeg" />
+            <img className="yearCardNosotros" width="80" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083c06577c.jpeg" alt="6"/>
             </div>
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083c06577c.jpeg"/>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da083c06577c.jpeg" alt="7"/>
                 <h3>Éxito en USA</h3>
               </div>
             </div>
