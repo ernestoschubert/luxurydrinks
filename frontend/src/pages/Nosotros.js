@@ -1,4 +1,5 @@
 import "../styles/nosotros.css";
+import LogoLuxury from "../components/assetsCocktails/luxuriuslogo.png";
 
 const Nosotros = () => {
   return (
@@ -71,19 +72,18 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1987</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+             <img className="yearCardNosotros" width="90" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png"/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
-                <h3>Un nuevo comienzo</h3>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png"/>
+                <h3>Un Nuevo Comienzo</h3>
               </div>
             </div>
             <div class="face face2">
               <div class="content">
                 <p>
-                  James Burrough, fundador de Beefeater Gin, nace en Devon. Su
-                  carrera como farmacéutico, le lleva a Toronto, Canadá.
+                Beefeater deja de pertenecer a la familia Burrough después de casi 100 años y es comprada por Whitbread.
                 </p>
               </div>
             </div>
@@ -92,19 +92,18 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1995</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png"/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
-                <h3>Un nuevo maestro</h3>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png"/>
+                <h3>Un Nuevo Maestro</h3>
               </div>
             </div>
             <div class="face face2">
               <div class="content">
                 <p>
-                  James Burrough, fundador de Beefeater Gin, nace en Devon. Su
-                  carrera como farmacéutico, le lleva a Toronto, Canadá.
+                Desmond Payne se convierte en el Maestro Destilador.
                 </p>
               </div>
             </div>
@@ -113,19 +112,18 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2005</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg"/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
-                <h3>Nuevos dueños</h3>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg"/>
+                <h3>Nuevos Dueños</h3>
               </div>
             </div>
             <div class="face face2">
               <div class="content">
                 <p>
-                  James Burrough, fundador de Beefeater Gin, nace en Devon. Su
-                  carrera como farmacéutico, le lleva a Toronto, Canadá.
+                Pernod Ricard compra Beefeater Dry Gin y pone en marcha un programa de reinversión en la marca.
                 </p>
               </div>
             </div>
@@ -134,19 +132,18 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2008</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+             <img className="yearCardNosotros" width="110" src={LogoLuxury}/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
-                <h3>Luxury Drink</h3>
+                <img width="130" src={LogoLuxury}/>
+                <h3>Luxury Drinks</h3>
               </div>
             </div>
             <div class="face face2">
               <div class="content">
                 <p>
-                  James Burrough, fundador de Beefeater Gin, nace en Devon. Su
-                  carrera como farmacéutico, le lleva a Toronto, Canadá.
+                  Crhis Pratt, argentino de padres estadounidenses y británicos, queda fascinado con la marca. Aprovecha sus contactos y se convierte en distribuidor oficial en Argentina.
                 </p>
               </div>
             </div>
@@ -154,20 +151,19 @@ const Nosotros = () => {
           <div class="card">
             <div class="face face1">
               <div className="containerYearCard">
-              <h4 className="yearCardNosotros">2017</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+              <h4 className="yearCardNosotros">2019</h4><br/>
+             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png"/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
-                <h3>El Fundador</h3>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png"/>
+                <h3>The Best</h3>
               </div>
             </div>
             <div class="face face2">
               <div class="content">
                 <p>
-                  James Burrough, fundador de Beefeater Gin, nace en Devon. Su
-                  carrera como farmacéutico, le lleva a Toronto, Canadá.
+                  La empresa tiene su época dorada al ser el único distribuidor oficial del gin tonic más premiado del mundo (2004 - 2019).
                 </p>
               </div>
             </div>
