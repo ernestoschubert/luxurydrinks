@@ -45,7 +45,6 @@ Router.route('/drink/:id')
 Router.route('/admin/adddrink')
     .post(passport.authenticate('jwt', { session: false }), addDrink)
 
-
 Router.route('/admin/drink/:id')
     .put(passport.authenticate('jwt', { session: false }), updateDrink)
     .delete(passport.authenticate('jwt', { session: false }), deleteDrink)

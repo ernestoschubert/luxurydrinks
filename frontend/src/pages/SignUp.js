@@ -96,19 +96,19 @@ const SignUp = () => {
             title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
             icon: "success",
           });
-          navigate('/')
+          navigate("/");
         } else if (respuesta.data.error) {
           Alert.fire({
             title: `${respuesta.data.error}`,
             icon: "error",
           });
         } else {
-          respuesta.data.errors.map((e) => (
+          respuesta.data.errors.map((e) =>
             Alert.fire({
               title: e.message,
               icon: "error",
             })
-          ))
+          );
         }
       } catch (err) {
         console.log(err);

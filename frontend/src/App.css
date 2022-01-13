@@ -40,3 +40,7 @@
 .links{
   border-bottom: 2px solid transparent;
 }
+
+.link{
+  text-decoration: none;
+}

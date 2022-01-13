@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Card = ({ card }) => {
   return (
     <>
-      <Link to={`/Gin/${card._id}`}>
+      <Link to={`/Gin/${card._id}`} className="no-underline">
         <div class="max-w-2xl mx-auto">
           <div class="bg-luxury shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
             <img
@@ -11,13 +11,10 @@ const Card = ({ card }) => {
               src={card.drinkImg}
               alt={card.drinkName}
             />
-
             <div class="px-5 pb-5">
-              <a href="#">
-                <h3 class="text-gray-50 font-semibold text-xl tracking-tight dark:text-white">
-                  {card.drinkName}
-                </h3>
-              </a>
+              <h3 class="text-gray-50 font-semibold text-xl tracking-tight dark:text-white">
+                {card.drinkName}
+              </h3>
               <div class="flex items-center mt-2.5 mb-5">
                 <svg
                   class="w-5 h-5 text-yellow-300"
@@ -67,13 +64,12 @@ const Card = ({ card }) => {
                 <span class="text-3xl font-bold text-gray-50 dark:text-white">
                   ${card.price}
                 </span>{" "}
-                <span class="text-sm text-gray-600">stock: {card.stock}</span>
-                <a
-                  href="#"
+                <span class="text-xl text-black">stock: {card.stock}</span>
+                <button
                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   Añadir al carrito
-                </a>
+                </button>
               </div>
             </div>
           </div>

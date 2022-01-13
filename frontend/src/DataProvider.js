@@ -10,8 +10,6 @@ const DataProvider = (props) => {
 	const [carrito, setCarrito] =useState([])
 	const [total, setTotal] = useState(0)
 
-	console.log(carrito)
-    console.log(props)
   useEffect(() => {
         props.fetchProducts()
 		const producto = props.products
@@ -21,7 +19,6 @@ const DataProvider = (props) => {
 			setProductos([])
 		}
 	}, []);
-    console.log(productos)
 	const addCarrito = (id) =>{
 		const check = carrito.every(item =>{
 			return item.id !== id
