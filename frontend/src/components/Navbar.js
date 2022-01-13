@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { FaShoppingCart, FaSignInAlt } from "react-icons/fa";
 import { useState, useContext } from "react";
 import { DataContext } from "../DataProvider";
 import "../styles/navbar.css"
+import authActions from "../redux/actions/authActions";
+import { connect } from "react-redux";
 
 const Navbar = (props) => {
-  // const [dropdown, setDropdown] = useState(false)
   const [menu, setMenu] = useState(true)
 
   const value = useContext(DataContext);
@@ -17,11 +18,10 @@ const Navbar = (props) => {
     setMenuCart(!menuCart)
   }
  
-
   const handleLogOut = () => {
     props.logOut();
   };
-  console.log(props.role)
+  
   return (
     <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -53,60 +53,6 @@ const Navbar = (props) => {
       <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
         <ul class="m-2 flex  ">
           <li>
-
-            {/* <div
-              class="flex space-x-5 cursor-pointer padding-2"
-              onClick={() => setDropdown(!dropdown)}
-            >
-              <div class="relative top-0 right-10">
-                <FaShoppingCart class="text-5xl" />
-                <div class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2">
-                  <div class="min-w-[.5rem] inline-flex items-center justify-center h-5 text-xl text-white bg-yellow-500 rounded-full px-1">
-                    2
-                  </div>
-                </div>
-              </div>
-            </div>
-            {dropdown ? (
-              <>
-                <div class="absolute p-10 w-full  rounded-b border-t-0 z-10">
-                  <div class="shadow-xl w-64">
-                    <div class="p-2 flex bg-white hover:bg-gray-100 cursor-pointer border-b border-gray-100">
-                      <div class="p-2 w-12">
-                        <img
-                          src="https://dummyimage.com/50x50/bababa/0011ff&amp;text=50x50"
-                          alt="img product"
-                        />
-                      </div>
-                      <div class="flex-auto text-sm w-32">
-                        <div class="font-bold">Product 1</div>
-                        <div class="truncate">Product 1 description</div>
-                        <div class="text-gray-400">Qt: 2</div>
-                      </div>
-                      <div class="flex flex-col w-18 font-medium items-end">
-                        <div class="w-4 h-4 mb-6 hover:bg-red-200 rounded-full cursor-pointer text-red-700">
-                          <FaTrashAlt />
-                        </div>
-                        $12.22
-                      </div>
-                    </div>
-
-                    <div class="p-4 justify-center flex">
-                      <button
-                        class="btn-menu text-base  undefined  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-        hover:bg-teal-700 hover:text-teal-100 
-        bg-teal-100 
-        text-teal-700 
-        border duration-200 ease-in-out 
-        border-teal-600 transition"
-                      >
-                        Checkout $36.66
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </>
-            ) : null} */}
           </li>
         </ul>
         {menu ? (

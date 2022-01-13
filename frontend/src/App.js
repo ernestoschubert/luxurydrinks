@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nosotros from "./pages/Nosotros";
 import Cocktails from "./pages/Cocktails";
 import NuestrosGins from "./pages/NuestrosGins";
@@ -13,11 +13,8 @@ import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
-import Cart from './components/Cart'
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
-
-const Gin = withRouter(GinNoProps)
 
 const Gin = withRouter(GinNoProps);
 
@@ -29,23 +26,26 @@ function App(props) {
     }
   }, []);
 
-
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Nosotros" element={<Nosotros />} />
-          <Route path="/Cocktails" element={<Cocktails />} />
-          <Route path="/NuestrosGins" element={<NuestrosGins />} />
-          <Route path="/Gin/:id" element={<Gin />} />
-          {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
-          {!props.user && <Route path="/Loguearse" element={<Login />} />}
-          {props.role === 'admin' && <Route path="/panelAdmin" element={<PanelAdmin />} />}
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <DataProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Nosotros" element={<Nosotros />} />
+            <Route path="/Cocktails" element={<Cocktails />} />
+            <Route path="/NuestrosGins" element={<NuestrosGins />} />
+            <Route path="/Gin/:id" element={<Gin />} />
+            {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
+            {!props.user && <Route path="/Loguearse" element={<Login />} />}
+            {props.role === "admin" && (
+              <Route path="/panelAdmin" element={<PanelAdmin />} />
+            )}
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </DataProvider>
     </>
   );
 }
@@ -54,7 +54,7 @@ const mapStateToProps = (state) => {
   return {
     token: state.authReducers.token,
     user: state.authReducers.user,
-    role: state.authReducers.role
+    role: state.authReducers.role,
   };
 };
 const mapDispatchToProps = {
