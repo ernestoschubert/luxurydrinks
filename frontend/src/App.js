@@ -39,7 +39,7 @@ function App(props) {
           <Route path="/Gin/:id" element={<Gin/>}/>
           <Route path="/Registrarse" element={<SignUp/>}/>
           <Route path="/Loguearse" element={<Login/>}/>
-          <Route path="/panelAdmin" element={<PanelAdmin />} />
+          <Route path="/PanelAdmin" element={<PanelAdmin />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
