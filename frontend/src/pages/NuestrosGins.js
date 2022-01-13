@@ -9,6 +9,7 @@ const NuestrosGins = (props) => {
   const [alpha, setAlpha] = useState(false)
   const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
 
+
   useEffect(() => {
     fetchProducts();
   }, []);

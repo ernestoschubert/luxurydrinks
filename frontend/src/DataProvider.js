@@ -11,13 +11,13 @@ const DataProvider = (props) => {
 	const [total, setTotal] = useState(0)
 
 	console.log(carrito)
-
+    console.log(props)
   useEffect(() => {
         props.fetchProducts()
 		const producto = props.products
 		if(producto){
 			setProductos(producto)
-		}else{
+		} else {
 			setProductos([])
 		}
 	}, []);
