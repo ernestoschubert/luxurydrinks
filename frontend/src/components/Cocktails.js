@@ -29,9 +29,9 @@ function Cocteles(props) {
           <h2>Trucos y sugerencias para una mejor experiencia Beefeater</h2>
         </div>
         {props.todosLosCocktails.length > 0 ? (
-          props.todosLosCocktails.map((element) => {
+          props.todosLosCocktails.map((element, index) => {
             return (
-              <div className="mainCards">
+              <div className="mainCards" key={index}>
                 <div className="cardsCocktails">
                   <div class="min-h-max w-full bg-white-00 mb-8">
                     <div class="max-w-screen-md mx-4 px-20 pt-40">

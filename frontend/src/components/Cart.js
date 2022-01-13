@@ -16,16 +16,16 @@ const Cart = () => {
         
         const reduce = id =>{
             carrito.forEach(item =>{
-                if(item.id === id){
-                    item.cantidad === 1 ? item.cantidad = 1: item.cantidad -=1;
+                if(item._id === id){
+                    item.quantity === 1 ? item.quantity = 1: item.quantity -=1;
                 }
                 setCarrito([...carrito])
             })
         }
         const increase = id =>{
             carrito.forEach(item =>{
-                if(item.id === id){
-                    item.cantidad +=1;
+                if(item._id === id){
+                    item.quantity +=1;
                 }
                 setCarrito([...carrito])
             })
@@ -34,8 +34,8 @@ const Cart = () => {
         const removeProducto = id =>{
             if(window.confirm("¿Quieres suspender el producto?")){
                 carrito.forEach((item, index)=>{
-                    if(item.id === id){
-                        item.cantidad = 1;
+                    if(item._id === id){
+                        item.quantity = 1;
                         carrito.splice(index, 1)
                     }
                 })
@@ -63,27 +63,27 @@ const Cart = () => {
                 <>
                 {
                 carrito.map((producto) => (
-                    <div className="carrito__item" key={ producto.id }>
-                        <img src={ producto.image } alt={ producto.title } />
+                    <div className="carrito__item" key={ producto._id }>
+                        <img src={ producto.drinkImg } alt={ producto.drinkName } />
                         <div>
-                            <h3> {producto.title} </h3>
+                            <h3> { producto.type + " " + producto.drinkName} </h3>
                             <p className="price">
                                 ${producto.price}
                             </p>
                         </div>
                         <div>
                             <FaArrowAltCircleUp
-                                onClick={() => increase(producto.id)}
+                                onClick={() => increase(producto._id)}
                             />
                             <p className="cantidad">
-                                {producto.cantidad}
+                                {producto.quantity}
                             </p>
                             <FaArrowAltCircleDown
-                                onClick={() => reduce(producto.id)} 
+                                onClick={() => reduce(producto._id)} 
                             />
                         </div>
                         <div 
-                            onClick={() => removeProducto(producto.id)} 
+                            onClick={() => removeProducto(producto._id)} 
                             className="remove__item"
                         >
                             <FaRegTimesCircle />

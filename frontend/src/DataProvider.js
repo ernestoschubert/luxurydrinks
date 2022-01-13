@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
-import { connect } from "react-redux";
-import productAction from './redux/actions/productAction'
+import productAction from './redux/actions/productAction';
+import axios from "axios";
 
 export const DataContext = createContext();
 
@@ -12,24 +12,23 @@ const DataProvider = (props) => {
 
 	console.log(carrito)
     console.log(props)
-  useEffect(() => {
-        props.fetchProducts()
-		const producto = props.products
-		if(producto){
-			setProductos(producto)
-		} else {
-			setProductos([])
-		}
-	}, []);
-    console.log(productos)
+
+	useEffect(() => {
+		axios.get('http://localhost:4000/api/drinks')
+		.then(res => setProductos(res.data.drinks))
+		.catch(error => console.log(error))
+	}, [])
+
+	console.log(productos)
+
 	const addCarrito = (id) =>{
 		const check = carrito.every(item =>{
-			return item.id !== id
+			return item._id !== id
 			
 		})
 		if(check){
 			const data = productos.filter(producto =>{
-				return producto.id === id
+				return producto._id === id
 			})
 			setCarrito([...carrito, ...data])
 		}else{
@@ -50,7 +49,7 @@ const DataProvider = (props) => {
 	useEffect(() =>{
 		const getTotal = () =>{
 			const res = carrito.reduce((prev, item) =>{
-				return prev + (item.price * item.cantidad)
+				return prev + (item.price * item.quantity)
 			},0)
 			setTotal(res)
 		}
@@ -71,14 +70,5 @@ const DataProvider = (props) => {
 	)
 };
 
-const mapStateToProps = state => {
-    return {
-        products: state.productsReducer.auxiliar
-    }
-}
 
-const mapDispatchToProps =  {
-    fetchProducts: productAction.fetchProducts
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataProvider)
+export default DataProvider

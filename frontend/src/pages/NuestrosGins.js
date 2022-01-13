@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { connect } from "react-redux";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
+import { DataContext } from "../DataProvider";
 import productActions from "../redux/actions/productAction";
 
 const NuestrosGins = (props) => {
@@ -9,6 +10,8 @@ const NuestrosGins = (props) => {
   const [alpha, setAlpha] = useState(false)
   const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
 
+	const value = useContext(DataContext)
+	const [productos] = value.productos;
 
   useEffect(() => {
     fetchProducts();
@@ -16,11 +19,11 @@ const NuestrosGins = (props) => {
   
   const handlePrice = () => {
     setPrice(!price)
-    filterProducts("price",products, price)
+    filterProducts("price", products, price)
   }
   const handleAlpha = () => {
     setAlpha(!alpha)
-    filterProducts("alpha",products, alpha)
+    filterProducts("alpha", products, alpha)
   }
   return (
     <div class="flex items-center justify-center flex-col ">
