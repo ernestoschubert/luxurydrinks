@@ -15,6 +15,7 @@ import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
+import Coctel from "./components/Coctel";
 
 const Gin = withRouter(GinNoProps);
 
@@ -37,6 +38,7 @@ function App(props) {
             <Route path="/Cocktails" element={<Cocktails />} />
             <Route path="/NuestrosGins" element={<NuestrosGins />} />
             <Route path="/Gin/:id" element={<Gin />} />
+            <Route path="/Cocktail/:id" element={<Coctel/>}/>
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
             {!props.user && <Route path="/Loguearse" element={<Login />} />}
             {props.role === "admin" && (

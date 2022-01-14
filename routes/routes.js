@@ -57,7 +57,7 @@ Router.route('/drinks/favorites/:id')
 Router.route('/cocktails')
     .get(getCocktails)
 
-Router.route('/cocktail/:id')
+Router.route('/cocktails/:id')
     .get(getCocktail)
 
 Router.route('/admin/addcocktail')
