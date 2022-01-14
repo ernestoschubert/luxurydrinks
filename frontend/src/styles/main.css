@@ -29,20 +29,8 @@
   align-items            : center;
   text-align             : center;
 }
-@media (max-width: 376px){
-  .tarjeta{
-    font-size: 10pt;
-  }
-  .video{
-    display: none;
-  }
-  .textCall{
-    justify-content: start;
-    font-size: 30pt !important;
-    width: 100% !important;
-  }
-  
-}
+
+
 
 .tarjeta img {
   padding: 0.5rem 2rem 0rem 0rem;
@@ -61,22 +49,25 @@
 }
 
 .mainvideo {
-  background-image: url("https://www.solofondos.com/wp-content/uploads/2016/10/Wallpaper-rojo-HD.jpg");
+  background-image   : url("https://www.solofondos.com/wp-content/uploads/2016/10/Wallpaper-rojo-HD.jpg");
   background-position: center;
-  height          : 70vh;
-  border-top      : red;
-  border-style    : groove;
-  display         : flex;
-  justify-content : space-between;
+  background-size    : cover;
+  border-top         : red;
+  border-style       : groove;
+  display            : flex;
+  justify-content    : center;
 }
+
 .mainCocktail {
-  background-image: url("https://previews.123rf.com/images/redchanka/redchanka1702/redchanka170200028/71245966-fondo-de-piedras-blancas-hermosa-textura-para-el-dise%C3%B1o.jpg");
+  display            : flex;
+  flex-direction     : center;
+  text-align         : center;
+  background-image   : url("https://s1.1zoom.me/big3/585/Texture_Brick_Wall_White_545270_3000x1682.jpg");
   background-position: center;
-  height          : 70vh;
-  border-top      : red;
-  border-style    : groove;
-  display         : flex;
-  justify-content : space-between;
+  border-top         : red;
+  border-style       : groove;
+  display            : flex;
+  justify-content    : space-between;
 }
 
 .video {
@@ -84,39 +75,188 @@
 }
 
 .textCall {
+  width          : 50%;
   display        : flex;
   flex-direction : column;
+  justify-content: center;
+  text-align     : center;
   color          : white;
   font-family    : 'Century Gothic';
   font-size      : 44pt;
   font-weight    : bold;
-  width          : 50%;
-  justify-content: center;
-  text-align     : center;
   text-shadow    : 0 5px 5px rgba(10, 10, 10, 0.575);
 }
 
 .buttonAccess {
-  margin-top: 2rem;
+  width           : 50%;
+  margin          : 2rem 5rem 2rem 20rem;
   padding         : 20px 10px;
-  background-color: rgb(248, 8, 8);
-  color           : #fff;
+  background-color: #fff;
+  color           : rgb(248, 8, 8);
   border-radius   : 5px;
-  font-size: 24px;
+  font-size       : 24px;
 }
 
 .buttonAccess:hover {
-  background-color: #fff;
-  color           : rgb(248, 8, 8);
+  background-color: rgb(248, 8, 8);
+  color           : #fff;
   transition      : .5%;
-
 }
-.bg-luxury{
+
+.bg-luxury {
   background-color: rgba(12, 1, 1, 0.459);
 }
-.bg-luxury:hover{
+
+.bg-luxury:hover {
   background-color: rgba(206, 13, 13, 0.986);
 }
-.fondo-ladrillos{
+
+.fondo-ladrillos {
   background-image: url('https://s1.1zoom.me/big3/585/Texture_Brick_Wall_White_545270_3000x1682.jpg');
+}
+
+.publicidadCocktail {
+  background-color: rgba(255, 255, 255, 0.788);
+  width           : 50%;
+  margin          : 10rem 20rem;
+}
+
+.textCallCoctel {
+  width          : 90%;
+  display        : flex;
+  flex-direction : column;
+  justify-content: initial;
+  text-align     : start;
+  color          : white;
+  font-family    : 'Century Gothic';
+  font-size      : 25pt;
+  font-weight    : bold;
+  text-shadow    : 0 5px 5px rgba(10, 10, 10, 0.575);
+}
+
+.textCoctel {
+  display        : flex;
+  flex-direction : column;
+  justify-content: center;
+  text-align     : start;
+  color          : white;
+  font-family    : 'Century Gothic';
+  font-size      : 30pt;
+  font-weight    : bold;
+  text-shadow    : 0 5px 5px rgba(10, 10, 10, 0.575);
+
+}
+@media (max-width: 376px) {
+  .tarjeta {
+    font-size: 10pt;
+  }
+
+  .video {
+    display: none;
+  }
+
+  .textCall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size      : 30pt !important;
+    width          : 100% !important;
+  }
+  .buttonAccess {
+    width           : 40%;
+    margin          : 2rem;
+    padding         : 15px 7px;
+    background-color: #fff;
+    color           : rgb(248, 8, 8);
+    border-radius   : 5px;
+    font-size       : 20px;
+  }
+  .textCoctel {
+    font-size      : 20pt;
+  }
+
+}
+@media (max-width: 481px) {
+  .tarjeta {
+    font-size: 10pt;
+  }
+
+  .video {
+    display: none;
+  }
+  .textCall {
+    justify-content: start;
+    font-size      : 30pt !important;
+    width          : 100% !important;
+  }
+  .buttonAccess {
+    width           : 40%;
+    margin          : 2rem 5rem 2rem 13rem;
+    padding         : 15px 7px;
+    background-color: #fff;
+    color           : rgb(248, 8, 8);
+    border-radius   : 5px;
+    font-size       : 20px;
+  }
+  .textCoctel {
+    font-size      : 20pt;
+  }
+}
+@media (max-width: 768px) {
+  .tarjeta {
+    font-size: 10pt;
+  }
+  .video {
+    width: 100%;
+    padding: 1rem;
+  }
+  .textCall {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size      : 20pt !important;
+    width          : 100% !important;
+  }
+  .buttonAccess {
+    width           : 40%;
+    margin          : 2rem 5rem 2rem 13rem;
+    padding         : 15px 7px;
+    background-color: #fff;
+    color           : rgb(248, 8, 8);
+    border-radius   : 5px;
+    font-size       : 20px;
+  }
+  .textCoctel {
+    font-size      : 20pt;
+  }
+}
+@media (max-width: 1024px) {
+  
+  .video {
+    width: 100%;
+    padding: 1rem;
+  }
+  .textCall {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size      : 20pt !important;
+    width          : 100% !important;
+  }
+  .buttonAccess {
+    width           : 40%;
+    margin          : 2rem 5rem 2rem 15rem;
+    padding         : 15px 7px;
+    background-color: #fff;
+    color           : rgb(248, 8, 8);
+    border-radius   : 5px;
+    font-size       : 20px;
+  }
+  .textCoctel {
+    font-size      : 20pt;
+  }
 }

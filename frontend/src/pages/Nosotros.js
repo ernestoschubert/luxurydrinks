@@ -17,7 +17,7 @@ const Nosotros = () => {
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" alt="sir trevor 2"/>
+                <img src="https://i.imgur.com/VZOSStS.jpg" />
                 <h3>El Fundador</h3>
               </div>
             </div>
