@@ -8,10 +8,10 @@ const initialState = {
       case "LOAD_DRINK":
         return {
           ...state,
-          cocteles: action.payload.respuesta,
+          cocteles: action.payload,
         };
-      default:
-        return state;
+        default:
+          return state;
     }
   };
   export default coctelReducer;

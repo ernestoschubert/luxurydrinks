@@ -33,8 +33,8 @@ const cocktailControllers = {
     },
     getCocktail: async(req, res) => {
         try {
-            const cocktail = await Cocktail.find({_id: req.params.id}).populate('drinkId')
-            res.json({ success: true, cocktail })
+            const cocktail = await Cocktail.find({drinkId: req.params.id}).populate('drinkId')
+            res.json({ success: true, respuesta: cocktail })
         } catch(error) {
             res.json({ success: false, response: null, error: error })
         }
