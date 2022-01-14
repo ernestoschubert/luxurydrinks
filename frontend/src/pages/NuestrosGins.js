@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { connect } from "react-redux";
 import Card from "../components/Card";
 import Loader from "../components/Loader";
+import { DataContext } from "../DataProvider";
 import productActions from "../redux/actions/productAction";
 import "../styles/main.css";
 
@@ -10,20 +11,21 @@ const NuestrosGins = (props) => {
   const [alpha, setAlpha] = useState(false);
   const { filterProducts, fetchProducts, auxiliar, loading, products } = props;
 
+	const value = useContext(DataContext)
+	const [productos] = value.productos;
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const handlePrice = () => {
-    setPrice(!price);
-    filterProducts("price", products, price);
-  };
+    setPrice(!price)
+    filterProducts("price", products, price)
+  }
   const handleAlpha = () => {
-    setAlpha(!alpha);
-    filterProducts("alpha", products, alpha);
-  };
-
-  
+    setAlpha(!alpha)
+    filterProducts("alpha", products, alpha)
+  }
   return (
     <div class="flex items-center justify-center flex-col fondo-ladrillos">
       <div class="w-72 m-4">

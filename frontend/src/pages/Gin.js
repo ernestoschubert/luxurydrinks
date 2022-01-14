@@ -14,7 +14,7 @@ const Gin = (props) => {
   const [ productos ] = value.productos;
   const addCarrito = value.addCarrito;
 
-
+  console.log(productos)
   const id = props.params.id;
   useEffect(() => {
     fetchProducts();
