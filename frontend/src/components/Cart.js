@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaArrowAltCircleUp, FaArrowAltCircleDown, FaRegTimesCircle } from "react-icons/fa";
+import { FaArrowAltCircleUp, FaArrowAltCircleDown, FaRegTimesCircle, FaTrashAlt } from "react-icons/fa";
 import '../styles/cart.css'
 import { DataContext } from '../DataProvider';
 
@@ -9,6 +9,8 @@ const Cart = () => {
     const [menuCart, setMenuCart] = value.menuCart;
     const [carrito, setCarrito] = value.carrito;
     const [total] = value.total;
+
+    const stockActualizado = (producto) => producto.stock - producto.quantity
 
     const tooglefalse = () => {
         setMenuCart(false);
@@ -52,7 +54,7 @@ const Cart = () => {
         <div className={show1}>
           <div className={show2}>
             <div onClick={tooglefalse} className="carrito__close">
-              <FaRegTimesCircle />
+              <FaRegTimesCircle className='closeModel'/>
             </div>
             <h2>Su Carrito</h2>
             <div className="carrito__center">
@@ -70,23 +72,39 @@ const Cart = () => {
                             <p className="price">
                                 ${producto.price}
                             </p>
+                            <p className="stock">
+                                Stock: 
+                            {   
+                                stockActualizado(producto) > 5 ? 
+                                stockActualizado(producto) 
+                                :
+                                " " + stockActualizado(producto) + " ultimas unidades!!"
+                            }
+
+                            </p>
                         </div>
                         <div>
-                            <FaArrowAltCircleUp
-                                onClick={() => increase(producto._id)}
-                            />
+                            <button className='arrowButton'>
+                                <FaArrowAltCircleUp
+                                    className='arrowStyle'
+                                    onClick={() => increase(producto._id)}
+                                />
+                            </button>
                             <p className="cantidad">
                                 {producto.quantity}
                             </p>
-                            <FaArrowAltCircleDown
-                                onClick={() => reduce(producto._id)} 
-                            />
+                            <button className='arrowButton'>
+                                <FaArrowAltCircleDown
+                                    className='arrowStyle'
+                                    onClick={() => reduce(producto._id)} 
+                                />
+                            </button>
                         </div>
-                        <div 
-                            onClick={() => removeProducto(producto._id)} 
-                            className="remove__item"
-                        >
-                            <FaRegTimesCircle />
+                        <div className="remove__item">
+                            <FaTrashAlt 
+                                className='removeSvg'  
+                                onClick={() => removeProducto(producto._id)} 
+                            />
                         </div>
                     </div>
                             ))
@@ -97,8 +115,8 @@ const Cart = () => {
             </div>
     
             <div className="carrito__footer">
-              <h3>Total: ${total}</h3>
-              <button className="btn">Payment</button>
+              <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
+              <button className="btn">Comprar</button>
             </div>
           </div>
         </div>

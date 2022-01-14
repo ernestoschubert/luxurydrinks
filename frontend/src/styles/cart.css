@@ -42,18 +42,17 @@
 .carrito__close {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     font-size: 2rem;
 }
-.carrito__close box-icon{
+.carrito__close .closeModel{
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     transform: all 300ms ease-in-out;
-    margin: 3rem 0 0 2rem
 }
-.carrito__close box-icon:hover {
+.carrito__close .closeModel:hover {
     fill: crimson;
 }
 .carrito__center{
@@ -65,16 +64,19 @@
     grid-template-columns: 1fr 2fr 1fr 1fr;
     width: 80%;
     margin: 2rem auto;
-    box-shadow: 0 1px 10px saddlebrown;
-    border-radius: 5px;
+    box-shadow: 0 0 5px #eb0606;
+    border-radius: .5rem;
 }
 .carrito__item div{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
     align-items: center;
 }
 .carrito__item img{
-    width: 10rem;
+    height: 15rem;
+    margin: 1rem auto;
 }
 .carrito__item h3{
     margin-top: 1.5rem;
@@ -87,24 +89,30 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: start;
-    margin-left: -17rem ;
 }
-.carrito__item box-icon{
-    fill:#08a05c;
-    width: 40px;
-    height: 40px;
+.carrito__item .removeSvg{
+    fill: #dc143c;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
-    margin-top: .3rem;
+}
+.carrito__item .arrowStyle {
+    width: 1.8rem;
+    height: 1.8rem;
+    color: #f1365b;
+    cursor: pointer;
+}
+.carrito__item .arrowButton {
+    border: none;
+    outline: none;
 }
 .carrito__item .cantidad{
     font-size: 2rem;
     font-weight: bold;
 }
-.carrito__item .remove__item box-icon{
-    width: 60px;
-    height: 80px;
-    fill:  crimson;
-    margin-top: 2rem;
+.carrito__item .remove__item .removeSvg{
+    width: 2rem;
+    fill:  #dc143c;
 }
 .carrito__footer{
     text-align: center;
@@ -150,7 +158,12 @@
 .detalles .price{
     font-size: 2.5rem;
     font-weight: 700;
-    color: #08a05c;
+    color: crimson;
+}
+.stock {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #dc143c;
 }
 .detalles button{
     max-width: 300px;
@@ -180,7 +193,7 @@
    
 }
 .detalles .grid .nuevo{
-    background-color:#08a05c;
+    background-color:#dc143c;
     
 }
 .detalles .grid .tamano{
