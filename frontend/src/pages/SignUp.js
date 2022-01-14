@@ -62,10 +62,7 @@ const SignUp = () => {
             email: email.current.value,
             password: password.current.value,
             userImg: file,
-            age:
-              age.current.value >= 18
-                ? age.current.value
-                : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" }),
+            age: age.current.value,
           })
         );
 
