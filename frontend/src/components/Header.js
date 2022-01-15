@@ -8,10 +8,10 @@ const Header = () => {
     <header className="home">
       <div className="title home"  style={{backgroundImage: `url("./assets/Home.jpeg")`}}>
         <div className="banner-text">
-          <h2>El Gin</h2>
-          <h1>Más Premiado del<span> Mundo</span></h1>
+          <h2>EL GIN</h2>
+          <h1>MÁS PREMIADO DEL<span> MUNDO</span></h1>
         </div>
-         <button className="buttonHome">Descubrí más</button>
+         <button className="buttonHome">DESCUBRÍ MÁS</button>
        
       </div>
     </header>

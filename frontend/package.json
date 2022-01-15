@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "bootstrap": "^3.4.1",
+    "bourbon": "^7.0.0",
     "firebase": "^9.6.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
@@ -22,7 +23,7 @@
     "reactstrap": "^9.0.1",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "sass": "^1.46.0",
+    "sass": "^1.48.0",
     "scss": "^0.2.4",
     "sweetalert2": "^11.3.4",
     "web-vitals": "^2.1.2"

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import '../styles/login.css';
 import { Form, Button } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import { useDispatch } from "react-redux";
@@ -103,9 +104,13 @@ const LogIn = () => {
 
 
     return (
+      <>
+      <div className="loguearHeader">
+    <h1 className="tittleRegistro">INICIAR SESIÓN</h1>
+  </div>
         <Form className="d-flex flex-column form-container col-10" variant="light" onSubmit={loguearse}>
 
-            <h1 className="mb-5" style={{ color: 'black' }}>Loguearse</h1>
+            <h1 className="titleForm">BIENVENIDO</h1>
 
             <Form.Group className="mb-5 col-5" controlId="formBasicEmail">
                 <Form.Label className="text-light">Email</Form.Label>
@@ -142,6 +147,7 @@ const LogIn = () => {
             </div>
 
         </Form>
+        </>
     )
 }
 

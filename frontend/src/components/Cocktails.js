@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/cocktails.css";
-import LogoLuxury from "../components/assetsCocktails/luxuriuslogo.png";
+import "../styles/sass/cocktails.scss";
 import productActions from "../redux/actions/productAction";
 import Loader from "./Loader";
 import { connect } from "react-redux";
@@ -26,37 +26,30 @@ function Cocteles(props) {
           <h1 className="tittleCocktails">Cocktails</h1>
         </div>
         <div className="subtittleCocktails">
-          <h2>Trucos y sugerencias para una mejor experiencia Beefeater</h2>
+          <h2>Nuestras recetas para una mejor experiencia Beefeater</h2>
         </div>
         {props.todosLosCocktails.length > 0 ? (
           props.todosLosCocktails.map((element) => {
             return (
-              <Link to={`/Cocktail/${element._id}`}>
-                <div className="mainCards">
-                  <div className="cardsCocktails">
-                    <div class="min-h-max w-full bg-white-00 mb-8">
-                      <div class="max-w-screen-md mx-4 px-20 pt-40">
-                        <div class="bg-[#dc2626] md:h-48 rounded-lg shadow-md flex flex-wrap flex-col-reverse md:flex-col hover:bg-[#fee2e2]-700">
-                          <div class="w-full md:w-1/2 p-1">
-                            <img src={LogoLuxury} alt="" class="w-10" />
-                            <h3 class="text-3xl font-bold">
-                              {element.drinkName}
-                            </h3>
-                            <p class="text-white">{element.description}</p>
-                          </div>
-                          <div class="w-full md:w-1/5 p-4 md:p-3">
-                            <img
-                              src={element.drinkImg}
-                              alt="gin&tonic"
-                              class="w-64 mx-auto ml-16 rounded-lg"
-                            />
-                          </div>
-                        </div>
-                      </div>
+              <div className="cocktailPadre">
+                    <Link to={`/Cocktail/${element._id}`}>
+              <div className="containerCocktails">
+                  <div class="card">
+                    <img
+                      src={element.drinkImg}
+                      class="card__image"
+                      alt="brown couch"
+                    />
+                    <div class="card__content">
+                      <time datetime="2021-03-30" class="card__date">
+                        {element.drinkName}
+                      </time>
+                      <span class="card__title">{element.description}</span>
                     </div>
                   </div>
                 </div>
               </Link>
+              </div>
             );
           })
         ) : (

@@ -59,25 +59,25 @@ const Navbar = (props) => {
                 to="/"
                 class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
-                Home
+                HOME
               </Link>
               <Link
                 to="/Nosotros"
                 class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
-                Nosotros
+                NOSOTROS
               </Link>
               <Link
                 to="/NuestrosGins"
                 class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
-                Nuestros Gins
+                NUESTROS GINS
               </Link>
               <Link
                 to="/Cocktails"
                 class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
-                Cocktails
+                COCKTAILS
               </Link>
               {!props.user ? (
                 <>
@@ -85,13 +85,13 @@ const Navbar = (props) => {
                     to="/Registrarse"
                     class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
                   >
-                    Registrate
+                    REGISTRATE
                   </Link>
                   <Link
                     to="/Loguearse"
                     class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
                   >
-                    Ingresa
+                    INGRESÁ
                   </Link>
                 </>
               ) : (

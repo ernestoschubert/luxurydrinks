@@ -26,11 +26,12 @@
   justify-content: center;
   align-items: center;
   font-family: consolas;
-  background-image: url("https://fondosmil.com/fondo/33460.jpg");
+  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg");
 }
 
 .container {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-self: center;
 }
@@ -44,19 +45,19 @@
   flex-direction: column;
   align-items: flex-end;
 }
-.container .card {
+.container .cardNosotros {
   position: relative;
   padding: 1rem;
   margin-left: 3rem;
 }
 
-.container .card .face {
+.container .cardNosotros .face {
   width: 300px;
   height: 200px;
   transition: 0.5s;
 }
 
-.container .card .face.face1 {
+.container .cardNosotros .face.face1 {
   position: relative;
   background: #ffffff;
   display: flex;
@@ -66,32 +67,32 @@
   transform: translateY(100px);
 }
 
-.container .card:hover .face.face1 {
+.container .cardNosotros:hover .face.face1 {
   background: #ffffff;
   transform: translateY(0);
 }
 
-.container .card .face.face1 .content {
+.container .cardNosotros .face.face1 .content {
   opacity: 0;
   transition: 0.5s;
 }
-.container .card .face.face1 .yearCardNosotros {
+.container .cardNosotros .face.face1 .yearCardNosotros {
   font-size: 4rem;
   font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
 }
-.container .card .face.face1:hover .yearCardNosotros {
+.container .cardNosotros .face.face1:hover .yearCardNosotros {
   display: none;
 }
 
-.container .card:hover .face.face1 .content {
+.container .cardNosotros:hover .face.face1 .content {
   opacity: 1;
 }
 
-.container .card .face.face1 .content img {
+.container .cardNosotros .face.face1 .content img {
   max-width: 100px;
 }
 
-.container .card .face.face1 .content h3 {
+.container .cardNosotros .face.face1 .content h3 {
   margin: 10px 0 0;
   padding: 0;
   color: rgb(0, 0, 0);
@@ -100,7 +101,7 @@
   font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
 }
 
-.container .card .face.face2 {
+.container .cardNosotros .face.face2 {
   position: relative;  
   background-color: #dc2626;
   display: flex;
@@ -112,21 +113,21 @@
   transform: translateY(-100px);
 }
 
-.container .card:hover .face.face2 {
+.container .cardNosotros:hover .face.face2 {
   transform: translateY(0);
 }
 
-.container .card .face.face2 .content p {
+.container .cardNosotros .face.face2 .content p {
   margin: 0;
   padding: 0;
   font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
   color: #ffffff;
 }
-.card:hover .yearCardNosotros {
+.cardNosotros:hover .yearCardNosotros {
   display: none;
 }
 
-.container .card .face.face2 .content a {
+.container .cardNosotros .face.face2 .content a {
   margin: 15px 0 0;
   display: inline-block;
   text-decoration: none;
@@ -135,7 +136,7 @@
   border: 1px solid #333;
 }
 
-.container .card .face.face2 .content a:hover {
+.container .cardNosotros .face.face2 .content a:hover {
   background: rgb(0, 190, 57);
   color: #fff;
 }

@@ -1,14 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
-
-.cocktailsHeader {
-    background-image: url('../components/assetsCocktails/cocktails.jpeg');
-    width: 100vw;
-    height: 50vh;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.loading{
+  text-align: center;
+  color: rgba(128, 128, 128, 0.76);
+  margin-top: 1rem;
 }
 .tittleCocktails {
   font-size: 10rem;
@@ -29,19 +22,17 @@
     align-items: center;
     font-weight: bold;
 }
-.mainCocktails {
-  background-image: url('https://fondosmil.com/fondo/33460.jpg');
-}
-
-.cardsCocktails {
-  font-family: "Tajawal", Arial;
-}
-.mainCards{
+.cocktailsHeader {
+  background-image: url('../components/assetsCocktails/cocktails.jpeg');
+  width: 100vw;
+  height: 50vh;
+  background-position: center;
   display: flex;
   justify-content: center;
-}
-.loading{
+  align-items: center;
   text-align: center;
-  color: rgba(128, 128, 128, 0.76);
-  margin-top: 1rem;
+}
+.cocktailPadre {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -25,7 +25,7 @@ function Main() {
                     />
                 </div>
                 <div className="textCall">
-                    <p>Accede a todos nuestros productos ingresando aca</p>
+                    <p>ACCEDÉ A TODOS NUESTROS PRODUCTOS INGRESANDO ACÁ</p>
                     <button className="buttonAccess">REGISTRATE</button>
                 </div>
 
@@ -35,7 +35,7 @@ function Main() {
                     <div class="md:flex p-20">
                         <div class="md:w-6/12 text-white bg-red-600 p-8 sm:rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg rounded-tl-lg flex items-center">
                             <div>
-                                <h1 class="textCoctel mb-5 font-bold">Hot Negroni</h1>
+                                <h1 class="textCoctel mb-5 font-bold">HOT NEGRONI</h1>
                                 <h2 class="textCoctel mb-12">"EMPIEZA EL 2022 DISFRUTANDO DE UN BEEFEATER GIN HOT NEGRONI".</h2>
                                 
                             </div>
