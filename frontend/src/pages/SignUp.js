@@ -8,12 +8,13 @@ import { FcGoogle } from "react-icons/fc";
 import { app } from "../services/firebase";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import Loader from '../components/Loader'
 const SignUp = () => {
   const [file, setFile] = useState("");
   const [fileUrl, setFileUrl] = useState(null);
   const [fileTarget, setFileTarget] = useState("");
-
+  const [edad, setEdad] = useState(false)
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   const firstName = useRef();
@@ -39,11 +40,27 @@ const SignUp = () => {
     },
   });
 
-  const archivoHandler = (e) => {
-    setFileTarget(e.target.files[0]);
+  const handleDate = (e) => {
+    let edad = e.target.value
+    setEdad(calcularEdad(edad))
+  }
+
+  const archivoHandler = async (e) => {
+    if(file){
+      setLoading(false)
+    }else{
+      setLoading(true)
+    }
     const image = e.target.files[0];
     const imageUrl = URL.createObjectURL(image);
     setFileUrl(imageUrl);
+
+    const storageRef = app.storage().ref();
+    const archivoPath = storageRef.child(image.name);
+    await archivoPath.put(image);
+    const enlaceUrl = await archivoPath.getDownloadURL();
+    setFile(enlaceUrl);
+    
   };
 
   const handleDelete = () => {
@@ -63,11 +80,6 @@ const SignUp = () => {
   const crearUsuario = async (e) => {
     e.preventDefault();
 
-    const storageRef = app.storage().ref();
-    const archivoPath = storageRef.child(fileTarget?.name);
-    await archivoPath.put(fileTarget);
-    const enlaceUrl = await archivoPath.getDownloadURL();
-    setFile(enlaceUrl);
     if (
       firstName.current.value !== "" &&
       lastName.current.value !== "" &&
@@ -85,8 +97,8 @@ const SignUp = () => {
             password: password.current.value,
             userImg: file,
             age:
-              age.current.value >= 18
-                ? age.current.value
+              edad >= 18
+                ? edad
                 : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" }),
           })
         );
@@ -186,7 +198,7 @@ const SignUp = () => {
 
       <Form.Group className="mb-5 col-6" controlId="formBasicAge">
         <Form.Label className="text-light"> Edad </Form.Label>{" "}
-        <Form.Control type="number" placeholder="Edad" ref={age} />{" "}
+        <Form.Control type="date" placeholder="Edad" ref={age} onChange={handleDate} />{" "}
       </Form.Group>
 
       <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white m-5">
@@ -215,7 +227,11 @@ const SignUp = () => {
           <img src={fileUrl} alt="avatar" class="h-40 w-50 m-5" />
         </div>
       )}
-
+      {loading ? 
+      <Loader/>
+      :
+      null  
+    }
       <div className="d-flex container-buttons">
         <Button className="button-send" type="submit" class="">
           Registrarse
@@ -241,5 +257,18 @@ const SignUp = () => {
     </Form>
   );
 };
+
+function calcularEdad(fecha) {
+  var hoy = new Date();
+  var cumpleanos = new Date(fecha);
+  var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+  var m = hoy.getMonth() - cumpleanos.getMonth();
+
+  if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+      edad--;
+  }
+
+  return edad;
+}
 
 export default SignUp;
