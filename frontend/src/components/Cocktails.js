@@ -26,13 +26,13 @@ function Cocteles(props) {
           <h1 className="tittleCocktails">Cocktails</h1>
         </div>
         <div className="subtittleCocktails">
-          <h2>Nuestras recetas para una mejor experiencia Beefeater</h2>
+          <h2>Para cada Beefeater, te espera un cóctel...</h2>
         </div>
         {props.todosLosCocktails.length > 0 ? (
           props.todosLosCocktails.map((element) => {
             return (
               <div className="cocktailPadre">
-                    <Link to={`/Cocktail/${element._id}`}>
+                    <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
               <div className="containerCocktails">
                   <div class="card">
                     <img
@@ -54,11 +54,10 @@ function Cocteles(props) {
           })
         ) : (
           <div className="alert">
-            <Alert variant="info">
-              <p>
-                Your search does not exist 🤷🏻‍♂️, try another cocktail, please. 🙂
-              </p>
-            </Alert>
+            <p class="textAlert">
+              Lo sentimos, faltan cóckteles aquí, pronto más productos.
+            </p>
+            <p>Volver a <Link className="linkCocktails" to="/Home"><button><span>HOME.</span></button></Link></p>
           </div>
         )}
       </div>

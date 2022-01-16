@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
+import Legales from "./pages/ConsumoResponsable";
 import PanelAdmin from "./components/panelAdmin";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
@@ -37,6 +38,7 @@ function App(props) {
             <Route path="/Nosotros" element={<Nosotros />} />
             <Route path="/Cocktails" element={<Cocktails />} />
             <Route path="/NuestrosGins" element={<NuestrosGins />} />
+            <Route path="/Legales" element={<Legales />} />
             <Route path="/Gin/:id" element={<Gin />} />
             <Route path="/Cocktail/:id" element={<Coctel/>}/>
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}

@@ -25,6 +25,10 @@ const NuestrosGins = (props) => {
 
   
   return (
+    <div>
+      <div className="tiendaHeader">
+          <h1 className="tittleTienda">Nuestros Gins</h1>
+        </div>
     <div class="flex items-center justify-center flex-col fondo-ladrillos">
       <div class="w-72 m-4">
         <div class="flex items-center justify-between">
@@ -66,6 +70,7 @@ const NuestrosGins = (props) => {
           auxiliar.map((card, index) => <Card card={card} key={index} />)
         )}
       </div>
+    </div>
     </div>
   );
 };

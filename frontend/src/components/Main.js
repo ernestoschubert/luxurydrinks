@@ -2,7 +2,8 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 import "../styles/main.css";
 import Carrusel from "./carrusel";
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 
 function Main() {
 
@@ -26,7 +27,7 @@ function Main() {
                 </div>
                 <div className="textCall">
                     <p>ACCEDÉ A TODOS NUESTROS PRODUCTOS INGRESANDO ACÁ</p>
-                    <button className="buttonAccess">REGISTRATE</button>
+                    <Link to="/Registrarse"><button className="buttonAccess">REGISTRATE</button></Link>
                 </div>
 
             </div>

@@ -1,16 +1,20 @@
-.cocktailsHeader {
+.coctelHeader {
   background-image: url("../components/assetsCocktails/cocktails.jpeg");
   width: 100vw;
-  height: 50vh;
+  height: 40vh;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.mainCocktails {
-  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/stone_border_cropped.c4f76c8a.jpg");
-}
+.mainCoctel {
+  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: inline-block;
+  }
 .nameCoktail {
   color: #dc2626 !important;
   font-weight: bold !important;
@@ -35,7 +39,7 @@
   margin-bottom: 0rem;
   font-weight: bold;
   color: #dc2626;
-  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg");
+  
   height: 60vh;
   text-transform: uppercase;
   font-size: 2.7rem;
@@ -45,18 +49,32 @@
 }
 button {
   background-color: #dc2626;
-  color: aliceblue;
+  color: rgb(0, 0, 0);
   border-radius: 1rem;
-  padding: .5rem;
+  padding: 1rem;
 }
 button:hover {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 .linkCocktails:hover {
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 .linkCocktails {
   text-decoration: none;
+}
+.backCoctel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 0rem;
+  font-weight: bold;
+  color: #dc2626;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 2.7rem;
+  border-color: black;
 }

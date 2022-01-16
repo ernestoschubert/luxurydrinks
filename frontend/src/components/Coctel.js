@@ -23,9 +23,9 @@ const Coctel = (props) => {
     );
   } else {
     return (
-      <div className="mainCocktails">
-        <div className="cocktailsHeader">
-          <h1 className="tittleCocktails">Cóckteles</h1>
+      <div className="mainCoctel">
+        <div className="coctelHeader">
+          <h1 className="tittleCocktails">Cócteles</h1>
         </div>
         {props.getCocteles.respuesta.length > 0 ? (
           props.getCocteles.respuesta.map((element) => {
@@ -75,13 +75,27 @@ const Coctel = (props) => {
         ) : (
           <div className="alert">
             <p class="textAlert">
-              Lo sentimos, aun no hay cóckteles aquí, pronto más recetas.
+              Lo sentimos, aun no hay cócteles aquí, pronto más recetas.
             </p>
-            <p>Volver a <Link className="linkCocktails" to="/Cocktails"><button><span>COCKTAILS.</span></button></Link></p>
+            {/* <p>
+              Volver a{" "}
+              <Link className="linkCocktails" to="/Cocktails">
+                <button>
+                  <span>COCKTAILS.</span>
+                </button>
+              </Link>
+            </p> */}
           </div>
-          
-            
         )}
+        <div className="backCoctel">
+          <Link className="linkCocktails" to="/Cocktails">
+            <button>
+              <p>
+                VER MÁS <span>COCKTAILS</span>
+              </p>
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

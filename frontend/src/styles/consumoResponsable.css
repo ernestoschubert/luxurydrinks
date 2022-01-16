@@ -1,0 +1,47 @@
+.contenedorLegales {
+  text-align: start;
+}
+.cocktailsLegales {
+  background-image: url("https://s3-eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/ProductToMarket/3148/hero/12/hero_1920x295.jpeg");
+  width: 100vw;
+  height: 40vh;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.tittleLegales {
+  font-size: 8rem;
+  font-family: Brandon Grotesque Black, helvetica, arial, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.contenedorLegales {
+  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/stone_border_cropped.c4f76c8a.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: inline-block;
+}
+.contrato {
+  
+  padding: 0.5rem;
+  font-size: medium;
+  padding: 2rem;
+  text-transform: uppercase;
+}
+.h2Legales {
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+  font-family: Brandon Grotesque Black, helvetica, arial, sans-serif;
+  color: #dc2626;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 2rem;
+}
