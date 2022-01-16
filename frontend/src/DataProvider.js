@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import productAction from './redux/actions/productAction';
 import axios from "axios";
 
 export const DataContext = createContext();

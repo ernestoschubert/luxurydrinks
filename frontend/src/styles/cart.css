@@ -64,7 +64,7 @@
     grid-template-columns: 1fr 2fr 1fr 1fr;
     width: 80%;
     margin: 2rem auto;
-    box-shadow: 0 0 5px #eb0606;
+    box-shadow: 1px 1px 3px gray;
     border-radius: .5rem;
 }
 .carrito__item div{

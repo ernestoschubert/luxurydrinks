@@ -19,11 +19,11 @@ const NuestrosGins = (props) => {
   
   const handlePrice = () => {
     setPrice(!price)
-    filterProducts("price", products, price)
+    filterProducts("price", productos, price)
   }
   const handleAlpha = () => {
     setAlpha(!alpha)
-    filterProducts("alpha", products, alpha)
+    filterProducts("alpha", productos, alpha)
   }
   return (
     <div class="flex items-center justify-center flex-col ">
@@ -31,7 +31,7 @@ const NuestrosGins = (props) => {
         <div class="relative flex items-center justify-center">
         <input type="text" class="px-4 py-2 w-80" 
         placeholder="Search..."
-        onChange={(e) => filterProducts("search",products, e.target.value)}
+        onChange={(e) => filterProducts("search",productos, e.nativeEvent.text)}
         />
             <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
@@ -51,16 +51,6 @@ const NuestrosGins = (props) => {
           ))
         }
       </div>
-    
-      
-  <div class="grid grid-cols-3 gap-4 place-content-center">
-    {loading ? (
-      <Loader />
-    ) : (
-      auxiliar &&
-      auxiliar.map((product, index) => <Card card={product} key={index} />)
-    )}
-  </div>
   </div>
   );
 };
