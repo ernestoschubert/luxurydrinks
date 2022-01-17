@@ -15,7 +15,6 @@ const authReducers = (
             img: action.payload.img,
             role: action.payload.role
         }
-
     } else if (action.type === 'LOG_OUT') {
         localStorage.clear()
         return {

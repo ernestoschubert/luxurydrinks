@@ -84,12 +84,14 @@ const Navbar = (props) => {
                   <Link
                     to="/Registrarse"
                     class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                    className="Register"
                   >
                     Registrate
                   </Link>
                   <Link
                     to="/Loguearse"
                     class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                    className=""
                   >
                     Ingresa
                   </Link>

@@ -29,6 +29,7 @@
     "scss": "^0.2.4",
     "selenium-webdriver": "^4.1.1",
     "sweetalert2": "^11.3.4",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
@@ -36,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "selenium":"mocha"
+    "selenium": "mocha"
   },
   "eslintConfig": {
     "extends": [
