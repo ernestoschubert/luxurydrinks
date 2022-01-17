@@ -108,6 +108,7 @@ const LogIn = () => {
       <div className="loguearHeader">
     <h1 className="tittleRegistro">INICIAR SESIÓN</h1>
   </div>
+  <div className="form">
         <Form className="d-flex flex-column form-container col-10" variant="light" onSubmit={loguearse}>
 
             <h1 className="titleForm">BIENVENIDO</h1>
@@ -147,6 +148,7 @@ const LogIn = () => {
             </div>
 
         </Form>
+        </div>
         </>
     )
 }
