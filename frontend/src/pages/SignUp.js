@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import '../styles/signup.css'
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import usersActions from "../redux/actions/authActions";
@@ -166,10 +167,14 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <div className="registroHeader">
+    <h1 className="tittleRegistro">REGISTRATE</h1>
+  </div>
     <Form className="form-container" variant="light" onSubmit={crearUsuario}>
-      <h1 className="mb-5" style={{ color: "black" }}>
+      <h1 className="titleForm">
         {" "}
-        Registro{" "}
+        COMPLETÁ EL FORMULARIO{" "}
       </h1>
 
       <Form.Group className="mb-5 col-6" controlId="formBasicNombre">
@@ -268,6 +273,7 @@ const SignUp = () => {
         />
       </div>
     </Form>
+    </>
   );
 };
 

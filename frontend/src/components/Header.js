@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,12 +10,11 @@ const Header = () => {
         style={{ backgroundImage: `url("./assets/Home.jpeg")` }}
       >
         <div className="banner-text">
-          <h2>El Gin</h2>
-          <h1>
-            Más Premiado del<span> Mundo</span>
-          </h1>
+          <h2>EL GIN</h2>
+          <h1>MÁS PREMIADO DEL<span> MUNDO</span></h1>
         </div>
-        <button className="buttonHome">Descubrí más</button>
+         <Link to="/NuestrosGins"><button className="buttonHome">DESCUBRÍ MÁS</button></Link>
+       
       </div>
     </header>
   );

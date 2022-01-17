@@ -9,7 +9,7 @@ const Nosotros = () => {
       </div>
       <div className="containerNosotros">
         <div class="container">
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1835</h4><br/>
@@ -17,7 +17,7 @@ const Nosotros = () => {
               </div>
              
               <div class="content">
-                <img src="https://i.imgur.com/VZOSStS.jpg" />
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
                 <h3>El Fundador</h3>
               </div>
             </div>
@@ -30,7 +30,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
             <div className="containerYearCard">
             <h4 className="yearCardNosotros">1876</h4>
@@ -49,7 +49,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
             <div className="containerYearCard">
             <h4 className="yearCardNosotros">1963</h4>
@@ -68,7 +68,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1987</h4><br/>
@@ -88,7 +88,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1995</h4><br/>
@@ -108,7 +108,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2005</h4><br/>
@@ -128,7 +128,7 @@ const Nosotros = () => {
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2008</h4><br/>
@@ -143,12 +143,12 @@ const Nosotros = () => {
             <div class="face face2">
               <div class="content">
                 <p>
-                  Crhis Pratt, argentino de padres estadounidenses y británicos, queda fascinado con la marca. Aprovecha sus contactos y se convierte en distribuidor oficial en Argentina.
+                  Chris Pratt, nacido en Buenos Aires de padre argentino y madre británica, queda fascinado con la marca. Aprovecha sus contactos y se convierte en distribuidor oficial en Argentina.
                 </p>
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="cardNosotros">
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2019</h4><br/>
@@ -163,7 +163,7 @@ const Nosotros = () => {
             <div class="face face2">
               <div class="content">
                 <p>
-                  La empresa tiene su época dorada al ser el único distribuidor oficial del gin tonic más premiado del mundo (2004 - 2019).
+                  La empresa tiene su época dorada, al ser el único distribuidor oficial del gin tonic más premiado del mundo (2004 - 2019), en nuestro país.
                 </p>
               </div>
             </div>

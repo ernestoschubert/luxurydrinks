@@ -1,0 +1,27 @@
+.registroHeader {
+    background-image: url("https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5eac236ea9b85.jpeg");
+    width: 100%;
+    height: 40vh;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+  }
+  .tittleRegistro {
+    font-size: 8rem;
+    font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  form {
+      background-image: url('https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg')
+  }
+  .titleForm {
+      font-weight: bold;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #dc2626;
+  }

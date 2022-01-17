@@ -6,11 +6,11 @@ const Footer = () => {
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap text-left lg:text-left">
           <div class="w-full lg:w-6/12 px-4">
-            <h4 class="text-5xl fonat-semibold text-neutral-50">
-              No te pierdas ninguna novedad!
-            </h4>
+            <h5 class="text-4xl fonat-semibold text-neutral-50">
+              ¡NO TE PIERDAS NINGUNA NOVEDAD!
+            </h5>
             <h5 class="text-4xl mt-0 mb-2 text-neutral-50">
-              Síguenos en nuestras redes sociales.
+              Seguinos en nuestras redes sociales.
             </h5>
             <div class="mt-6 lg:mb-0 mb-6">
               <button
@@ -41,36 +41,32 @@ const Footer = () => {
                 </span>
                 <ul class="list-unstyled">
                   <li>
-                    <a
+                  <Link to="/"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://www.creative-tim.com/presentation?ref=njs-profile"
                     >
-                      Home
-                    </a>
+                      HOME
+                    </Link>
                   </li>
                   <li>
-                    <a
+                  <Link to="/Nosotros"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://blog.creative-tim.com?ref=njs-profile"
                     >
-                      Nosotros
-                    </a>
+                      NOSOTROS
+                    </Link>
                   </li>
                   <li>
-                    <a
+                  <Link to="/NuestrosGins"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://www.github.com/creativetimofficial?ref=njs-profile"
                     >
-                      Nuestros Gins
-                    </a>
+                      NUESTROS GINS
+                    </Link>
                   </li>
                   <li>
-                    <a
+                  <Link to="/Cocktails"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://www.creative-tim.com/bootstrap-themes/free?ref=njs-profile"
                     >
-                      Cocktails
-                    </a>
+                      COCKTAILS
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -80,36 +76,32 @@ const Footer = () => {
                 </span>
                 <ul class="list-unstyled">
                   <li>
-                    <a
+                  <Link to="/NuestrosGins"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile"
                     >
-                      Tienda
-                    </a>
+                      TIENDA
+                    </Link>
                   </li>
                   <li>
-                    <a
+                  <Link to="/Loguearse"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://creative-tim.com/terms?ref=njs-profile"
                     >
-                      Ingresa
-                    </a>
+                      INGRESÁ
+                    </Link>
                   </li>
                   <li>
-                    <a
+                  <Link to="/Registrarse"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://creative-tim.com/privacy?ref=njs-profile"
                     >
-                      Registrate
-                    </a>
+                      REGISTRATE
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link to="/Legales"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
-                      href="https://creative-tim.com/contact-us?ref=njs-profile"
                     >
-                      Contacto
-                    </a>
+                      RESPONSABILIDAD SOCIAL
+                    </Link>
                   </li>
                 </ul>
               </div>

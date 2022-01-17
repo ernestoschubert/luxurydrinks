@@ -1,6 +1,10 @@
 .navtexto {
-    font-size   : 15pt !important;
+    font-size   : 10pt !important;
     padding-left: 1rem !important;
+    font-weight: bold !important;
+}
+.navtexto:hover {
+    text-decoration: none !important;
 }
 
 .btn-menu {

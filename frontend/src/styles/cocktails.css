@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
-
-.cocktailsHeader {
-    background-image: url('../components/assetsCocktails/cocktails.jpeg');
-    width: 100vw;
-    height: 50vh;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.mainCocktails {
+  background-image: url("https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/stone_border_cropped.c4f76c8a.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: inline-block;
+  }
+.loading{
+  text-align: center;
+  color: rgba(128, 128, 128, 0.76);
+  margin-top: 1rem;
 }
 .tittleCocktails {
-  font-size: 10rem;
+  font-size: 8rem !important;
   font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
   color: #fff;
   text-transform: uppercase;
@@ -19,7 +19,7 @@
 }
 .subtittleCocktails {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 1rem;
     font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
     color: #dc2626;
@@ -28,20 +28,28 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    margin-top: 2rem;
 }
-.mainCocktails {
-  background-image: url('https://fondosmil.com/fondo/33460.jpg');
-}
-
-.cardsCocktails {
-  font-family: "Tajawal", Arial;
-}
-.mainCards{
+.cocktailsHeader {
+  background-image: url('https://s3-eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/Page/3939/hero/7/hero_1920x295.jpeg');
+  width: 100vw;
+  height: 40vh;
+  background-position: center;
   display: flex;
   justify-content: center;
-}
-.loading{
+  align-items: center;
   text-align: center;
-  color: rgba(128, 128, 128, 0.76);
-  margin-top: 1rem;
+}
+.cocktailPadre {
+  display: flex;
+  flex-wrap: nowrap;
+  display: inline-block !important;
+  justify-content: center !important;
+}
+.card:hover {
+background-color: rgba(255, 99, 71, 0.609);
+text-decoration: none;
+}
+.linkCoctel:hover {
+  text-decoration: none;
 }
