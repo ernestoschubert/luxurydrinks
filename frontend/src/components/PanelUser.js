@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { app } from "../services/firebase";
 import authActions from "../redux/actions/authActions";
