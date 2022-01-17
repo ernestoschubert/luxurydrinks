@@ -120,7 +120,7 @@ const PanelAdmin = (props) => {
       </div>
       <div className="container-box">
         <div className="box-usuarios">
-          {users.length === 0 ? (
+          {users && users.length === 0 ? (
             <h1 style={{ color: "black" }}>Loading...</h1>
           ) : (
             <div className="scrollbar">

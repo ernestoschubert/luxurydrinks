@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import productActions from "../redux/actions/productAction";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider";

@@ -49,9 +49,6 @@ const Navbar = (props) => {
         </button>
       </div>
       <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
-        <ul class="m-2 flex  ">
-          <li></li>
-        </ul>
         <div class="md:hidden lg:flex-grow lg:flex ">
           <Link
             to="/"
