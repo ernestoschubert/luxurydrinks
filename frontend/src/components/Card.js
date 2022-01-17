@@ -10,17 +10,17 @@ const Card = ({ card }) => {
   return (
     <>
       <div className="wrapper antialiased text-gray-900 ">
-        <div>
+        <div className="object-cover object-center rounded-lg shadow-xl p-5">
           <Link to={`/Gin/${card._id}`} >
             <img
               src={card.drinkImg}
               alt={card.drinkName}
-              className="object-cover object-center rounded-lg shadow-md"
-              style={{width: "20vw"}}
+              className=""
+              style={{height: "40vh", margin: "auto"}}
             />
           </Link>
-          <div className="relative px-4 mt-16">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="relative m-auto">
+            <div className="">
               <div className="flex items-baseline">
                 <span className="bg-teal-200 text-teal-800 text-xs px-2 inline-block rounded-full  uppercase font-semibold tracking-wide">
                   New
@@ -30,7 +30,7 @@ const Card = ({ card }) => {
                 </div>
               </div>
               <h4 className="mt-1 text-xl font-semibold uppercase leading-tight truncate">
-              {card.type + " " + card.drinkName}
+                {card.type + " " + card.drinkName}
               </h4>
               <div className="mt-1">
                 ${card.price}
@@ -40,7 +40,7 @@ const Card = ({ card }) => {
                   Stock:
                 </span>
                 <span className="text-sm text-gray-600">
-                {card.stock}
+                  {card.stock}
                 </span>
               </div>
               <div className="mt-2">

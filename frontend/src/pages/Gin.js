@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import GinProduct from "../components/GinProduct";
 
 const Gin = (props) => {
+  
   const { products, fetchProducts } = props;
   const value = useContext(DataContext);
   const [ productos ] = value.productos;

@@ -10,7 +10,18 @@ const Cart = () => {
     const [carrito, setCarrito] = value.carrito;
     const [total] = value.total;
 
-    const stockActualizado = (producto) => producto.stock - producto.quantity
+    const stockActualizado = (producto) => {
+        const res = producto.stock - producto.quantity
+        if(res > 5) {
+            return res
+        } else if(res <= 5 && res > 0) {
+           return " " + res + " Ultimas unidades!!"
+        } else {
+            return " Sin stock"
+        }
+        
+
+    }
 
     const tooglefalse = () => {
         setMenuCart(false);
@@ -26,7 +37,7 @@ const Cart = () => {
         }
         const increase = id =>{
             carrito.forEach(item =>{
-                if(item._id === id){
+                if(item._id === id && item.stock > item.quantity){
                     item.quantity +=1;
                 }
                 setCarrito([...carrito])
@@ -56,12 +67,12 @@ const Cart = () => {
             <div onClick={tooglefalse} className="carrito__close">
               <FaRegTimesCircle className='closeModel'/>
             </div>
-            <h2>Su Carrito</h2>
+            <h2 className='carritoTitulo'>Carrito de compras</h2>
             <div className="carrito__center">
             {
                         
                         
-            carrito.length === 0 ? <h2 style={{textAlign: "center", fontSize: "3rem"}}>Carrito Vacio</h2> :
+            carrito.length === 0 ? <h2 className='carritoVacio'>Carrito Vacio</h2> :
                 <>
                 {
                 carrito.map((producto) => (
@@ -75,10 +86,7 @@ const Cart = () => {
                             <p className="stock">
                                 Stock: 
                             {   
-                                stockActualizado(producto) > 5 ? 
-                                stockActualizado(producto) 
-                                :
-                                " " + stockActualizado(producto) + " ultimas unidades!!"
+                                stockActualizado(producto)
                             }
 
                             </p>
