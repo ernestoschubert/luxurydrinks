@@ -9,16 +9,11 @@ const DataProvider = (props) => {
 	const [carrito, setCarrito] =useState([])
 	const [total, setTotal] = useState(0)
 
-	console.log(carrito)
-    console.log(props)
-
 	useEffect(() => {
 		axios.get('http://localhost:4000/api/drinks')
 		.then(res => setProductos(res.data.drinks))
 		.catch(error => console.log(error))
 	}, [])
-
-	console.log(productos)
 
 	const addCarrito = (id) =>{
 		const check = carrito.every(item =>{

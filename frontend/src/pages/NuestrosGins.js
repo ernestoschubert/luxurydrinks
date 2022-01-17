@@ -26,12 +26,14 @@ const NuestrosGins = (props) => {
     filterProducts("alpha", productos, alpha)
   }
   return (
-    <div class="flex items-center justify-center flex-col ">
+    <div class="flex items-center justify-center flex-col"
+      style={{backgroundImage: `URL('/assets/fondoMarmol.jpg')`}}
+    >
       <div class="w-72 m-4">
         <div class="relative flex items-center justify-center">
-        <input type="text" class="px-4 py-2 w-80" 
+        <input type="text" class="px-10 py-3 w-100 rounded-lg mr-2" 
         placeholder="Search..."
-        onChange={(e) => filterProducts("search",productos, e.nativeEvent.text)}
+        onChange={(e) => filterProducts("search", productos, e.target.value)}
         />
             <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
@@ -42,7 +44,7 @@ const NuestrosGins = (props) => {
             <button onClick={() => handleAlpha()} class="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 m-2">{alpha ? "AZ": "ZA"}</button>
         </div>
       </div>
-      <div class="grid grid-cols-3 gap-4 place-content-center">
+      <div class="grid grid-cols-3 gap-4 place-content-center mb-4">
         {loading ? (
           <Loader />
         ):

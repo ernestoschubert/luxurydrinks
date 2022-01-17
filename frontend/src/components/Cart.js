@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaArrowAltCircleUp, FaArrowAltCircleDown, FaRegTimesCircle, FaTrashAlt } from "react-icons/fa";
 import '../styles/cart.css'
 import { DataContext } from '../DataProvider';
+import PaypalCheckoutButton from './PaypalCheckoutButton';
 
 const Cart = () => {
 
@@ -9,6 +10,12 @@ const Cart = () => {
     const [menuCart, setMenuCart] = value.menuCart;
     const [carrito, setCarrito] = value.carrito;
     const [total] = value.total;
+
+    const product = {
+        productos: "",
+        price: ""
+    }
+
 
     const stockActualizado = (producto) => {
         const res = producto.stock - producto.quantity
@@ -45,7 +52,7 @@ const Cart = () => {
         }
     
         const removeProducto = id =>{
-            if(window.confirm("¿Quieres suspender el producto?")){
+            if(window.confirm("¿Queres sacar el producto?")){
                 carrito.forEach((item, index)=>{
                     if(item._id === id){
                         item.quantity = 1;
@@ -55,7 +62,14 @@ const Cart = () => {
                 setCarrito([...carrito])
             }
         }
-    
+
+        const vaciarCarrito = () =>{
+            if(window.confirm("¿Queres vaciar el carrito?")){
+                        carrito.splice(0, carrito.length)
+                setCarrito([...carrito])
+            }
+        }
+
       const show1 = menuCart ? "carritos show" : "carrito";
         const show2 = menuCart ? "carrito show" : "carrito";
         
@@ -63,7 +77,9 @@ const Cart = () => {
     
       return (
         <div className={show1}>
-          <div className={show2}>
+          <div className={show2} 
+            style={{backgroundImage: `URL('/assets/fondoMarmol.jpg')`}}
+          >
             <div onClick={tooglefalse} className="carrito__close">
               <FaRegTimesCircle className='closeModel'/>
             </div>
@@ -76,7 +92,9 @@ const Cart = () => {
                 <>
                 {
                 carrito.map((producto) => (
-                    <div className="carrito__item" key={ producto._id }>
+                    <div className="carrito__item" key={ producto._id }
+                        style={{backgroundImage: `URL('/assets/fondoMarmol.jpg')`}}
+                    >
                         <img src={ producto.drinkImg } alt={ producto.drinkName } />
                         <div>
                             <h3> { producto.type + " " + producto.drinkName} </h3>
@@ -117,14 +135,25 @@ const Cart = () => {
                     </div>
                             ))
                         };
-                        
                 </>
             }
             </div>
     
             <div className="carrito__footer">
               <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
-              <button className="btn">Comprar</button>
+                <div className='btnCont'>
+                    <div className='flex justify-center items-center'>
+                        <PaypalCheckoutButton product={product} />
+                    </div>
+                    <button className="btn flex flex-col" onClick={() => vaciarCarrito()}>
+                        <div className='flex flex-row items-center justify-center'>
+                        <FaTrashAlt 
+                            className='removeSvg'
+                        />
+                        <p className='ml-2'>Vaciar</p>
+                        </div>
+                    </button>   
+                </div>
             </div>
           </div>
         </div>
