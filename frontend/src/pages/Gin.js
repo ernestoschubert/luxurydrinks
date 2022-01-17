@@ -11,10 +11,9 @@ import GinProduct from "../components/GinProduct";
 const Gin = (props) => {
   const { products, fetchProducts } = props;
   const value = useContext(DataContext);
-  const [ productos ] = value.productos;
+  const [productos] = value.productos;
   const addCarrito = value.addCarrito;
 
-  console.log(productos)
   const id = props.params.id;
   useEffect(() => {
     fetchProducts();
@@ -27,7 +26,7 @@ const Gin = (props) => {
   return (
     <>
       <main class="my-8">
-        <div class="container mx-auto px-6">
+        <div class="">
           <div class="flex">
             <FaAngleLeft />
             <Link to="/NuestrosGins">
@@ -37,14 +36,12 @@ const Gin = (props) => {
           {!currentGin ? (
             <Loader />
           ) : (
-            <GinProduct currentGin={currentGin}/>
+            currentGin && <GinProduct currentGin={currentGin} />
           )}
           <div class="mt-16">
             <h3 class="text-gray-600 text-2xl font-medium">Mas productos</h3>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-              {!relatedProducts ? (
-                <Loader />
-              ) : (
+              {relatedProducts &&
                 relatedProducts.map((product, index) => (
                   <a href={`/Gin/${product._id}`} key={index}>
                     <div class="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
@@ -52,7 +49,8 @@ const Gin = (props) => {
                         class="flex items-end justify-end h-56 w-full bg-cover bg-center "
                         style={{ backgroundImage: `url(${product.drinkImg})` }}
                       >
-                        <button class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+                        <button
+                          class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
                           onClick={() => addCarrito(id)}
                         >
                           <svg
@@ -76,8 +74,7 @@ const Gin = (props) => {
                       </div>
                     </div>
                   </a>
-                ))
-              )}
+                ))}
             </div>
           </div>
         </div>

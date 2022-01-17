@@ -5,6 +5,7 @@ import productActions from "../redux/actions/productAction";
 import Swal from "sweetalert2";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { app } from "../services/firebase";
+import { Link } from "react-router-dom";
 
 const PanelAdmin = (props) => {
   const {
@@ -29,7 +30,7 @@ const PanelAdmin = (props) => {
   const bebidaImg = useRef();
   const bebidaStock = useRef();
   const bebidaTipo = useRef();
-  
+
   useEffect(() => {
     getUsers();
     getDrinks();
@@ -116,7 +117,6 @@ const PanelAdmin = (props) => {
             class="text-white cursor-pointer"
           />
         </h2>
-        <h2 className="title-panel">COCTELES</h2>
       </div>
       <div className="container-box">
         <div className="box-usuarios">
@@ -131,11 +131,6 @@ const PanelAdmin = (props) => {
                     className="usuario-panel-foto"
                     src={user.userImg}
                     alt="foto"
-                  />
-                  <img
-                    style={{ width: "8%", marginLeft: "2%" }}
-                    src="https://i.imgur.com/KGctDYX.png"
-                    alt="edit"
                   />
                   <img
                     className="icon-admin"
@@ -157,28 +152,40 @@ const PanelAdmin = (props) => {
           ) : (
             <div className="scrollbar">
               {drinks.map((drink) => (
-                <div>
-                  <h3>Bebida: {drink.drinkName}</h3>
-                  <img
-                    className="usuario-panel-foto"
-                    src={drink.drinkImg}
-                    alt="foto"
-                  />
-                  <img
-                    className="icon-admin"
-                    onClick={() => {
-                      deleteProduct(drink._id);
-                    }}
-                    style={{ width: "8%", marginLeft: "2%" }}
-                    src="https://i.imgur.com/1BHcZAN.png"
-                    alt="delete"
-                  />
+                <div class="flex flex-col justify-evenly">
+                  <div class="inline">
+                    <h3>Bebida:</h3>
+                    <img
+                      className="usuario-panel-foto"
+                      src={drink.drinkImg}
+                      alt="foto"
+                    />
+                    <span> {drink.drinkName}</span>
+                  </div>
+                  <div class="inline">
+                    <img
+                      className="icon-admin"
+                      onClick={() => {
+                        deleteProduct(drink._id);
+                      }}
+                      style={{ width: "8%", marginLeft: "2%" }}
+                      src="https://i.imgur.com/1BHcZAN.png"
+                      alt="delete"
+                    />
+                    <Link to={`/Gin/${drink._id}`}>
+                      <img
+                        className="icon-admin"
+                        style={{ width: "8%", marginLeft: "2%" }}
+                        src="https://i.imgur.com/KGctDYX.png"
+                        alt="edit"
+                      />
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
           )}
         </div>
-        <div className="box-usuarios"></div>
       </div>
       <div className="container-box-ultimos">
         <div className="box-ultimos">
@@ -279,7 +286,6 @@ const PanelAdmin = (props) => {
                 <textarea
                   ref={bebidaDesc}
                   type="text"
-                  name=""
                   placeholder="Escriba aca la descripcion de su producto"
                   class="p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm h-36"
                   id=""

@@ -65,11 +65,25 @@ const productActions = {
         { ...newProduct },
         { headers: { Authorization: "Bearer " + token } }
       );
-      console.log(res)
-      if(res.data.success){
-          return res
-      }else{
-          console.error('error')
+
+      if (res.data.success) {
+        return res;
+      } else {
+        console.error("error");
+      }
+    };
+  },
+  editAProduct: (id, product, token) => {
+    return async (dispatch, getState) => {
+      const res = await axios.put(
+        `http://localhost:4000/api/admin/drink/` + id,
+        { product },
+        { headers: { Authorization: "Bearer " + token } }
+      );
+      if (res.data.success) {
+        return res.data;
+      } else {
+        console.error("error");
       }
     };
   },

@@ -47,10 +47,13 @@ const drinkControllers = {
   updateDrink: async (req, res) => {
     try {
       if (req.user.role === "admin" || req.user.role === "mod") {
+        
         const drink = await Drink.findOneAndUpdate(
           { _id: req.params.id },
-          { ...req.body }
+          { ...req.body.product },
+          { new: true }
         );
+        console.log(drink);
         res.json({ success: true, drink, body: req.body });
       } else {
         res.json({
