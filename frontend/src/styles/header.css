@@ -20,12 +20,14 @@ html * {
 }
 
 .banner-text {
-    padding   : 0 30px;
+    padding   : 30px;
     margin-top: 150px;
     text-align: center;
     color     : #fff;
     font-weight: bold;
-    text-shadow            : 0 5px 5px rgba(10, 10, 10, 0.575);
+    text-shadow: 0 5px 5px rgba(10, 10, 10, 0.575);
+    border-radius: 9px;
+    background: #ba1919af;
 }
 
 .banner-text h1 {
@@ -34,7 +36,7 @@ html * {
 }
 
 .banner-text span {
-    color: #c8102e;
+    color: #f4f4f4;
 }
 
 .banner-text h2 {

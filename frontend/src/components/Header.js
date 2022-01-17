@@ -12,8 +12,9 @@ const Header = () => {
         <div className="banner-text">
           <h2>EL GIN</h2>
           <h1>MÁS PREMIADO DEL<span> MUNDO</span></h1>
+          <Link to="/NuestrosGins"><button className="buttonHome">DESCUBRÍ MÁS</button></Link>
         </div>
-         <Link to="/NuestrosGins"><button className="buttonHome">DESCUBRÍ MÁS</button></Link>
+         
        
       </div>
     </header>

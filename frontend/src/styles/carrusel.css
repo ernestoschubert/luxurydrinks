@@ -54,3 +54,11 @@
   .slide{
     padding: 1rem 15rem;
   }
+
+  #bebida{
+    display: flex;
+    justify-content: center;
+    font-family: 'Open Sans Condensed';
+    color: rgb(2, 2, 2);
+    padding: 0 0 10px 0;
+  }
