@@ -37,7 +37,6 @@ function Main() {
                             <div>
                                 <h1 class="textCoctel mb-5 font-bold">Hot Negroni</h1>
                                 <h2 class="textCoctel mb-12">"EMPIEZA EL 2022 DISFRUTANDO DE UN BEEFEATER GIN HOT NEGRONI".</h2>
-                                
                             </div>
                         </div>
                         <div class="md:w-6/12 relative">
