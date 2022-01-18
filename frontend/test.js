@@ -54,9 +54,9 @@ function singInTest() {
       await webDriver
         .findElement(By.className("Edad"))
         .sendKeys(credentials[0].edad);
-      await webDriver.sleep(3000);
+      
       await webDriver.findElement(By.className("button-send")).click();
-      await webDriver.sleep(3000);
+      
     });
 
     it("Ingreso credenciales con edad incorrecta", async () => {
@@ -79,9 +79,9 @@ function singInTest() {
         .findElement(By.className("Edad"))
         .sendKeys(credentials[1].edad);
       await webDriver.findElement(By.id("fileupload")).sendKeys(path);
-      await webDriver.sleep(3000);
+      
       await webDriver.findElement(By.className("button-send")).click();
-      await webDriver.sleep(3000);
+      
     });
 
     it("Ingreso credenciales correctas", async () => {

@@ -4,10 +4,10 @@ import axios from "axios";
 export const DataContext = createContext();
 
 const DataProvider = (props) => {
-  const [productos, setProductos] = useState([]);
-  const [menuCart, setMenuCart] = useState(false);
-  const [carrito, setCarrito] = useState([]);
-  const [total, setTotal] = useState(0);
+	const [productos, setProductos] = useState([]);
+	const [menuCart, setMenuCart] = useState(false)
+	const [carrito, setCarrito] =useState([])
+	const [total, setTotal] = useState(0)
 
 	useEffect(() => {
 		axios.get('http://localhost:4000/api/drinks')
@@ -64,4 +64,5 @@ const DataProvider = (props) => {
 	)
 };
 
-export default DataProvider;
+
+export default DataProvider
