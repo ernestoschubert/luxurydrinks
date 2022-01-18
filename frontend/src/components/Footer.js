@@ -41,28 +41,32 @@ const Footer = () => {
                 </span>
                 <ul class="list-unstyled">
                   <li>
-                  <Link to="/"
+                    <Link
+                      to="/"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       HOME
                     </Link>
                   </li>
                   <li>
-                  <Link to="/Nosotros"
+                    <Link
+                      to="/Nosotros"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       NOSOTROS
                     </Link>
                   </li>
                   <li>
-                  <Link to="/NuestrosGins"
+                    <Link
+                      to="/NuestrosGins"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       NUESTROS GINS
                     </Link>
                   </li>
                   <li>
-                  <Link to="/Cocktails"
+                    <Link
+                      to="/Cocktails"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       COCKTAILS
@@ -76,28 +80,32 @@ const Footer = () => {
                 </span>
                 <ul class="list-unstyled">
                   <li>
-                  <Link to="/NuestrosGins"
+                    <Link
+                      to="/NuestrosGins"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       TIENDA
                     </Link>
                   </li>
                   <li>
-                  <Link to="/Loguearse"
+                    <Link
+                      to="/Loguearse"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       INGRESÁ
                     </Link>
                   </li>
                   <li>
-                  <Link to="/Registrarse"
+                    <Link
+                      to="/Registrarse"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       REGISTRATE
                     </Link>
                   </li>
                   <li>
-                    <Link to="/Legales"
+                    <Link
+                      to="/Legales"
                       class="text-neutral-50 hover:text-blueGray-800 font-semibold block pb-2 text-3xl"
                     >
                       RESPONSABILIDAD SOCIAL
@@ -118,7 +126,7 @@ const Footer = () => {
             <div class="text-2xl text-neutral-50 font-semibold ">
               Copyright ©{" "}
               <span id="get-current-year">{new Date().getFullYear()}</span>
-               LUXURYDRINKS S.R.L import company
+              LUXURYDRINKS S.R.L import company
             </div>
           </div>
         </div>

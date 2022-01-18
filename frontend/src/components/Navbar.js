@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaSignInAlt } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { useState, useContext } from "react";
 import { DataContext } from "../DataProvider";
 import "../styles/navbar.css";
@@ -49,28 +49,28 @@ const Navbar = (props) => {
         </button>
       </div>
       <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
-        <div class="md:hidden lg:flex-grow lg:flex ">
+        <div class="md:hidden lg:flex-grow lg:flex items-center">
           <Link
             to="/"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
           >
             Home
           </Link>
           <Link
             to="/Nosotros"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
           >
             Nosotros
           </Link>
           <Link
             to="/NuestrosGins"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base  hover:border-white border-transparent"
           >
             Nuestros Gins
           </Link>
           <Link
             to="/Cocktails"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
           >
             Cocktails
           </Link>
@@ -78,14 +78,14 @@ const Navbar = (props) => {
             <>
               <Link
                 to="/Registrarse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2 Register"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
   
               >
                 Registrate
               </Link>
               <Link
                 to="/Loguearse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
               >
                 Ingresa
               </Link>
@@ -179,7 +179,7 @@ const Navbar = (props) => {
         </div>
         {menu ? (
           <>
-            <div class="lg:hidden ">
+            <div class="lg:hidden md:flex">
               <Link
                 to="/"
                 class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"

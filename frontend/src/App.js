@@ -17,7 +17,11 @@ import PanelUser from "./components/PanelUser";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
+<<<<<<< HEAD
 import Coctel from "./components/Coctel";
+=======
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+>>>>>>> 616e5d81f57b867ff854572ade7425158ba9b39b
 
 const Gin = withRouter(GinNoProps);
 
@@ -27,10 +31,16 @@ function App(props) {
     if (localStorage.getItem("token")) {
       authUser(localStorage.getItem("token"));
     }
+<<<<<<< HEAD
   }, []);
+=======
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+>>>>>>> 616e5d81f57b867ff854572ade7425158ba9b39b
 
   return (
     <>
+    <PayPalScriptProvider options={{ "client-id": "ASLnF48B0KcpHc6l8x3IoDViKPYG2jMRnLDR7H_vUO9pjOQtmhZlajrjXlzlmMDVG_sFCSuS5gO47eBT" }}>
       <DataProvider>
         <BrowserRouter>
           <Navbar />
@@ -52,6 +62,7 @@ function App(props) {
           <Footer />
         </BrowserRouter>
       </DataProvider>
+    </PayPalScriptProvider>
     </>
   );
 }

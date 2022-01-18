@@ -94,6 +94,7 @@ function Responsabilidad() {
           <a
             href="https://www.argentina.gob.ar/salud/mental-y-adicciones/alcohol#:~:text=La%20promoci%C3%B3n%20de%20h%C3%A1bitos%20de,riesgos%20del%20consumo%20de%20bebidas"
             target="_blank"
+            rel="noreferrer"
           >
             www.argentina.gob.ar.
           </a>
