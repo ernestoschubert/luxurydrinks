@@ -5,6 +5,8 @@ import Loader from "../components/Loader";
 import { DataContext } from "../DataProvider";
 import productActions from "../redux/actions/productAction";
 import "../styles/main.css";
+import productAction from "../redux/actions/productAction";
+import "../styles/carrusel.css"
 
 const NuestrosGins = (props) => {
   const [price, setPrice] = useState(false);
