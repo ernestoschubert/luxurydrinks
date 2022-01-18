@@ -13,6 +13,7 @@ import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import Legales from "./pages/ConsumoResponsable";
 import PanelAdmin from "./components/panelAdmin";
+import PanelUser from "./components/PanelUser";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
@@ -41,6 +42,7 @@ function App(props) {
             <Route path="/Legales" element={<Legales />} />
             <Route path="/Gin/:id" element={<Gin />} />
             <Route path="/Cocktail/:id" element={<Coctel/>}/>
+            <Route path="/PanelUser" element={<PanelUser />} />
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
             {!props.user && <Route path="/Loguearse" element={<Login />} />}
             {props.role === "admin" && (
