@@ -34,7 +34,7 @@
   background-image: url('https://s3-eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/Page/3939/hero/7/hero_1920x295.jpeg');
   width: 100vw;
   height: 40vh;
-  background-position: center;
+  background-position: top;
   display: flex;
   justify-content: center;
   align-items: center;
