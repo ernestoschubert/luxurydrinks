@@ -49,7 +49,8 @@ const drinkControllers = {
       if (req.user.role === "admin" || req.user.role === "mod") {
         const drink = await Drink.findOneAndUpdate(
           { _id: req.params.id },
-          { ...req.body }
+          { ...req.body.product },
+          { new: true }
         );
         res.json({ success: true, drink, body: req.body });
       } else {

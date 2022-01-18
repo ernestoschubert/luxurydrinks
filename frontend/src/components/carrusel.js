@@ -93,7 +93,7 @@ function Carrusel() {
                                     <div class="tarjeta">
                                         <img src={bebida.imagen}
                                             alt="image" />
-                                        <p>{bebida.nombre}</p>
+                                        <p id="bebida">{bebida.nombre}</p>
                                     </div>
                                 </div>
                             )

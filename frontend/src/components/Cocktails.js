@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
+    //eslint-disable-next-line
   }, []);
 
-  if (props.todosLosCocktails == "") {
+  if (props.todosLosCocktails === "") {
     return (
       <div>
         <h3 className="loading">Loading...please wait</h3>
@@ -28,7 +29,7 @@ function Cocteles(props) {
           <h2>Para cada Beefeater, te espera un cóctel...</h2>
         </div>
         {props.todosLosCocktails.length > 0 ? (
-          props.todosLosCocktails.map((element) => {
+          props.todosLosCocktails.map((element, index) => {
             return (
               <div className="cocktailPadre">
                     <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>

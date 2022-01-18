@@ -5,6 +5,7 @@
   background-image: url("https://s3-eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/ProductToMarket/3148/hero/12/hero_1920x295.jpeg");
   width: 100vw;
   height: 40vh;
+  background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;

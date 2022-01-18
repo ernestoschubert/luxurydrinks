@@ -1,0 +1,69 @@
+.divPadre{
+  height: 80vh;
+  position: relative;
+}
+.divHijo{
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+.spinnerReactstrap{
+  width: 100px !important;
+  height: 100px !important;
+  border: 10px solid currentColor !important;
+  border-right-color: transparent !important;
+}
+
+.spin-wrapper{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #fa0000;
+
+  .spinner{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border: 10px solid transparent;
+    border-top-color: #fa0000;
+    top: 50%;
+    left: 50%;
+    margin: -30px;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    
+    &:before, &:after{
+      content:'';
+      position: absolute;
+      border: 10px solid transparent;
+      border-radius: 50%;
+    };
+    
+    &:before{
+    
+      border-top-color: #fa0000;
+      top: -12px;
+      left: -12px;
+      right: -12px;
+      bottom: -12px;
+      animation: spin 3s linear infinite;
+    }
+    
+    &:after{
+      border-top-color: #fa0000;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;  
+      animation: spin 4s linear infinite;
+    }
+  }
+}
+
+@keyframes spin{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}

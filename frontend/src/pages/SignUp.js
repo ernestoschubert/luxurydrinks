@@ -9,12 +9,14 @@ import { FcGoogle } from "react-icons/fc";
 import { app } from "../services/firebase";
 import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
+import { v4 as uuidv4 } from "uuid";
 
 const SignUp = () => {
   const [file, setFile] = useState("");
   const [fileUrl, setFileUrl] = useState(null);
-  const [fileTarget, setFileTarget] = useState("");
-
+  const [edad, setEdad] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const firstName = useRef();
@@ -40,11 +42,21 @@ const SignUp = () => {
     },
   });
 
-  const archivoHandler = (e) => {
-    setFileTarget(e.target.files[0]);
+  const handleDate = (e) => {
+    let edad = e.target.value;
+    setEdad(calcularEdad(edad));
+  };
+
+  const archivoHandler = async (e) => {
     const image = e.target.files[0];
     const imageUrl = URL.createObjectURL(image);
     setFileUrl(imageUrl);
+
+    const storageRef = app.storage().ref();
+    const archivoPath = storageRef.child(`${uuidv4()}-${image.name}`);
+    await archivoPath.put(image);
+    const enlaceUrl = await archivoPath.getDownloadURL();
+    setFile(enlaceUrl);
   };
 
   const handleDelete = () => {
@@ -64,17 +76,12 @@ const SignUp = () => {
   const crearUsuario = async (e) => {
     e.preventDefault();
 
-    const storageRef = app.storage().ref();
-    const archivoPath = storageRef.child(fileTarget?.name);
-    await archivoPath.put(fileTarget);
-    const enlaceUrl = await archivoPath.getDownloadURL();
-    setFile(enlaceUrl);
     if (
       firstName.current.value !== "" &&
       lastName.current.value !== "" &&
       email.current.value &&
       password.current.value &&
-      userImg.current.value &&
+      file &&
       age.current.value
     ) {
       try {
@@ -86,8 +93,8 @@ const SignUp = () => {
             password: password.current.value,
             userImg: file,
             age:
-              age.current.value >= 18
-                ? age.current.value
+              edad >= 18
+                ? edad
                 : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" }),
           })
         );
@@ -172,27 +179,53 @@ const SignUp = () => {
 
       <Form.Group className="mb-5 col-6" controlId="formBasicNombre">
         <Form.Label className="text-light"> Nombre </Form.Label>
-        <Form.Control type="text" placeholder="Nombre" ref={firstName} />
+        <Form.Control
+          type="text"
+          placeholder="Nombre"
+          ref={firstName}
+          className="Nombre"
+        />
       </Form.Group>
 
       <Form.Group className="mb-5 " controlId="formBasicApellido">
         <Form.Label className="text-light"> Apellido </Form.Label>{" "}
-        <Form.Control type="text" placeholder="Apellido" ref={lastName} />{" "}
+        <Form.Control
+          type="text"
+          placeholder="Apellido"
+          ref={lastName}
+          className="Apellido"
+        />{" "}
       </Form.Group>
 
       <Form.Group className="mb-5 " controlId="formBasicEmail">
         <Form.Label className="text-light"> Email </Form.Label>{" "}
-        <Form.Control type="text" placeholder="Email" ref={email} />{" "}
+        <Form.Control
+          type="text"
+          placeholder="Email"
+          ref={email}
+          className="Email"
+        />{" "}
       </Form.Group>
 
       <Form.Group className="mb-5 col-5" controlId="formBasicPassword">
         <Form.Label className="text-light"> Contraseña </Form.Label>{" "}
-        <Form.Control type="password" placeholder="Contraseña" ref={password} />{" "}
+        <Form.Control
+          type="password"
+          placeholder="Contraseña"
+          ref={password}
+          className="Contraseña"
+        />{" "}
       </Form.Group>
 
       <Form.Group className="mb-5 col-6" controlId="formBasicAge">
         <Form.Label className="text-light"> Edad </Form.Label>{" "}
-        <Form.Control type="number" placeholder="Edad" ref={age} />{" "}
+        <Form.Control
+          type="date"
+          placeholder="Edad"
+          ref={age}
+          onChange={handleDate}
+          className="Edad"
+        />{" "}
       </Form.Group>
 
       <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-5">
@@ -205,12 +238,7 @@ const SignUp = () => {
           <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
         </svg>
         <span class="mt-2 text-base leading-normal">Select a file</span>
-        <input
-          type="file"
-          class="hidden"
-          ref={userImg}
-          onChange={archivoHandler}
-        />
+        <input type="file" class="hidden" onChange={archivoHandler} id="fileupload" />
       </label>
       {fileUrl && (
         <div>
@@ -221,7 +249,7 @@ const SignUp = () => {
           <img src={fileUrl} alt="avatar" class="h-40 w-50 m-5" />
         </div>
       )}
-
+      {loading ? <Loader /> : null}
       <div className="d-flex container-buttons">
         <Button className="button-send" type="submit" class="">
           Registrarse
@@ -249,5 +277,18 @@ const SignUp = () => {
     </>
   );
 };
+
+function calcularEdad(fecha) {
+  var hoy = new Date();
+  var cumpleanos = new Date(fecha);
+  var edad = hoy.getFullYear() - cumpleanos.getFullYear();
+  var m = hoy.getMonth() - cumpleanos.getMonth();
+
+  if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+    edad--;
+  }
+
+  return edad;
+}
 
 export default SignUp;

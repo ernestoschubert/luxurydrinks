@@ -7,6 +7,7 @@ const drinkSchema = new mongoose.Schema({
     abv: { type: Number, require: true },
     price: { type: Number, require: true },
     stock: { type: Number, require: true },
+    quantity: { type: Number, require: true },
     description: { type: String, require: true },    
     userFavorites: {  type: Array, default: [] }
 });

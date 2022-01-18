@@ -1,32 +1,28 @@
 import React, { createContext, useState, useEffect } from "react";
-import { connect } from "react-redux";
-import productAction from './redux/actions/productAction'
+import axios from "axios";
 
 export const DataContext = createContext();
 
 const DataProvider = (props) => {
-	const [productos, setProductos] = useState([]);
-	const [menuCart, setMenuCart] = useState(false)
-	const [carrito, setCarrito] =useState([])
-	const [total, setTotal] = useState(0)
+  const [productos, setProductos] = useState([]);
+  const [menuCart, setMenuCart] = useState(false);
+  const [carrito, setCarrito] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  useEffect(() => {
-        props.fetchProducts()
-		const producto = props.products
-		if(producto){
-			setProductos(producto)
-		} else {
-			setProductos([])
-		}
-	}, []);
+	useEffect(() => {
+		axios.get('http://localhost:4000/api/drinks')
+		.then(res => setProductos(res.data.drinks))
+		.catch(error => console.log(error))
+	}, [])
+
 	const addCarrito = (id) =>{
 		const check = carrito.every(item =>{
-			return item.id !== id
+			return item._id !== id
 			
 		})
 		if(check){
 			const data = productos.filter(producto =>{
-				return producto.id === id
+				return producto._id === id
 			})
 			setCarrito([...carrito, ...data])
 		}else{
@@ -40,42 +36,16 @@ const DataProvider = (props) => {
 		}
 	},[])
 
-	useEffect(() =>{
-		localStorage.setItem('dataCarrito', JSON.stringify(carrito))
-	},[carrito])
-
-	useEffect(() =>{
-		const getTotal = () =>{
-			const res = carrito.reduce((prev, item) =>{
-				return prev + (item.price * item.cantidad)
-			},0)
-			setTotal(res)
-		}
-		getTotal()
-	},[carrito])
-
-	const value = {
-		productos : [productos],
-		menuCart: [menuCart, setMenuCart],
-		carrito: [carrito, setCarrito],
-		addCarrito: addCarrito,
-		total: [total, setTotal]
-	}
-	return (
-		<DataContext.Provider value={value}>
-			{props.children}
-		</DataContext.Provider>
-	)
+  const value = {
+    productos: [productos],
+    menuCart: [menuCart, setMenuCart],
+    carrito: [carrito, setCarrito],
+    addCarrito: addCarrito,
+    total: [total, setTotal],
+  };
+  return (
+    <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
+  );
 };
 
-const mapStateToProps = state => {
-    return {
-        products: state.productsReducer.auxiliar
-    }
-}
-
-const mapDispatchToProps =  {
-    fetchProducts: productAction.fetchProducts
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataProvider)
+export default DataProvider;

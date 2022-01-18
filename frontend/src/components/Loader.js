@@ -1,15 +1,17 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import '../styles/loader.css'
+
+import '../styles/sass/loader.scss'
 
 const Loader = () => {
   return (
-    
-    <div className="divPadre">
-      <div className="divHijo">
+
+    <div class="spin-wrapper">
+      <div class="spinner">
       </div>
     </div>
+
   );
 };
 
 export default Loader;
+
