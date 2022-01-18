@@ -15,6 +15,9 @@
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
+    text-shadow: 0 5px 5px rgba(10, 10, 10, 0.575);
+    border-radius: 9px;
+    background: #ba1919af;
   }
   form {
       background-image: url('https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg')
