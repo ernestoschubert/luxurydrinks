@@ -33,7 +33,6 @@ function App(props) {
 
   return (
     <>
-    <PayPalScriptProvider options={{ "client-id": "ASLnF48B0KcpHc6l8x3IoDViKPYG2jMRnLDR7H_vUO9pjOQtmhZlajrjXlzlmMDVG_sFCSuS5gO47eBT" }}>
       <DataProvider>
         <BrowserRouter>
           <Navbar />
@@ -55,7 +54,6 @@ function App(props) {
           <Footer />
         </BrowserRouter>
       </DataProvider>
-    </PayPalScriptProvider>
     </>
   );
 }

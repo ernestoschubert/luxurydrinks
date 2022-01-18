@@ -11,11 +11,6 @@ const Cart = () => {
     const [carrito, setCarrito] = value.carrito;
     const [total] = value.total;
 
-    const product = {
-        productos: "",
-        price: ""
-    }
-
 
     const stockActualizado = (producto) => {
         const res = producto.stock - producto.quantity
@@ -140,10 +135,10 @@ const Cart = () => {
             </div>
     
             <div className="carrito__footer">
-              <h3 className="mb-2">Total: ${total.toFixed(2)}</h3>
+              <h3 className="mb-2">Total: ${total}</h3>
                 <div className='btnCont'>
-                    <div className='flex justify-center items-center'>
-                        <PaypalCheckoutButton product={product} />
+                    <div className='flex justify-center items-center' style={{height: "130px"}}>
+                        <PaypalCheckoutButton />
                     </div>
                     <button className="btn flex flex-col" onClick={() => vaciarCarrito()}>
                         <div className='flex flex-row items-center justify-center'>

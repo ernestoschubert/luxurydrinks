@@ -36,16 +36,32 @@ const DataProvider = (props) => {
 		}
 	},[])
 
-  const value = {
-    productos: [productos],
-    menuCart: [menuCart, setMenuCart],
-    carrito: [carrito, setCarrito],
-    addCarrito: addCarrito,
-    total: [total, setTotal],
-  };
-  return (
-    <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
-  );
+	useEffect(() =>{
+		localStorage.setItem('dataCarrito', JSON.stringify(carrito))
+	},[carrito])
+
+	useEffect(() =>{
+		const getTotal = () =>{
+			const res = carrito.reduce((prev, item) =>{
+				return prev + (item.price * item.quantity)
+			},0)
+			setTotal(res.toFixed(2))
+		}
+		getTotal()
+	},[carrito])
+
+	const value = {
+		productos : [productos],
+		menuCart: [menuCart, setMenuCart],
+		carrito: [carrito, setCarrito],
+		addCarrito: addCarrito,
+		total: [total, setTotal]
+	}
+	return (
+		<DataContext.Provider value={value}>
+			{props.children}
+		</DataContext.Provider>
+	)
 };
 
 export default DataProvider;

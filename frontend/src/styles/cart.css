@@ -22,13 +22,36 @@
     height: 80%;
     padding: 1.6rem;
     border-radius: 8px;
-    overflow-x: scroll;
+    overflow-y: auto;
     transition: all 300ms ease-in-out;
     background-color: white;
     opacity: 0;
     visibility: hidden;
 }
-
+.carrito::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+  
+  .carrito::-webkit-scrollbar:vertical {
+    width:10px;
+  }
+  
+  .carrito::-webkit-scrollbar-button:increment, .carrito::-webkit-scrollbar-button {
+    display: none;
+  } 
+  
+  .carrito::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+  
+  .carrito::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+  }
+  
+  .all-comments-container::-webkit-scrollbar-track {
+    border-radius: 10px;  
+  }
 @media (max-width: 1200px) {
     .carrito {
         width: 80%;

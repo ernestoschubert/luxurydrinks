@@ -33,13 +33,13 @@ const Navbar = (props) => {
         <FaShoppingCart class="text-5xl" />
         <span className="item__total">{carrito.length}</span>
       </div>
-      <div class="block lg:hidden">
+      <div className="block lg:hidden">
         <button
           onClick={() => setMenu(!menu)}
-          class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+          className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
         >
           <svg
-            class="fill-current h-10 w-10"
+            className="fill-current h-10 w-10"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
