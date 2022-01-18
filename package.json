@@ -27,8 +27,6 @@
     "mongoose": "^6.1.5",
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
-    "passport-jwt": "^4.0.0",
-    "react-bootstrap": "^2.1.0",
-    "reactstrap": "^9.0.1"
+    "passport-jwt": "^4.0.0"
   }
 }

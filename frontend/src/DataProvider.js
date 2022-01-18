@@ -45,7 +45,7 @@ const DataProvider = (props) => {
 			const res = carrito.reduce((prev, item) =>{
 				return prev + (item.price * item.quantity)
 			},0)
-			setTotal(res)
+			setTotal(res.toFixed(2))
 		}
 		getTotal()
 	},[carrito])
