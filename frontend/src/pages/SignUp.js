@@ -49,7 +49,6 @@ const SignUp = () => {
 
   const archivoHandler = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
     const imageUrl = URL.createObjectURL(image);
     setFileUrl(imageUrl);
 
@@ -171,6 +170,7 @@ const SignUp = () => {
     <div className="registroHeader">
     <h1 className="tittleRegistro">REGISTRATE</h1>
   </div>
+  <div className="form">
     <Form className="form-container" variant="light" onSubmit={crearUsuario}>
       <h1 className="titleForm">
         {" "}
@@ -228,7 +228,7 @@ const SignUp = () => {
         />{" "}
       </Form.Group>
 
-      <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-white m-5">
+      <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-5">
         <svg
           class="w-8 h-8"
           fill="currentColor"
@@ -273,6 +273,7 @@ const SignUp = () => {
         />
       </div>
     </Form>
+    </div>
     </>
   );
 };

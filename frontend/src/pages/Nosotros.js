@@ -17,7 +17,7 @@ const Nosotros = () => {
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" />
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da08345c4777.png" alt="fundador" />
                 <h3>El Fundador</h3>
               </div>
             </div>
@@ -72,11 +72,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1987</h4><br/>
-             <img className="yearCardNosotros" width="90" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png"/>
+             <img className="yearCardNosotros" width="90" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png" alt=""/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png"/>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0832b3acb1.png" alt=""/>
                 <h3>Un Nuevo Comienzo</h3>
               </div>
             </div>
@@ -92,11 +92,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">1995</h4><br/>
-             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png"/>
+             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png" alt=""/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png"/>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0840049890.png" alt=""/>
                 <h3>Un Nuevo Maestro</h3>
               </div>
             </div>
@@ -112,11 +112,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2005</h4><br/>
-             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg"/>
+             <img className="yearCardNosotros" width="100" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg" alt=""/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg"/>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0842a6ccdf.jpeg" alt=""/>
                 <h3>Nuevos Dueños</h3>
               </div>
             </div>
@@ -132,11 +132,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2008</h4><br/>
-             <img className="yearCardNosotros" width="110" src={LogoLuxury}/>
+             <img className="yearCardNosotros" width="110" src={LogoLuxury} alt=""/>
               </div>
              
               <div class="content">
-                <img width="130" src={LogoLuxury}/>
+                <img width="130" src={LogoLuxury} alt=""/>
                 <h3>Luxury Drinks</h3>
               </div>
             </div>
@@ -152,11 +152,11 @@ const Nosotros = () => {
             <div class="face face1">
               <div className="containerYearCard">
               <h4 className="yearCardNosotros">2019</h4><br/>
-             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png"/>
+             <img className="yearCardNosotros" width="60" src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png" alt=""/>
               </div>
              
               <div class="content">
-                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png"/>
+                <img src="https://s3.eu-west-1.amazonaws.com/v2.beefeatergin.com/stage/basic_uploads/sir-trevor/5da0844c1acec.png" alt=""/>
                 <h3>The Best</h3>
               </div>
             </div>

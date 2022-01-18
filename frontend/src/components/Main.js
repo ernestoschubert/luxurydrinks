@@ -36,14 +36,14 @@ function Main() {
                     <div class="md:flex p-20">
                         <div class="md:w-6/12 text-white bg-red-600 p-8 sm:rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg rounded-tl-lg flex items-center">
                             <div>
-                                <h1 class="textCoctel mb-5 font-bold">HOT NEGRONI</h1>
-                                <h2 class="textCoctel mb-12">"EMPIEZA EL 2022 DISFRUTANDO DE UN BEEFEATER GIN HOT NEGRONI".</h2>
+                                <h1 class="textCoctel mb-5 font-bold">STRAWBERRIES & COCONUT CREAM</h1>
+                                <h2 class="textCoctel mb-12">"UN COCKTAIL PARA CELEBRAR LOS SABORES FRESCOS DEL COCO, LA FRAMBUESA Y BEEFEATER PINK STRAWBERRY GIN".</h2>
                                 
                             </div>
                         </div>
                         <div class="md:w-6/12 relative">
                             <div class=" w-full h-full opacity-60 absolute sm:rounded-bl-lg md:rounded-bl-none md:rounded-tr-lg rounded-br-lg"></div>
-                            <img class="h-full w-full object-cover sm:rounded-bl-lg md:rounded-bl-none md:rounded-tr-lg rounded-br-lg" src="https://i.imgur.com/GwKabhP.jpg" width="20%" alt="Banner Desktop" />
+                            <img class="h-full w-full object-cover sm:rounded-bl-lg md:rounded-bl-none md:rounded-tr-lg rounded-br-lg" src="https://i.imgur.com/BeqfBBa.jpeg" width="20%" alt="Banner Desktop" />
                         </div>
                     </div>
                     <div class="md:flex p-20">

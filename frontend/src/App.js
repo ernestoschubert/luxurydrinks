@@ -13,10 +13,12 @@ import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import Legales from "./pages/ConsumoResponsable";
 import PanelAdmin from "./components/panelAdmin";
+import PanelUser from "./components/PanelUser";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
 import Coctel from "./components/Coctel";
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 
 const Gin = withRouter(GinNoProps);
 
@@ -26,10 +28,12 @@ function App(props) {
     if (localStorage.getItem("token")) {
       authUser(localStorage.getItem("token"));
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   return (
     <>
+    <PayPalScriptProvider options={{ "client-id": "ASLnF48B0KcpHc6l8x3IoDViKPYG2jMRnLDR7H_vUO9pjOQtmhZlajrjXlzlmMDVG_sFCSuS5gO47eBT" }}>
       <DataProvider>
         <BrowserRouter>
           <Navbar />
@@ -41,6 +45,7 @@ function App(props) {
             <Route path="/Legales" element={<Legales />} />
             <Route path="/Gin/:id" element={<Gin />} />
             <Route path="/Cocktail/:id" element={<Coctel/>}/>
+            <Route path="/PanelUser" element={<PanelUser />} />
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
             {!props.user && <Route path="/Loguearse" element={<Login />} />}
             {props.role === "admin" && (
@@ -50,6 +55,7 @@ function App(props) {
           <Footer />
         </BrowserRouter>
       </DataProvider>
+    </PayPalScriptProvider>
     </>
   );
 }

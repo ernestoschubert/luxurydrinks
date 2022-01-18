@@ -20,6 +20,7 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
   const price = useRef();
   const stock = useRef();
   const description = useRef();
+  const drinkImg = useRef();
 
   const counter = useCounter(0, currentGin.stock);
   const { aumentar, disminuir, value } = counter;
@@ -37,12 +38,12 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
       price: price.current.value,
       stock: stock.current.value,
       description: description.current.value,
+      drinkImg: drinkImg.current.value,
     };
     editAProduct(currentGin._id, product, user.token).then((res) => {
       if (!res.success) return;
       Swal.fire("Editado correctamente!", "", "success");
       setGin(res.drink);
-      
     });
     setEdit(false);
   };
@@ -52,11 +53,30 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
       {gin && (
         <div class="md:flex md:items-center md:justify-center">
           <div class="w-2/3 h-64 md:w-1/2 lg:h-auto ">
-            <img
-              class="h-full w-full rounded-md object-cover max-w-lg m-auto"
-              src={gin.drinkImg}
-              alt={gin.drinkName}
-            />
+            {edit ? (
+              <>
+                <img
+                  class="h-full w-full rounded-md object-cover max-w-lg m-auto"
+                  src={gin.drinkImg}
+                  alt={gin.drinkName}
+                />
+                <div class="m-auto">
+                  <span>URL DE LA IMAGEN:</span>
+                  <input
+                    type="text"
+                    defaultValue={gin.drinkImg}
+                    class="w-1/3 p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm m-auto"
+                    ref={drinkImg}
+                  />
+                </div>
+              </>
+            ) : (
+              <img
+                class="h-full w-full rounded-md object-cover max-w-lg m-auto"
+                src={gin.drinkImg}
+                alt={gin.drinkName}
+              />
+            )}
           </div>
           <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2 text-center">
             {favorite ? (

@@ -4,15 +4,15 @@ import "../styles/sass/cocktails.scss";
 import productActions from "../redux/actions/productAction";
 import Loader from "./Loader";
 import { connect } from "react-redux";
-import Alert from "react-bootstrap/Alert";
 import { Link } from "react-router-dom";
 
 function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
+    //eslint-disable-next-line
   }, []);
 
-  if (props.todosLosCocktails === null) {
+  if (props.todosLosCocktails === "") {
     return (
       <div>
         <h3 className="loading">Loading...please wait</h3>
@@ -57,7 +57,7 @@ function Cocteles(props) {
             <p class="textAlert">
               Lo sentimos, faltan cóckteles aquí, pronto más productos.
             </p>
-            <p>Volver a <Link className="linkCocktails" to="/Home"><button><span>HOME.</span></button></Link></p>
+            <p>Volver a <Link className="linkCocktails" to="/"><button><span>HOME.</span></button></Link></p>
           </div>
         )}
       </div>

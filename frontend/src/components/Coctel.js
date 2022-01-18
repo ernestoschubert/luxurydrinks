@@ -77,14 +77,6 @@ const Coctel = (props) => {
             <p class="textAlert">
               Lo sentimos, aun no hay cócteles aquí, pronto más recetas.
             </p>
-            {/* <p>
-              Volver a{" "}
-              <Link className="linkCocktails" to="/Cocktails">
-                <button>
-                  <span>COCKTAILS.</span>
-                </button>
-              </Link>
-            </p> */}
           </div>
         )}
         <div className="backCoctel">

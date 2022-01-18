@@ -17,14 +17,21 @@ const credentials = [
   {
     nombre: "Ariel",
     apellido: "serato",
-    email: "ariel@gmail.com",
+    email: "ariel12@gmail.com",
+    password: "1234test",
+    edad: "07/19/2020",
+  },
+  {
+    nombre: "Ariel",
+    apellido: "serato",
+    email: "ariel123@gmail.com",
     password: "1234test",
     edad: "07/19/2020",
   },
 ];
 
 function singInTest() {
-  describe("testeo de singin", function () {
+  describe("testeo de registro", function () {
     this.timeout(20000);
     let webDriver = new Builder().forBrowser("chrome").build();
     webDriver.manage().window().maximize();
@@ -50,8 +57,6 @@ function singInTest() {
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(3000);
-      // const texto = webDriver.findElement(By)
-      
     });
 
     it("Ingreso credenciales con edad incorrecta", async () => {
@@ -60,24 +65,23 @@ function singInTest() {
       await webDriver.findElement(By.className("Register")).click();
       await webDriver
         .findElement(By.className("Nombre"))
-        .sendKeys(credentials[0].nombre);
+        .sendKeys(credentials[1].nombre);
       await webDriver
         .findElement(By.className("Apellido"))
-        .sendKeys(credentials[0].apellido);
+        .sendKeys(credentials[1].apellido);
       await webDriver
         .findElement(By.className("Email"))
-        .sendKeys(credentials[0].email);
+        .sendKeys(credentials[1].email);
       await webDriver
         .findElement(By.className("Contraseña"))
-        .sendKeys(credentials[0].password);
+        .sendKeys(credentials[1].password);
       await webDriver
         .findElement(By.className("Edad"))
-        .sendKeys(credentials[0].edad);
+        .sendKeys(credentials[1].edad);
       await webDriver.findElement(By.id("fileupload")).sendKeys(path);
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(3000);
-      
     });
 
     it("Ingreso credenciales correctas", async () => {
@@ -86,25 +90,27 @@ function singInTest() {
       await webDriver.findElement(By.className("Register")).click();
       await webDriver
         .findElement(By.className("Nombre"))
-        .sendKeys(credentials[0].nombre);
+        .sendKeys(credentials[2].nombre);
       await webDriver
         .findElement(By.className("Apellido"))
-        .sendKeys(credentials[0].apellido);
+        .sendKeys(credentials[2].apellido);
       await webDriver
         .findElement(By.className("Email"))
-        .sendKeys(credentials[0].email);
+        .sendKeys(credentials[2].email);
       await webDriver
         .findElement(By.className("Contraseña"))
-        .sendKeys(credentials[0].password);
+        .sendKeys(credentials[2].password);
       await webDriver
         .findElement(By.className("Edad"))
-        .sendKeys(credentials[0].edad);
+        .sendKeys(credentials[2].edad);
       await webDriver.findElement(By.id("fileupload")).sendKeys(path);
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(5000);
-      const texto = webDriver.findElement(By.css('#root > div > header > div > div > h2')).getText()
-      assert.strictEqual(texto,'El Gin')
+      const texto = webDriver
+        .findElement(By.css("#root > div > header > div > div > h2"))
+        .getText();
+      assert.strictEqual(texto, "EL GIN");
     });
   });
 }
