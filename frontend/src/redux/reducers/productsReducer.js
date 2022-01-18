@@ -22,8 +22,24 @@ const productsReducer = (state = initialState, action) => {
         );
       } else if (filter === "price") {
         value
-          ? (filtrado = state.auxiliar.sort((a, b) => a.price - b.price))
-          : (filtrado = state.auxiliar.sort((a, b) => a.price + b.price));
+          ? (filtrado = state.auxiliar.sort((a, b) => {
+              if (a.price > b.price) {
+                return 1;
+              }
+              if (a.price < b.price) {
+                return -1;
+              }
+              return 0;
+            }))
+          : (filtrado = state.auxiliar.sort((a, b) => {
+              if (a.price < b.price) {
+                return 1;
+              }
+              if (a.price > b.price) {
+                return -1;
+              }
+              return 0;
+            }));
       } else {
         value
           ? (filtrado = state.auxiliar.sort((a, b) => {
@@ -36,24 +52,26 @@ const productsReducer = (state = initialState, action) => {
               return 0;
             }))
           : (filtrado = state.auxiliar.sort((a, b) => {
-            if (a.drinkName < b.drinkName) {
-              return 1;
-            }
-            if (a.drinkName > b.drinkName) {
-              return -1;
-            }
-            return 0;
-          }));
-      }  
+              if (a.drinkName < b.drinkName) {
+                return 1;
+              }
+              if (a.drinkName > b.drinkName) {
+                return -1;
+              }
+              return 0;
+            }));
+      }
       return {
         ...state,
         auxiliar: filtrado,
       };
-      case "DELETE_PRODUCT" :
-      return { 
+    case "DELETE_PRODUCT":
+      return {
         ...state,
-        products: state.products.filter(userDB => userDB._id !== action.payload)
-      }
+        products: state.products.filter(
+          (userDB) => userDB._id !== action.payload
+        ),
+      };
     default:
       return state;
   }

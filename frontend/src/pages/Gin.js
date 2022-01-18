@@ -50,14 +50,8 @@ const Gin = (props) => {
                         class="flex items-end justify-end h-56 w-full bg-cover bg-center "
                         style={{ backgroundImage: `url(${product.drinkImg})` }}
                       >
-<<<<<<< HEAD
-                        <button
-                          class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
-                          onClick={() => addCarrito(id)}
-=======
                         <button class="p-2 rounded-full bg-blue-600 text-white mx-5 -mb-4 hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
                           onClick={() => addCarrito(product._id)}
->>>>>>> 616e5d81f57b867ff854572ade7425158ba9b39b
                         >
                           <svg
                             class="h-5 w-5"

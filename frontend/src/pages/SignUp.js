@@ -49,7 +49,6 @@ const SignUp = () => {
 
   const archivoHandler = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
     const imageUrl = URL.createObjectURL(image);
     setFileUrl(imageUrl);
 

@@ -65,12 +65,8 @@ const productActions = {
         { ...newProduct },
         { headers: { Authorization: "Bearer " + token } }
       );
-
-      if (res.data.success) {
-        return res;
-      } else {
-        console.error("error");
-      }
+        return res.data;
+      
     };
   },
   editAProduct: (id, product, token) => {

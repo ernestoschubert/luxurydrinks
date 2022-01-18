@@ -31,7 +31,7 @@ const credentials = [
 ];
 
 function singInTest() {
-  describe("testeo de singin", function () {
+  describe("testeo de registro", function () {
     this.timeout(20000);
     let webDriver = new Builder().forBrowser("chrome").build();
     webDriver.manage().window().maximize();
@@ -57,8 +57,6 @@ function singInTest() {
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(3000);
-      // const texto = webDriver.findElement(By)
-      
     });
 
     it("Ingreso credenciales con edad incorrecta", async () => {
@@ -84,7 +82,6 @@ function singInTest() {
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(3000);
-            
     });
 
     it("Ingreso credenciales correctas", async () => {
@@ -110,8 +107,10 @@ function singInTest() {
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(5000);
-      const texto = webDriver.findElement(By.css('#root > div > header > div > div > h2')).getText()
-      assert.strictEqual(texto,'EL GIN')
+      const texto = webDriver
+        .findElement(By.css("#root > div > header > div > div > h2"))
+        .getText();
+      assert.strictEqual(texto, "EL GIN");
     });
   });
 }

@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 function Cocteles(props) {
   useEffect(() => {
     props.arrayCocktails();
+    //eslint-disable-next-line
   }, []);
 
-  if (props.todosLosCocktails == "") {
+  if (props.todosLosCocktails === "") {
     return (
       <div>
         <h3 className="loading">Loading...please wait</h3>

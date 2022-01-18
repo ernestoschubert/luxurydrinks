@@ -18,6 +18,7 @@ const panelUser = () => {
             <img
               src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
               class="h-24 w-24 object-cover rounded-full"
+              alt=""
             />
             <h1 class="text-2xl font-semibold">Antonia Howell</h1>
             <h4 class="text-sm font-semibold">The Beefeater</h4>
@@ -87,27 +88,27 @@ const panelUser = () => {
                   />
                 </div>
                 <div class="form-item">
-                <label class="text-xl ">Imagen</label>
-                <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-5">
-                <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-              class="h-24 w-24 object-cover rounded-full"
-            />
-        <svg
-          class="w-8 h-8"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-        </svg>
-        <span class="mt-2 text-base leading-normal">Seleccione un archivo</span>
-        <input
-          type="file"
-          class="hidden"
-        />
-      </label>
-      </div>
+                  <label class="text-xl ">Imagen</label>
+                  <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-5">
+                    <img
+                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                      class="h-24 w-24 object-cover rounded-full"
+                      alt=""
+                    />
+                    <svg
+                      class="w-8 h-8"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                    </svg>
+                    <span class="mt-2 text-base leading-normal">
+                      Seleccione un archivo
+                    </span>
+                    <input type="file" class="hidden" />
+                  </label>
+                </div>
               </form>
             </div>
           </div>
@@ -115,21 +116,20 @@ const panelUser = () => {
       </div>
     </div>
   );
-
-}
+};
 const mapDispatchToProps = {
-    getUsers: authActions.getUsers,
-    getDrinks: productActions.fetchProducts,
-    deleteUser: authActions.deleteUser,
-    deleteProduct: productActions.deleteProduct,
-    postAProduct: productActions.postAProduct,
+  getUsers: authActions.getUsers,
+  getDrinks: productActions.fetchProducts,
+  deleteUser: authActions.deleteUser,
+  deleteProduct: productActions.deleteProduct,
+  postAProduct: productActions.postAProduct,
+};
+const mapStateToProps = (state) => {
+  return {
+    users: state.authReducers.users,
+    drinks: state.productsReducer.products,
+    user: state.authReducers.user,
   };
-  const mapStateToProps = (state) => {
-    return {
-      users: state.authReducers.users,
-      drinks: state.productsReducer.products,
-      user: state.authReducers.user,
-    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(panelUser);
