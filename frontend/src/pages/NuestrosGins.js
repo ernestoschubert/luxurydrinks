@@ -33,6 +33,9 @@ const NuestrosGins = (props) => {
       className="flex items-center justify-center flex-col"
       style={{ backgroundImage: `URL('/assets/fondoMarmol.jpg')` }}
     >
+      <div className="tiendaHeader">
+        <h1 className="tittleTienda">Nuestros Gins</h1>
+      </div>
       <div className="w-72 m-4">
         <div className="relative flex items-center justify-center">
           <input
