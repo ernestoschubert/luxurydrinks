@@ -81,7 +81,7 @@ const Coctel = (props) => {
         )}
         <div className="backCoctel">
           <Link className="linkCocktails" to="/Cocktails">
-            <button>
+            <button className="btnCoctel">
               <p>
                 VER MÁS <span>COCKTAILS</span>
               </p>

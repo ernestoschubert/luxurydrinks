@@ -10,14 +10,16 @@ const Card = ({ card }) => {
 
   return (
     <>
-      <div className="wrapper antialiased text-gray-900 rounded-lg">
-        <div className="object-cover object-center rounded-lg shadow-xl p-5">
+      <div className="wrapper antialiased text-gray-900 rounded-lg flex flex-wrap">
+        <div className="object-cover object-center rounded-lg shadow-xl p-5"
+          style={{backgroundColor: '#ffffff82'}}
+        >
           <Link to={`/Gin/${card._id}`} >
             <img
               src={card.drinkImg}
               alt={card.drinkName}
               className=""
-              style={{height: "40vh", margin: "auto"}}
+              style={{height: "30vh", margin: "auto"}}
             />
           </Link>
           <div className="relative m-auto">
@@ -55,7 +57,7 @@ const Card = ({ card }) => {
               <div className="mt-2  flex items-center justify-center flex-row">
                 <Link to={`/Gin/${card._id}`}>
                   <button 
-                    className="mx-2 text-neutral-100 font-semibold text-xl bg-red-600 rounded-lg p-3 pt-4 px-10 flex items-center justify-center flex-row no-underline"
+                    className="mx-2 text-neutral-100 font-semibold text-lg bg-red-600 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                     style={{outline: 'none'}}
                     >
                       <FaCompress className="mr-2"/>
@@ -64,10 +66,10 @@ const Card = ({ card }) => {
                 </Link>
                 <button 
                   onClick={()=> addCarrito(card._id)} 
-                  className="font-semibold text-neutral-100 text-xl"
+                  className="font-semibold text-neutral-100 text-lg"
                   >
                   <div
-                      className="bg-red-600 rounded-lg p-3 pt-4 px-10 flex items-center justify-center flex-row"
+                      className="mx-2 text-neutral-100 font-semibold text-lg bg-red-600 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                       style={{outline: 'none'}}
                       >
                       <FaCartPlus 

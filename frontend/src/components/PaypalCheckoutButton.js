@@ -11,8 +11,6 @@ const PaypalCheckoutButton = () => {
     const [orderID, setOrderID] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
 
-    console.log("total calculado:",total)
-
     useEffect(() => {
         PaypalCheckOut()
         // eslint-disable-next-line react-hooks/exhaustive-deps
