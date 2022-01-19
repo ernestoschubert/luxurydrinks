@@ -1,4 +1,3 @@
-import useCounter from "../hooks/useCounter";
 import {
   FaStar,
   FaRegStar,
