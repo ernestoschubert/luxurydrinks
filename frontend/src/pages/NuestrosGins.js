@@ -29,25 +29,26 @@ const NuestrosGins = (props) => {
     filterProducts("alpha", productos, alpha)
   }
   return (
-    <div class="flex items-center justify-center flex-col"
+    <div className="flex items-center justify-center flex-col"
       style={{backgroundImage: `URL('/assets/fondoMarmol.jpg')`}}
     >
-      <div class="w-72 m-4">
-        <div class="relative flex items-center justify-center">
-        <input type="text" class="px-10 py-3 w-100 rounded-lg mr-2" 
-        placeholder="Search..."
-        onChange={(e) => filterProducts("search", productos, e.target.value)}
+      <div className="w-72 m-4">
+        <div className="relative flex items-center justify-center">
+        <input type="text" 
+          className="rounded-lg mr-2 border-2 border-slate-400" 
+          placeholder="Search..."
+          onChange={(e) => filterProducts("search", productos, e.target.value)}
         />
-            <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+            <svg className="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24">
                 <path
                     d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
             </svg>
-            <button onClick={() => handlePrice()} class="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 ">Price{price ? "⬆": "⬇"}</button>
-            <button onClick={() => handleAlpha()} class="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 m-2">{alpha ? "AZ": "ZA"}</button>
+            <button onClick={() => handlePrice()} className="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 ">Price{price ? "⬆": "⬇"}</button>
+            <button onClick={() => handleAlpha()} className="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 m-2">{alpha ? "AZ": "ZA"}</button>
         </div>
       </div>
-      <div class="grid grid-cols-3 gap-4 place-content-center mb-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-content-center mb-4">
         {loading ? (
           <Loader />
         ) : (

@@ -2,22 +2,40 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { FaCartPlus, FaCompress } from 'react-icons/fa'
 import { DataContext } from "../DataProvider";
+import Swal from "sweetalert2";
+
 
 const Card = ({ card }) => {
   
   const values = useContext(DataContext);
   const addCarrito = values.addCarrito;
 
+  const Alert = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 3000,
+    background: 'black',
+    color: 'white',
+    timerProgressBar: true,
+    didOpen: toast => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   return (
     <>
-      <div className="wrapper antialiased text-gray-900 rounded-lg">
-        <div className="object-cover object-center rounded-lg shadow-xl p-5">
+      <div className="wrapper antialiased text-gray-900 rounded-lg flex flex-wrap">
+        <div className="object-cover object-center rounded-lg shadow-xl p-5"
+          style={{backgroundColor: '#ffffff82'}}
+        >
           <Link to={`/Gin/${card._id}`} >
             <img
               src={card.drinkImg}
               alt={card.drinkName}
               className=""
-              style={{height: "40vh", margin: "auto"}}
+              style={{height: "30vh", margin: "auto"}}
             />
           </Link>
           <div className="relative m-auto">
@@ -52,10 +70,10 @@ const Card = ({ card }) => {
                   {" " +card.stock}
                 </span>
               </div>
-              <div className="mt-2  flex items-center justify-center flex-row">
+              <div className="mt-2  flex items-center justify-center flex-column">
                 <Link to={`/Gin/${card._id}`}>
                   <button 
-                    className="mx-2 text-neutral-100 font-semibold text-xl bg-red-600 rounded-lg p-3 pt-4 px-10 flex items-center justify-center flex-row no-underline"
+                    className="mx-2 mb-2 text-neutral-100 font-semibold text-md bg-red-600 hover:bg-red-700 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                     style={{outline: 'none'}}
                     >
                       <FaCompress className="mr-2"/>
@@ -64,10 +82,10 @@ const Card = ({ card }) => {
                 </Link>
                 <button 
                   onClick={()=> addCarrito(card._id)} 
-                  className="font-semibold text-neutral-100 text-xl"
+                  className="font-semibold text-neutral-100 text-md"
                   >
-                  <div
-                      className="bg-red-600 rounded-lg p-3 pt-4 px-10 flex items-center justify-center flex-row"
+                  <p
+                      className="mx-2 text-neutral-100 font-semibold text-md bg-red-600 hover:bg-red-700 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                       style={{outline: 'none'}}
                       >
                       <FaCartPlus 
@@ -75,7 +93,7 @@ const Card = ({ card }) => {
                         style={{width: '2rem', color: '#fff'}}
                       /> 
                         Agregar al carrito
-                  </div>
+                  </p>
                 </button>
               </div>
             </div>
