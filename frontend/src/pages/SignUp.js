@@ -8,7 +8,7 @@ import GoogleLogin from "react-google-login";
 import { FcGoogle } from "react-icons/fc";
 import { app } from "../services/firebase";
 import { FaTrash } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
 import { v4 as uuidv4 } from "uuid";
 
@@ -100,11 +100,13 @@ const SignUp = () => {
         );
 
         if (respuesta.data.success) {
+          navigate("/");
           Alert.fire({
             title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
             icon: "success",
+            timer: 9000
           });
-          navigate("/");
+          
         } else if (respuesta.data.error) {
           Alert.fire({
             title: `${respuesta.data.error}`,
@@ -177,7 +179,11 @@ const SignUp = () => {
         {" "}
         COMPLETÁ EL FORMULARIO{" "}
       </h1>
-
+      <h2 class="text-center text-2xl">Ya estas registrado?
+        <Link to="/Loguearse">
+        Ingresa
+        </Link>
+      </h2>
       <Form.Group className="mb-5 col-6" controlId="formBasicNombre">
         <Form.Label className="text-light"> Nombre </Form.Label>
         <Form.Control

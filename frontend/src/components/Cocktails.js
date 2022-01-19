@@ -32,23 +32,23 @@ function Cocteles(props) {
           props.todosLosCocktails.map((element, index) => {
             return (
               <div className="cocktailPadre">
-                    <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
-              <div className="containerCocktails">
-                  <div class="card">
-                    <img
-                      src={element.drinkImg}
-                      class="card__image"
-                      alt="brown couch"
-                    />
-                    <div class="card__content">
-                      <time datetime="2021-03-30" class="card__date">
-                        {element.drinkName}
-                      </time>
-                      <span class="card__title">{element.description}</span>
+                <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
+                  <div className="containerCocktails">
+                    <div class="card">
+                      <img
+                        src={element.drinkImg}
+                        class="card__image"
+                        alt="brown couch"
+                      />
+                      <div class="card__content">
+                        <time datetime="2021-03-30" class="card__date">
+                          {element.drinkName}
+                        </time>
+                        <span class="card__title">{element.description}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
               </div>
             );
           })
@@ -57,7 +57,14 @@ function Cocteles(props) {
             <p class="textAlert">
               Lo sentimos, faltan cóckteles aquí, pronto más productos.
             </p>
-            <p>Volver a <Link className="linkCocktails" to="/"><button><span>HOME.</span></button></Link></p>
+            <p>
+              Volver a{" "}
+              <Link className="linkCocktails" to="/">
+                <button>
+                  <span>HOME.</span>
+                </button>
+              </Link>
+            </p>
           </div>
         )}
       </div>

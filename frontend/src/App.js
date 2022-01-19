@@ -18,7 +18,6 @@ import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
 import Coctel from "./components/Coctel";
-import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import Cart from "./components/Cart";
 
 const Gin = withRouter(GinNoProps);
@@ -30,14 +29,14 @@ function App(props) {
       authUser(localStorage.getItem("token"));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  }, []);
 
   return (
     <>
       <DataProvider>
         <BrowserRouter>
           <Navbar />
-          <Cart/>
+          <Cart />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Nosotros" element={<Nosotros />} />
@@ -45,7 +44,7 @@ function App(props) {
             <Route path="/NuestrosGins" element={<NuestrosGins />} />
             <Route path="/Legales" element={<Legales />} />
             <Route path="/Gin/:id" element={<Gin />} />
-            <Route path="/Cocktail/:id" element={<Coctel/>}/>
+            <Route path="/Cocktail/:id" element={<Coctel />} />
             <Route path="/PanelUser" element={<PanelUser />} />
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
             {!props.user && <Route path="/Loguearse" element={<Login />} />}

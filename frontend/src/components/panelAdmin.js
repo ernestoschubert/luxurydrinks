@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const PanelAdmin = (props) => {
   const {
     getUsers,
