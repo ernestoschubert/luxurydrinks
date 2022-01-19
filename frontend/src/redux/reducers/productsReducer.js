@@ -2,6 +2,7 @@ const initialState = {
   loading: true,
   products: [],
   auxiliar: [],
+  drink: null
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -13,6 +14,11 @@ const productsReducer = (state = initialState, action) => {
         auxiliar: action.payload.drinks,
         loading: false,
       };
+    case "GET_DRINK": 
+      return {
+        ...state,
+        drink: action.payload
+      }
     case "FILTER_PRODUCTS":
       const { filter, products, value } = action.payload;
       let filtrado;

@@ -83,6 +83,18 @@ const productActions = {
       }
     };
   },
+  getDrink: (id) => {
+    return async(dispatch, getState) => {
+      try {
+          let res = await axios.get('http://localhost:4000/api/drink/'+id)
+          console.log(res);
+          
+          dispatch({type: 'GET_DRINK', payload: res.data.drink[0]})
+      } catch(error) {
+          console.log(error);
+      }
+    }
+}
 };
 
 export default productActions;

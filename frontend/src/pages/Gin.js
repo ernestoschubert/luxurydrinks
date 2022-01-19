@@ -4,31 +4,29 @@ import { useEffect, useContext } from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider";
+
 import Loader from "../components/Loader";
 import GinProduct from "../components/GinProduct";
 
 const Gin = (props) => {
   
-  const { products, fetchProducts } = props;
+  const { products, fetchProducts, getDrink, drink } = props;
   const value = useContext(DataContext);
   const [productos] = value.productos;
   const addCarrito = value.addCarrito;
 
   const id = props.params.id;
-
-  console.log(props);
-  
-  const currentGin = products.find((product) => product._id === id);
-
-  console.log(currentGin);
-
   useEffect(() => {
     fetchProducts();
+    getDrink(id)
   }, []);
+  console.log(drink);
+  
+  
+  // const currentGin = products.find((product) => product._id === id);
 
   const relatedProducts = products.splice(0, 4);
-  
-  
+
   return (
     <>
       <main class="flex justify-center items-center"
@@ -41,8 +39,10 @@ const Gin = (props) => {
               <h3 className="text-gray-600 font-semibold">Volver a la tienda</h3>
             </Link>
           </div>
-          {(
-            currentGin && <GinProduct currentGin={currentGin} />
+          {!drink ? (
+            <Loader />
+          ) : (
+            drink && <GinProduct currentGin={drink} />
           )}
           <div class="mt-16">
             <h3 class="text-gray-600 text-2xl font-semibold">Mas productos</h3>
@@ -91,11 +91,13 @@ const Gin = (props) => {
 const mapStateToProps = (state) => {
   return {
     products: state.productsReducer.products,
+    drink: state.productsReducer.drink
   };
 };
 
 const mapDispatchToProps = {
   fetchProducts: productActions.fetchProducts,
+  getDrink: productActions.getDrink
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Gin);
