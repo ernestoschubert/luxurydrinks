@@ -113,19 +113,14 @@ const userControllers = {
   },
   updateUser: async (req, res) => {
     try {
-      if (req.user.role === "admin") {
+      
         const userUpdated = await User.findOneAndUpdate(
           { _id: req.params.id },
-          { ...req.body }
+          { ...req.body.newInfo }
         );
-        res.json({ success: true, userUpdated, body: req.body });
-      } else {
-        res.json({
-          success: false,
-          error: "Usuario no autorizado, debe ser administrador",
-        });
+        res.json({ success: true, userUpdated, body: req.body.newInfo });
       }
-    } catch (error) {
+    catch (error) {
       res.json({ success: false, response: null, error: error });
     }
   },
