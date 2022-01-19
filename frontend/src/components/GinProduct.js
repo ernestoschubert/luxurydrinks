@@ -44,6 +44,9 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
     setEdit(false);
   };
 
+  console.log(gin);
+  
+
   return (
     <>
       {gin && (
@@ -156,8 +159,8 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
                   />
                 </>
               ) : (
-                <button className="px-8 py-3 bg-red-600 text-white text-lg font-semibold rounded hover:bg-red-700 focus:outline-none focus:bg-indigo-500"
-                  onClick={() => addCarrito(...gin._id)}
+                <button className="px-8 py-3 bg-red-600 text-white text-lg font-semibold rounded hover:bg-red-700 focus:outline-none"
+                  onClick={() => addCarrito(gin._id)}
                 >
                   Añadir al carrito
                 </button>
