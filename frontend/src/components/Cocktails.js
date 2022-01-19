@@ -28,12 +28,13 @@ function Cocteles(props) {
         <div className="subtittleCocktails">
           <h2>Para cada Beefeater, te espera un cóctel...</h2>
         </div>
-        {props.todosLosCocktails.length > 0 ? (
-          props.todosLosCocktails.map((element, index) => {
-            return (
-              <div className="cocktailPadre">
-                <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
-                  <div className="containerCocktails">
+        <div className="cont__cocktails">
+          {props.todosLosCocktails.length > 0 ? (
+            props.todosLosCocktails.map((element, index) => {
+              return (
+                <div className="cocktailPadre" key={index}>
+                      <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
+                <div className="containerCocktails">
                     <div class="card">
                       <img
                         src={element.drinkImg}
@@ -49,24 +50,18 @@ function Cocteles(props) {
                     </div>
                   </div>
                 </Link>
-              </div>
-            );
-          })
-        ) : (
-          <div className="alert">
-            <p class="textAlert">
-              Lo sentimos, faltan cóckteles aquí, pronto más productos.
-            </p>
-            <p>
-              Volver a{" "}
-              <Link className="linkCocktails" to="/">
-                <button>
-                  <span>HOME.</span>
-                </button>
-              </Link>
-            </p>
-          </div>
-        )}
+                </div>
+              );
+            })
+          ) : (
+            <div className="alert">
+              <p class="textAlert">
+                Lo sentimos, faltan cóckteles aquí, pronto más productos.
+              </p>
+              <p>Volver a <Link className="linkCocktails" to="/"><button><span>HOME.</span></button></Link></p>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
