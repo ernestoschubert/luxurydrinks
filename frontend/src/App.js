@@ -19,6 +19,7 @@ import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
 import Coctel from "./components/Coctel";
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+import Cart from "./components/Cart";
 
 const Gin = withRouter(GinNoProps);
 
@@ -33,10 +34,10 @@ function App(props) {
 
   return (
     <>
-    <PayPalScriptProvider options={{ "client-id": "ASLnF48B0KcpHc6l8x3IoDViKPYG2jMRnLDR7H_vUO9pjOQtmhZlajrjXlzlmMDVG_sFCSuS5gO47eBT" }}>
       <DataProvider>
         <BrowserRouter>
           <Navbar />
+          <Cart/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Nosotros" element={<Nosotros />} />
@@ -55,7 +56,6 @@ function App(props) {
           <Footer />
         </BrowserRouter>
       </DataProvider>
-    </PayPalScriptProvider>
     </>
   );
 }

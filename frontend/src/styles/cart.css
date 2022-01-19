@@ -22,13 +22,36 @@
     height: 80%;
     padding: 1.6rem;
     border-radius: 8px;
-    overflow-x: scroll;
+    overflow-y: auto;
     transition: all 300ms ease-in-out;
     background-color: white;
     opacity: 0;
     visibility: hidden;
 }
+.carrito::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
 
+.carrito::-webkit-scrollbar:vertical {
+width: .5rem;
+}
+
+.carrito::-webkit-scrollbar-button:increment, .carrito::-webkit-scrollbar-button {
+display: none;
+} 
+
+.carrito::-webkit-scrollbar:horizontal {
+height: .6rem;
+}
+
+.carrito::-webkit-scrollbar-thumb {
+background-color: #797979;
+border-radius: 1rem;
+}
+
+.carrito::-webkit-scrollbar-track {
+border-radius: 1rem;  
+}
 @media (max-width: 1200px) {
     .carrito {
         width: 80%;
@@ -41,7 +64,7 @@
 }
 .carrito h2{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 .carritos.show{
     visibility: visible;
@@ -56,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 .carrito__close .closeModel{
     display: inline-block;
@@ -92,11 +115,24 @@
 .carrito__item{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
-    width: 80%;
+    width: 90%;
     margin: 2rem auto;
     box-shadow: 1px 1px 3px gray;
     border-radius: .5rem;
 }
+@media (max-width: 700px) {
+    .carrito__item {
+        width: 95%;
+
+    }
+}
+@media (max-width: 550px) {
+    .carrito__item {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .carrito__item div{
     display: flex;
     flex-direction: column;
@@ -105,25 +141,26 @@
     align-items: center;
 }
 .carrito__item img{
-    height: 15rem;
+    height: 12rem;
     margin: 1rem auto;
 }
 .carrito__item h3{
     margin-top: 1.5rem;
     font-family: Helvetica, sans-serif;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 .carrito__item .price{
     color: #1a202c;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-align: start;
 }
 .carrito__item .removeSvg{
     fill: #dc143c;
     width: 2rem;
-    height: 2rem;
+    margin: 1rem;
+    height: 4rem;
     cursor: pointer;
 }
 .carrito__item .arrowStyle {
@@ -137,7 +174,7 @@
     outline: none;
 }
 .carrito__item .cantidad{
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 .carrito__item .remove__item .removeSvg{
@@ -149,14 +186,14 @@
     margin-bottom: 3rem;
 }
 .carrito__footer h3{
-    font-size: 2rem;
+    font-size: 1.6rem;
+    color: #1a202c;
     font-weight: 700;
-    letter-spacing: 1px;
 }
 .carrito__footer .btn{
     display: inline-block;
     padding: .5rem 2rem;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     box-shadow: 0 0 5px rgb(161, 161, 161);
     text-shadow: 0 0 3px rgb(161, 161, 161);
     background-color: crimson;
@@ -171,7 +208,7 @@
 }
 /*--------------DETALLES --------------*/
 h2{
-    font-size: 3.5rem;
+    font-size: 3rem;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
@@ -179,12 +216,28 @@ h2{
     color: #1a202c;
 }
 .price{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: crimson;
 }
 .stock {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    height: 4.5rem;
     color: #dc143c;
+}
+
+
+.swal2-styled.swal2-confirm {
+    background-color: #dc143c;
+    outline: none;
+}
+
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: none;
+}
+
+.swal2-icon {
+    width: 5rem;
+    height: 5rem;
 }

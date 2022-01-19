@@ -23,54 +23,59 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
+    <nav class="marginGlobal sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
           <img src="/assets/logoluxury.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
-      <div className="cart" onClick={toogleMenu}>
+      {user && (
+        <>
+      <div className="cart mr-6" onClick={toogleMenu}>
         <FaShoppingCart class="text-5xl" />
         <span className="item__total">{carrito.length}</span>
       </div>
-      <div class="block lg:hidden">
-        <button
-          onClick={() => setMenu(!menu)}
-          class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-        >
-          <svg
-            class="fill-current h-10 w-10"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+      <div className="block lg:hidden">
+          <button
+            onClick={() => setMenu(!menu)}
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
+            <svg
+              className="fill-current h-10 w-10"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        
       </div>
-      <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
-        <div class="md:hidden lg:flex-grow lg:flex items-center">
+      </>
+      )}
+      <div className="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col md:hidden">
+        <div className=" lg:flex-grow lg:flex items-center">
           <Link
             to="/"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase text-md font-semibold over:border-white border-transparent"
           >
             Home
           </Link>
           <Link
             to="/Nosotros"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase  font-bold hover:border-white border-transparent"
           >
             Nosotros
           </Link>
           <Link
             to="/NuestrosGins"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase  font-bold text-base  hover:border-white border-transparent"
           >
             Nuestros Gins
           </Link>
           <Link
             to="/Cocktails"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase font-bold text-base hover:border-white border-transparent"
           >
             Cocktails
           </Link>
@@ -78,14 +83,13 @@ const Navbar = (props) => {
             <>
               <Link
                 to="/Registrarse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
-  
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
               >
                 Registrate
               </Link>
               <Link
                 to="/Loguearse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
               >
                 Ingresa
               </Link>
@@ -94,28 +98,62 @@ const Navbar = (props) => {
             <>
               <div
                 onClick={() => setUserMenu(!userMenu)}
-                class="w-64 justify-center items-center inline-block"
+                className="w-64 justify-center items-center inline-block"
               >
                 <div class="relative border-b-4 border-transparent py-3">
                   <div class="flex justify-center items-center space-x-3 cursor-pointer">
                     <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
-                      <img
-                        src={user.userImg}
-                        alt={user.firstName}
-                        class="w-full h-full object-cover"
-                      />
+                      {user.userImg && (
+                        <img
+                          src={user.userImg}
+                          alt={user.firstName}
+                          class="w-full h-full object-cover"
+                        />
+                      )}
                     </div>
-                    <div class="font-semibold dark:text-white text-gray-900 text-lg">
-                      <div class="cursor-pointer">{user.firstName}</div>
+                    <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                      <div className="cursor-pointer">{user.firstName}</div>
                     </div>
                   </div>
                   {userMenu && (
-                    <div class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
-                      <ul class="space-y-3 dark:text-white">
+                    <div className="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
+                      <ul className="space-y-3 dark:text-white">
                         {user.role === "admin" && (
-                          <li class="font-medium">
+                          <li className="font-medium">
                             <Link
                               to="/panelAdmin"
+                              className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
+                            >
+                              <div className="mr-3">
+                                <svg
+                                  className="w-6 h-6"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                  ></path>
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                  ></path>
+                                </svg>
+                              </div>
+                              Setting
+                            </Link>
+                          </li>
+                        )}
+                        
+                          <li class="font-medium">
+                            <Link
+                              to="/PanelUser"
                               class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                             >
                               <div class="mr-3">
@@ -140,19 +178,19 @@ const Navbar = (props) => {
                                   ></path>
                                 </svg>
                               </div>
-                              Setting
+                              Mi perfil
                             </Link>
                           </li>
-                        )}
+                        
                         <hr class="dark:border-gray-700" />
                         <li class="font-medium">
                           <button
                             onClick={() => handleLogOut()}
-                            class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
+                            className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                           >
-                            <div class="mr-3 text-red-600">
+                            <div className="mr-3 text-red-600">
                               <svg
-                                class="w-6 h-6"
+                                className="w-6 h-6"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -179,28 +217,28 @@ const Navbar = (props) => {
         </div>
         {menu ? (
           <>
-            <div class="lg:hidden md:flex">
+            <div className="lg:hidden md:flex">
               <Link
                 to="/"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
                 HOME
               </Link>
               <Link
                 to="/Nosotros"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
                 NOSOTROS
               </Link>
               <Link
                 to="/NuestrosGins"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
                 NUESTROS GINS
               </Link>
               <Link
                 to="/Cocktails"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
                 COCKTAILS
               </Link>
@@ -208,13 +246,13 @@ const Navbar = (props) => {
                 <>
                   <Link
                     to="/Registrarse"
-                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2 Register"
+                    className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2 Register"
                   >
                     REGISTRATE
                   </Link>
                   <Link
                     to="/Loguearse"
-                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                    className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
                   >
                     INGRESÁ
                   </Link>
@@ -223,33 +261,33 @@ const Navbar = (props) => {
                 <>
                   <div
                     onClick={() => setUserMenu(!userMenu)}
-                    class="w-64 justify-center items-center inline-block"
+                    className="w-64 justify-center items-center inline-block"
                   >
-                    <div class="relative border-b-4 border-transparent py-3">
-                      <div class="flex justify-center items-center space-x-3 cursor-pointer">
-                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                    <div className="relative border-b-4 border-transparent py-3">
+                      <div className="flex justify-center items-center space-x-3 cursor-pointer">
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                           <img
                             src={user.userImg}
                             alt={user.firstName}
-                            class="w-full h-full object-cover"
+                            className="w-full h-full object-cover"
                           />
                         </div>
-                        <div class="font-semibold dark:text-white text-gray-900 text-lg">
-                          <div class="cursor-pointer">{user.firstName}</div>
+                        <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                          <div className="cursor-pointer">{user.firstName}</div>
                         </div>
                       </div>
                       {userMenu && (
-                        <div class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
-                          <ul class="space-y-3 dark:text-white">
+                        <div className="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
+                          <ul className="space-y-3 dark:text-white">
                             {user.role === "admin" && (
-                              <li class="font-medium">
+                              <li className="font-medium">
                                 <Link
                                   to="/panelAdmin"
-                                  class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
+                                  className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                                 >
-                                  <div class="mr-3">
+                                  <div className="mr-3">
                                     <svg
-                                      class="w-6 h-6"
+                                      className="w-6 h-6"
                                       fill="none"
                                       stroke="currentColor"
                                       viewBox="0 0 24 24"
@@ -273,15 +311,15 @@ const Navbar = (props) => {
                                 </Link>
                               </li>
                             )}
-                            <hr class="dark:border-gray-700" />
-                            <li class="font-medium">
+                            <hr className="dark:border-gray-700" />
+                            <li className="font-medium">
                               <button
                                 onClick={() => handleLogOut()}
-                                class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
+                                className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                               >
-                                <div class="mr-3 text-red-600">
+                                <div className="mr-3 text-red-600">
                                   <svg
-                                    class="w-6 h-6"
+                                    className="w-6 h-6"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"

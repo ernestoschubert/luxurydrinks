@@ -14,19 +14,19 @@ const Footer = () => {
             </h5>
             <div class="mt-6 lg:mb-0 mb-6">
               <button
-                class="bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                class="bg-white shadow-lg font-normal h-12 w-12 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
               >
                 <i class="fab fa-twitter text-red-500"></i>
               </button>
               <button
-                class="bg-white  shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                class="bg-white  shadow-lg font-normal h-12 w-12 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
               >
                 <i class="fab fa-facebook-square text-red-500"></i>
               </button>
               <button
-                class="bg-white shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                class="bg-white shadow-lg font-normal h-12 w-12 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
               >
                 <i class="fab fa-instagram text-red-500"></i>

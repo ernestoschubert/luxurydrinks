@@ -87,6 +87,20 @@ const authActions = {
 
         }
     },
+    editUser: (id, newInfo, token) => {
+        return async (dispatch, getState) => {
+          const res = await axios.put(
+            `http://localhost:4000/api/admin/user/` + id,
+            { newInfo },
+            { headers: { Authorization: "Bearer " + token } }
+          );
+          if (res.data.success) {
+            return res.data;
+          } else {
+            console.error("error");
+          }
+        };
+      },
 
 }
 

@@ -1,13 +1,27 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 export const DataContext = createContext();
 
 const DataProvider = (props) => {
-  const [productos, setProductos] = useState([]);
-  const [menuCart, setMenuCart] = useState(false);
-  const [carrito, setCarrito] = useState([]);
-  const [total, setTotal] = useState(0);
+	const [productos, setProductos] = useState([]);
+	const [menuCart, setMenuCart] = useState(false)
+	const [carrito, setCarrito] =useState([])
+	const [total, setTotal] = useState(0)
+
+	const Alert = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		background: 'black',
+		color: 'white',
+		timerProgressBar: true,
+		didOpen: toast => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+	  })
 
 	useEffect(() => {
 		axios.get('http://localhost:4000/api/drinks')
@@ -25,8 +39,16 @@ const DataProvider = (props) => {
 				return producto._id === id
 			})
 			setCarrito([...carrito, ...data])
+			Alert.fire({
+				icon: 'success',
+				title: 'El producto ha sido añadido'
+			  })
 		}else{
-			alert("El producto se ha añadido al carrito")
+			Alert.fire({
+				icon: 'warning',
+				title: 'El producto ya ha sido añadido'
+			  })
+			// Alert("")
 		}
 	}
 	useEffect(() =>{
@@ -36,16 +58,33 @@ const DataProvider = (props) => {
 		}
 	},[])
 
-  const value = {
-    productos: [productos],
-    menuCart: [menuCart, setMenuCart],
-    carrito: [carrito, setCarrito],
-    addCarrito: addCarrito,
-    total: [total, setTotal],
-  };
-  return (
-    <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
-  );
+	useEffect(() =>{
+		localStorage.setItem('dataCarrito', JSON.stringify(carrito))
+	},[carrito])
+
+	useEffect(() =>{
+		const getTotal = () =>{
+			const res = carrito.reduce((prev, item) =>{
+				return prev + (item.price * item.quantity)
+			},0)
+			setTotal(res.toFixed(2))
+		}
+		getTotal()
+	},[carrito])
+
+	const value = {
+		productos : [productos],
+		menuCart: [menuCart, setMenuCart],
+		carrito: [carrito, setCarrito],
+		addCarrito: addCarrito,
+		total: [total, setTotal]
+	}
+	return (
+		<DataContext.Provider value={value}>
+			{props.children}
+		</DataContext.Provider>
+	)
 };
 
-export default DataProvider;
+
+export default DataProvider
