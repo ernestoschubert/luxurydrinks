@@ -18,7 +18,6 @@ import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
 import DataProvider from "./DataProvider";
 import Coctel from "./components/Coctel";
-import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 import Cart from "./components/Cart";
 
 const Gin = withRouter(GinNoProps);

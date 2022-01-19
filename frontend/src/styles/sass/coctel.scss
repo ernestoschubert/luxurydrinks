@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
 .tittleCocktails {
-  font-size: 10rem;
   font-family: Brandon Grotesque Black,helvetica,arial,sans-serif;
   color: #fff;
   text-transform: uppercase;
@@ -15,13 +14,12 @@
 .mainCardCoctel {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.5rem;
-	margin-left: 15rem;
+	margin: 0 auto;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
-	vertical-align: bottom;
 }
 
 .recipe-card {

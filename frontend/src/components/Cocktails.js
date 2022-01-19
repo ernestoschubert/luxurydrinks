@@ -28,38 +28,40 @@ function Cocteles(props) {
         <div className="subtittleCocktails">
           <h2>Para cada Beefeater, te espera un cóctel...</h2>
         </div>
-        {props.todosLosCocktails.length > 0 ? (
-          props.todosLosCocktails.map((element, index) => {
-            return (
-              <div className="cocktailPadre">
-                    <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
-              <div className="containerCocktails">
-                  <div class="card">
-                    <img
-                      src={element.drinkImg}
-                      class="card__image"
-                      alt="brown couch"
-                    />
-                    <div class="card__content">
-                      <time datetime="2021-03-30" class="card__date">
-                        {element.drinkName}
-                      </time>
-                      <span class="card__title">{element.description}</span>
+        <div className="cont__cocktails">
+          {props.todosLosCocktails.length > 0 ? (
+            props.todosLosCocktails.map((element, index) => {
+              return (
+                <div className="cocktailPadre" key={index}>
+                      <Link className="linkCoctel" to={`/Cocktail/${element._id}`}>
+                <div className="containerCocktails">
+                    <div class="card">
+                      <img
+                        src={element.drinkImg}
+                        class="card__image"
+                        alt="brown couch"
+                      />
+                      <div class="card__content">
+                        <time datetime="2021-03-30" class="card__date">
+                          {element.drinkName}
+                        </time>
+                        <span class="card__title">{element.description}</span>
+                      </div>
                     </div>
                   </div>
+                </Link>
                 </div>
-              </Link>
-              </div>
-            );
-          })
-        ) : (
-          <div className="alert">
-            <p class="textAlert">
-              Lo sentimos, faltan cóckteles aquí, pronto más productos.
-            </p>
-            <p>Volver a <Link className="linkCocktails" to="/"><button><span>HOME.</span></button></Link></p>
-          </div>
-        )}
+              );
+            })
+          ) : (
+            <div className="alert">
+              <p class="textAlert">
+                Lo sentimos, faltan cóckteles aquí, pronto más productos.
+              </p>
+              <p>Volver a <Link className="linkCocktails" to="/"><button><span>HOME.</span></button></Link></p>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

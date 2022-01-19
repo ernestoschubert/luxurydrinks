@@ -22,9 +22,6 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
   const description = useRef();
   const drinkImg = useRef();
 
-  const counter = useCounter(0, currentGin.stock);
-  const { aumentar, disminuir, value } = counter;
-
   const values = useContext(DataContext);
   const addCarrito = values.addCarrito;
 
@@ -51,60 +48,66 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
   return (
     <>
       {gin && (
-        <div class="md:flex md:items-center md:justify-center ">
-          <div class="w-2/3 h-64 md:w-1/2 lg:h-auto ">
+        <div className="md:flex md:items-center md:justify-center items-center justify-center"
+          style={{backgroundColor: '#ffffff87'}}
+        >
+          <div className="w-2/3 h-64 md:w-1/2 lg:h-auto ">
             {edit ? (
               <>
                 <img
-                  class="h-full w-full rounded-md object-cover max-w-lg m-auto"
+                  className="h-full w-full rounded-md object-cover max-w-lg m-auto"
                   src={gin.drinkImg}
                   alt={gin.drinkName}
                 />
-                <div class="m-auto">
+                <div className="m-auto">
                   <span>URL DE LA IMAGEN:</span>
                   <input
                     type="text"
                     defaultValue={gin.drinkImg}
-                    class="w-1/3 p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm m-auto"
+                    className="w-1/3 p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm m-auto"
                     ref={drinkImg}
                   />
                 </div>
               </>
             ) : (
               <img
-                class="h-full w-full rounded-md object-cover max-w-lg m-auto"
+                className="h-full w-full rounded-md object-cover max-w-lg m-auto"
                 src={gin.drinkImg}
                 alt={gin.drinkName}
               />
             )}
           </div>
-          <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2 text-center">
-            {favorite ? (
-              <FaStar
-                onClick={() => handleFavorite()}
-                class="h-10 w-10 text-yellow-500 cursor-pointer"
-              />
-            ) : (
-              <FaRegStar
-                onClick={() => handleFavorite()}
-                class="h-10 w-10 text-yellow-500 cursor-pointer"
-              />
-            )}
-            {user && user.role === "admin" && (
-              <FaEdit
-                onClick={() => setEdit(!edit)}
-                class="h-10 w-10 cursor-pointer"
-              />
-            )}
+          <div className="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2 text-center">
+            <div className="flex flew-row justify-between">
+              {favorite ? (
+                <button onClick={() => handleFavorite()}>
+                  <FaStar
+                    className="h-10 w-10 text-yellow-600 cursor-pointer"
+                  />
+                </button>
+              ) : (
+                <button onClick={() => handleFavorite()}>
+                  <FaRegStar
+                    className="h-10 w-10 text-yellow-600 cursor-pointer"
+                  />
+                </button>
+              )}
+              {user && user.role === "admin" && (
+                <FaEdit
+                  onClick={() => setEdit(!edit)}
+                  className="h-10 w-10 flex justify-self-end cursor-pointer"
+                />
+              )}
+            </div>
             {edit ? (
               <input
                 type="text"
                 defaultValue={gin.drinkName}
-                class="w-full p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm"
+                className="w-full p-3 mb-3 text-lg bg-white border border-gray-200 rounded shadow-sm"
                 ref={drinkName}
               />
             ) : (
-              <h3 class="text-gray-700 uppercase text-6xl m-10">
+              <h3 className="text-gray-700 uppercase text-6xl m-10">
                 {gin.drinkName}
               </h3>
             )}
@@ -112,49 +115,49 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
               <input
                 type="number"
                 defaultValue={gin.price}
-                class="w-full p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm"
+                className="w-full p-3 mb-3 text-lg bg-white border border-gray-200 rounded shadow-sm"
                 ref={price}
               />
             ) : (
-              <span class="text-gray-500 m-10 text-4xl">${gin.price}</span>
+              <span className="text-gray-500 m-10 text-4xl">${gin.price}</span>
             )}
             {edit ? (
               <textarea
                 type="text"
                 defaultValue={gin.description}
-                class="w-full p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm h-36 "
+                className="w-full p-3 mb-3 text-lg bg-white border border-gray-200 rounded shadow-sm h-36 "
                 ref={description}
               />
             ) : (
-              <p class="text-left ">{gin.description}</p>
+              <p className="text-center m-auto w-80">{gin.description}</p>
             )}
             {edit ? (
-              <p class="font-bold text-3xl ">
+              <p className="font-bold text-3xl ">
                 Stock:
                 <input
                   type="number"
                   defaultValue={gin.stock}
-                  class="p-5 mb-5 bg-white border border-gray-200 rounded shadow-sm"
+                  className="p-3 mb-3 text-lg bg-white border border-gray-200 rounded shadow-sm"
                   ref={stock}
                 />
               </p>
             ) : (
-              <p class="font-bold text-3xl ">Stock:{gin.stock}</p>
+              <p className="font-bold text-3xl ">Stock:{gin.stock}</p>
             )}
-            <div class="flex justify-center m-10">
+            <div className="flex justify-center m-10">
               {edit ? (
                 <>
                   <FaCheckSquare
                     onClick={() => handleEdit()}
-                    class="h-10 w-10 cursor-pointer"
+                    className="h-10 w-10 cursor-pointer"
                   />
                   <FaWindowClose
                     onClick={() => setEdit(false)}
-                    class="h-10 w-10 cursor-pointer"
+                    className="h-10 w-10 cursor-pointer"
                   />
                 </>
               ) : (
-                <button class="px-20 py-4 bg-red-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
+                <button className="px-8 py-3 bg-red-600 text-white text-lg font-semibold rounded hover:bg-red-700 focus:outline-none focus:bg-indigo-500"
                   onClick={() => addCarrito(...gin._id)}
                 >
                   Añadir al carrito

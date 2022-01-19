@@ -27,58 +27,60 @@ const Coctel = (props) => {
         <div className="coctelHeader">
           <h1 className="tittleCocktails">Cócteles</h1>
         </div>
-        {props.getCocteles.respuesta.length > 0 ? (
-          props.getCocteles.respuesta.map((element) => {
-            return (
-              <div className="padreRecetas">
-                <div className="contenedorRecetas">
-                  <div class="mainCardCoctel">
-                    <div class="recipe-card">
-                      <aside>
-                        <img src={element.cocktailImg} alt="Image cocktail" />
-                      </aside>
+        <div className="cont__recetas">
+          {props.getCocteles.respuesta.length > 0 ? (
+            props.getCocteles.respuesta.map((element) => {
+              return (
+                <div className="padreRecetas">
+                  <div className="contenedorRecetas">
+                    <div class="mainCardCoctel">
+                      <div class="recipe-card">
+                        <aside>
+                          <img src={element.cocktailImg} alt="Image cocktail" />
+                        </aside>
 
-                      <article>
-                        <h2 className="nameCoktail">{element.cocktailName}</h2>
-                        <h3>{element.description}</h3>
+                        <article>
+                          <h2 className="nameCoktail">{element.cocktailName}</h2>
+                          <h3>{element.description}</h3>
 
-                        <p class="ingredients">
-                          <span>Sabor:&nbsp;</span>
-                          {element.flour}
-                        </p>
+                          <p class="ingredients">
+                            <span>Sabor:&nbsp;</span>
+                            {element.flour}
+                          </p>
 
-                        <p class="ingredients">
-                          <span>Dificultad:&nbsp;</span>
-                          {element.difficulty}
-                        </p>
+                          <p class="ingredients">
+                            <span>Dificultad:&nbsp;</span>
+                            {element.difficulty}
+                          </p>
 
-                        <p class="ingredients">
-                          <span>Ingredientes:&nbsp;</span>
-                          {element.ingredients}
-                        </p>
+                          <p class="ingredients">
+                            <span>Ingredientes:&nbsp;</span>
+                            {element.ingredients}
+                          </p>
 
-                        <p class="ingredients">
-                          <span>Como preparar:&nbsp;</span> {element.howToMake}
-                        </p>
+                          <p class="ingredients">
+                            <span>Como preparar:&nbsp;</span> {element.howToMake}
+                          </p>
 
-                        <p class="ingredients">
-                          <span>Se sirve en:&nbsp;</span>
-                          {element.serve}
-                        </p>
-                      </article>
+                          <p class="ingredients">
+                            <span>Se sirve en:&nbsp;</span>
+                            {element.serve}
+                          </p>
+                        </article>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })
-        ) : (
-          <div className="alert">
-            <p class="textAlert">
-              Lo sentimos, aun no hay cócteles aquí, pronto más recetas.
-            </p>
-          </div>
-        )}
+              );
+            })
+          ) : (
+            <div className="alert">
+              <p class="textAlert">
+                Lo sentimos, aun no hay cócteles aquí, pronto más recetas.
+              </p>
+            </div>
+          )}
+        </div>
         <div className="backCoctel">
           <Link className="linkCocktails" to="/Cocktails">
             <button className="btnCoctel">

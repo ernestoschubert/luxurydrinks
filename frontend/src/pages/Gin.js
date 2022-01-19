@@ -26,12 +26,14 @@ const Gin = (props) => {
 
   return (
     <>
-      <main class="my-8">
-        <div class="">
+      <main class="flex justify-center items-center"
+            style={{ backgroundImage: `URL('/assets/fondoMarmol.jpg')` }}
+      >
+        <div class="my-8">
           <div class="flex">
             <FaAngleLeft />
             <Link to="/NuestrosGins">
-              <h3>Volver a la tienda</h3>
+              <h3 className="text-gray-600 font-semibold">Volver a la tienda</h3>
             </Link>
           </div>
           {!currentGin ? (
@@ -40,7 +42,7 @@ const Gin = (props) => {
             currentGin && <GinProduct currentGin={currentGin} />
           )}
           <div class="mt-16">
-            <h3 class="text-gray-600 text-2xl font-medium">Mas productos</h3>
+            <h3 class="text-gray-600 text-2xl font-semibold">Mas productos</h3>
             <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
               {relatedProducts &&
                 relatedProducts.map((product, index) => (
