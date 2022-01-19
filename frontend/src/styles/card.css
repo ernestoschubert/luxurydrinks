@@ -1,0 +1,18 @@
+.btnCard {
+  border: 2px solid #dc2626;
+  color: #dc2626;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5rem;
+  transition: .5s;
+}
+
+.btnCard:hover {
+  text-decoration: none;
+  background-color: #dc2626;
+  color: rgb(255, 255, 255); 
+  transition: .5s;
+}
