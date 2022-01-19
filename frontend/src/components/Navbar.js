@@ -23,7 +23,6 @@ const Navbar = (props) => {
     props.logOut();
   };
 
-  
   return (
     <nav class="marginGlobal sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -39,7 +38,7 @@ const Navbar = (props) => {
           </div>
         </>
       )}
-      <div className="block lg:hidden">
+      <div className="block ">
         <button
           onClick={() => setMenu(!menu)}
           className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
@@ -54,10 +53,10 @@ const Navbar = (props) => {
           </svg>
         </button>
       </div>
-      <div className="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col md:hidden">
+      <div className="relative w-full flex flex-grow justify-center">
         {menu ? (
           <>
-            <div className="md:flex flex items-end">
+            <div className="flex items-center flex-col">
               <Link
                 to="/"
                 className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
