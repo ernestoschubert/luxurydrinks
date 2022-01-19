@@ -26,7 +26,7 @@ const credentials = [
     apellido: "serato",
     email: "ariel123@gmail.com",
     password: "1234test",
-    edad: "07/19/2020",
+    edad: "07/19/2001",
   },
 ];
 
@@ -54,9 +54,14 @@ function singInTest() {
       await webDriver
         .findElement(By.className("Edad"))
         .sendKeys(credentials[0].edad);
-      
+        await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
-      
+      const texto = await webDriver
+      .findElement(By.css("body > div.swal2-container.swal2-top-end.swal2-backdrop-show > div"))
+      .getText();
+      await webDriver.sleep(5000)
+      assert.strictEqual(texto, "Complete los campos porfavor!")
+      console.log(texto)
     });
 
     it("Ingreso credenciales con edad incorrecta", async () => {
@@ -79,9 +84,14 @@ function singInTest() {
         .findElement(By.className("Edad"))
         .sendKeys(credentials[1].edad);
       await webDriver.findElement(By.id("fileupload")).sendKeys(path);
-      
+      await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
-      
+      const texto = await webDriver
+      .findElement(By.css("body > div.swal2-container.swal2-top-end.swal2-backdrop-show > div"))
+      .getText();
+      await webDriver.sleep(5000)
+      assert.strictEqual(texto, "Complete los campos porfavor!")
+      console.log(texto)
     });
 
     it("Ingreso credenciales correctas", async () => {
@@ -107,10 +117,11 @@ function singInTest() {
       await webDriver.sleep(3000);
       await webDriver.findElement(By.className("button-send")).click();
       await webDriver.sleep(5000);
-      const texto = webDriver
-        .findElement(By.css("#root > div > header > div > div > h2"))
-        .getText();
-      assert.strictEqual(texto, "EL GIN");
+      const texto = await webDriver
+        .findElement(By.css("body > div.swal2-container.swal2-top-end.swal2-backdrop-show > div"))
+        .getText()
+       assert.strictEqual(texto, "Gracias por registrarte"); 
+      console.log(texto)
     });
   });
 }

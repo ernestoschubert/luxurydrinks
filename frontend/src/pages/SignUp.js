@@ -95,14 +95,14 @@ const SignUp = () => {
             age:
               edad >= 18
                 ? edad
-                : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" }),
+                : Alert.fire({ title: "Debes tener 18 o mas!", icon: "error" , timer:100000}),
           })
         );
 
         if (respuesta.data.success) {
           navigate("/");
           Alert.fire({
-            title: `Gracias por registrarte ${respuesta.data.response.newUser.firstName}`,
+            title: `Gracias por registrarte`,
             icon: "success",
             timer: 9000
           });

@@ -22,9 +22,6 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
   const description = useRef();
   const drinkImg = useRef();
 
-  const counter = useCounter(0, currentGin.stock);
-  const { aumentar, disminuir, value } = counter;
-
   const values = useContext(DataContext);
   const addCarrito = values.addCarrito;
 
@@ -156,7 +153,7 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
               ) : (
                 <button
                   class="px-20 py-4 bg-red-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
-                  onClick={() => addCarrito(...gin._id)}
+                  onClick={() => addCarrito(gin._id)}
                 >
                   Añadir al carrito
                 </button>
