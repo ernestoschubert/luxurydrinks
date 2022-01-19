@@ -23,33 +23,38 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav class="sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
+    <nav class="marginGlobal sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <Link to="/">
           <img src="/assets/logoluxury.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
+      {user && (
+        <>
       <div className="cart mr-6" onClick={toogleMenu}>
         <FaShoppingCart class="text-5xl" />
         <span className="item__total">{carrito.length}</span>
       </div>
       <div className="block lg:hidden">
-        <button
-          onClick={() => setMenu(!menu)}
-          className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
-        >
-          <svg
-            className="fill-current h-10 w-10"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            onClick={() => setMenu(!menu)}
+            className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
+            <svg
+              className="fill-current h-10 w-10"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        
       </div>
-      <div className="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
-        <div className="md:hidden lg:flex-grow lg:flex items-center">
+      </>
+      )}
+      <div className="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col md:hidden">
+        <div className=" lg:flex-grow lg:flex items-center">
           <Link
             to="/"
             className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase text-md font-semibold over:border-white border-transparent"
@@ -58,19 +63,19 @@ const Navbar = (props) => {
           </Link>
           <Link
             to="/Nosotros"
-            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase text-lg font-bold hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase  font-bold hover:border-white border-transparent"
           >
             Nosotros
           </Link>
           <Link
             to="/NuestrosGins"
-            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase text-lg font-bold text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase  font-bold text-base  hover:border-white border-transparent"
           >
             Nuestros Gins
           </Link>
           <Link
             to="/Cocktails"
-            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase text-lg font-bold text-base hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase font-bold text-base hover:border-white border-transparent"
           >
             Cocktails
           </Link>
@@ -79,7 +84,6 @@ const Navbar = (props) => {
               <Link
                 to="/Registrarse"
                 className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
-  
               >
                 Registrate
               </Link>
@@ -96,14 +100,16 @@ const Navbar = (props) => {
                 onClick={() => setUserMenu(!userMenu)}
                 className="w-64 justify-center items-center inline-block"
               >
-                <div className="relative border-b-4 border-transparent py-3">
-                  <div className="flex justify-center items-center space-x-3 cursor-pointer">
-                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
-                      <img
-                        src={user.userImg}
-                        alt={user.firstName}
-                        className="w-full h-full object-cover"
-                      />
+                <div class="relative border-b-4 border-transparent py-3">
+                  <div class="flex justify-center items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                      {user.userImg && (
+                        <img
+                          src={user.userImg}
+                          alt={user.firstName}
+                          class="w-full h-full object-cover"
+                        />
+                      )}
                     </div>
                     <div className="font-semibold dark:text-white text-gray-900 text-lg">
                       <div className="cursor-pointer">{user.firstName}</div>
@@ -144,8 +150,40 @@ const Navbar = (props) => {
                             </Link>
                           </li>
                         )}
-                        <hr className="dark:border-gray-700" />
-                        <li className="font-medium">
+                        
+                          <li class="font-medium">
+                            <Link
+                              to="/PanelUser"
+                              class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
+                            >
+                              <div class="mr-3">
+                                <svg
+                                  class="w-6 h-6"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                  ></path>
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                  ></path>
+                                </svg>
+                              </div>
+                              Mi perfil
+                            </Link>
+                          </li>
+                        
+                        <hr class="dark:border-gray-700" />
+                        <li class="font-medium">
                           <button
                             onClick={() => handleLogOut()}
                             className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"

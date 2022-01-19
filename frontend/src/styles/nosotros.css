@@ -140,4 +140,7 @@
   background: rgb(0, 190, 57);
   color: #fff;
 }
+.marginGlobal {
+  z-index: 1 !important;
+}
 
