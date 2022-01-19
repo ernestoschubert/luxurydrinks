@@ -145,5 +145,6 @@
 }
 .marginGlobal {
   z-index: 1 !important;
+  background-color: red !important;
 }
 
