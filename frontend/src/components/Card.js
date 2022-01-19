@@ -2,25 +2,10 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { FaCartPlus, FaCompress } from "react-icons/fa";
 import { DataContext } from "../DataProvider";
-import Swal from "sweetalert2";
 
 const Card = ({ card }) => {
   const values = useContext(DataContext);
   const addCarrito = values.addCarrito;
-
-  const Alert = Swal.mixin({
-    toast: true,
-    position: "bottom-end",
-    showConfirmButton: false,
-    timer: 3000,
-    background: "black",
-    color: "white",
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
 
   return (
     <>
@@ -42,7 +27,7 @@ const Card = ({ card }) => {
             <div className="">
               <div className="flex items-center justify-center">
                 <span className="bg-teal-200 text-teal-800 text-xs px-2 py-1 inline-block rounded-full uppercase font-semibold tracking-wide">
-                  New
+                  Nuevo
                 </span>
                 <div className="ml-2 text-gray-600 uppercase text-md font-semibold tracking-wider">
                   {card.type}
@@ -53,7 +38,7 @@ const Card = ({ card }) => {
               </h4>
               <div className="mt-1 flex justify-center">
                 <p className="text-teal-600 text-md font-semibold">
-                  Price:
+                  Precio:
                   <span className="text-gray-600">${card.price}</span>
                 </p>
               </div>
