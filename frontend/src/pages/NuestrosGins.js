@@ -34,7 +34,7 @@ const NuestrosGins = (props) => {
       style={{ backgroundImage: `URL('/assets/fondoMarmol.jpg')` }}
     >
       <div className="tiendaHeader">
-        <h1 className="text-6xl font-bold text-white uppercase" style={{textShadow: '0 1px 2px #gray'}}>Nuestros Gins</h1>
+        <h1 className="text-6xl font-bold text-white uppercase" style={{textShadow: '1px 2px 4px #000'}}>Nuestros Gins</h1>
       </div>
       <div className="w-72 m-4">
         <div className="relative flex items-center justify-center">
@@ -57,13 +57,15 @@ const NuestrosGins = (props) => {
           </svg>
           <button
             onClick={() => handlePrice()}
-            className="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 "
+            className="rounded-lg px-4 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 duration-300 "
+            style={{boxShadow: "1px 2px 5px gray"}}
           >
             Price{price ? "⬆" : "⬇"}
           </button>
           <button
             onClick={() => handleAlpha()}
-            className="rounded-lg px-4 py-2 bg-yellow-500 hover:bg-yellow-600 duration-300 m-2"
+            className="rounded-lg px-4 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 duration-300 m-2"
+            style={{boxShadow: "1px 2px 5px gray"}}
           >
             {alpha ? "AZ" : "ZA"}
           </button>
