@@ -79,8 +79,8 @@ const LogIn = () => {
           console.log(res);
           Alert.fire({
             icon: "success",
-            title: "Bienvenido/a " + res.data.response.firstName,
-            timer: 10000,
+            title: "Bienvenido/a ",
+            timer: 1000,
           });
           navigate("/");
         } else {

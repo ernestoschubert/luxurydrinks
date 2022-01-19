@@ -7,6 +7,7 @@ import authActions from "../redux/actions/authActions";
 import { connect } from "react-redux";
 
 const Navbar = (props) => {
+  console.log(props)
   const { user } = props;
   const [menu, setMenu] = useState(true);
   const [userMenu, setUserMenu] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = (props) => {
     props.logOut();
   };
 
-  console.log(user);
+  
   return (
     <nav class="marginGlobal sticky flex items-center justify-between flex-wrap bg-red-600 p-2">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -182,6 +183,7 @@ const Navbar = (props) => {
                             )}
                             <hr className="dark:border-gray-700" />
                             <li className="font-medium">
+                              <Link to="/">
                               <button
                                 onClick={() => handleLogOut()}
                                 className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
@@ -204,6 +206,7 @@ const Navbar = (props) => {
                                 </div>
                                 Salir
                               </button>
+                              </Link>
                             </li>
                           </ul>
                         </div>

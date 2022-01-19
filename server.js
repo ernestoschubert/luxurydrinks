@@ -1,18 +1,23 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const Router = require('./routes/routes');
+const Router = require("./routes/routes");
 const app = express();
-require('./config/database');
-const passport = require('passport');
+require("./config/database");
+const passport = require("passport");
 
 app.use(cors());
 app.use(express.json());
 app.use(passport.initialize());
-app.use('/api', Router);
+app.use("/api", Router);
 
-const PORT = process.env.PORT || 4000;
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+}
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+app.listen(process.env.PORT || "4000", "0.0.0.0", () => {
+  console.log(`El server esta en el puerto ${process.env.PORT || "4000"}`);
 });
