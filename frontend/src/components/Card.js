@@ -2,11 +2,27 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { FaCartPlus, FaCompress } from 'react-icons/fa'
 import { DataContext } from "../DataProvider";
+import Swal from "sweetalert2";
+
 
 const Card = ({ card }) => {
   
   const values = useContext(DataContext);
   const addCarrito = values.addCarrito;
+
+  const Alert = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 3000,
+    background: 'black',
+    color: 'white',
+    timerProgressBar: true,
+    didOpen: toast => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 
   return (
     <>
@@ -54,10 +70,10 @@ const Card = ({ card }) => {
                   {" " +card.stock}
                 </span>
               </div>
-              <div className="mt-2  flex items-center justify-center flex-row">
+              <div className="mt-2  flex items-center justify-center flex-column">
                 <Link to={`/Gin/${card._id}`}>
                   <button 
-                    className="mx-2 text-neutral-100 font-semibold text-lg bg-red-600 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
+                    className="mx-2 mb-2 text-neutral-100 font-semibold text-md bg-red-600 hover:bg-red-700 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                     style={{outline: 'none'}}
                     >
                       <FaCompress className="mr-2"/>
@@ -66,10 +82,10 @@ const Card = ({ card }) => {
                 </Link>
                 <button 
                   onClick={()=> addCarrito(card._id)} 
-                  className="font-semibold text-neutral-100 text-lg"
+                  className="font-semibold text-neutral-100 text-md"
                   >
-                  <div
-                      className="mx-2 text-neutral-100 font-semibold text-lg bg-red-600 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
+                  <p
+                      className="mx-2 text-neutral-100 font-semibold text-md bg-red-600 hover:bg-red-700 rounded-lg flex items-center justify-center flex-row no-underline py-2 px-3"
                       style={{outline: 'none'}}
                       >
                       <FaCartPlus 
@@ -77,7 +93,7 @@ const Card = ({ card }) => {
                         style={{width: '2rem', color: '#fff'}}
                       /> 
                         Agregar al carrito
-                  </div>
+                  </p>
                 </button>
               </div>
             </div>

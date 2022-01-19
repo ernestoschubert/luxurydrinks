@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 export const DataContext = createContext();
 
 const DataProvider = (props) => {
@@ -8,6 +8,20 @@ const DataProvider = (props) => {
 	const [menuCart, setMenuCart] = useState(false)
 	const [carrito, setCarrito] =useState([])
 	const [total, setTotal] = useState(0)
+
+	const Alert = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		background: 'black',
+		color: 'white',
+		timerProgressBar: true,
+		didOpen: toast => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+	  })
 
 	useEffect(() => {
 		axios.get('http://localhost:4000/api/drinks')
@@ -25,8 +39,16 @@ const DataProvider = (props) => {
 				return producto._id === id
 			})
 			setCarrito([...carrito, ...data])
+			Alert.fire({
+				icon: 'success',
+				title: 'El producto ha sido añadido'
+			  })
 		}else{
-			alert("El producto se ha añadido al carrito")
+			Alert.fire({
+				icon: 'warning',
+				title: 'El producto ya ha sido añadido'
+			  })
+			// Alert("")
 		}
 	}
 	useEffect(() =>{

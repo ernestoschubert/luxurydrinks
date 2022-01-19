@@ -141,31 +141,6 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
             ) : (
               <p class="font-bold text-3xl ">Stock:{gin.stock}</p>
             )}
-            <div class="m-10 flex flex-col items-center">
-              <label class="text-gray-700 text-xl">Cantidad:</label>
-              <div class=" h-10 w-32 flex">
-                <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1 items-center">
-                  <button
-                    onClick={disminuir}
-                    class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
-                  >
-                    <span class="m-auto text-2xl font-thin">−</span>
-                  </button>
-                  <input
-                    type="number"
-                    class=" focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-                    defaultValue="0"
-                    value={value}
-                  />
-                  <button
-                    onClick={aumentar}
-                    class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
-                  >
-                    <span class="m-auto text-2xl font-thin">+</span>
-                  </button>
-                </div>
-              </div>
-            </div>
             <div class="flex justify-center m-10">
               {edit ? (
                 <>
@@ -179,8 +154,10 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
                   />
                 </>
               ) : (
-                <button class="px-20 py-4 bg-red-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
-                  Comprar
+                <button class="px-20 py-4 bg-red-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500"
+                  onClick={() => addCarrito(...gin._id)}
+                >
+                  Añadir al carrito
                 </button>
               )}
             </div>

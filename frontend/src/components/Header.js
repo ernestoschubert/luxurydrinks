@@ -11,7 +11,7 @@ const Header = () => {
       >
         <div className="banner-text">
           <h2>EL GIN</h2>
-          <h1>MÁS PREMIADO DEL<span> MUNDO</span></h1>
+          <h1>MÁS PREMIADO DEL MUNDO</h1>
           <Link to="/NuestrosGins"><button className="buttonHome">DESCUBRÍ MÁS</button></Link>
         </div>
          

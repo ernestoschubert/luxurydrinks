@@ -29,7 +29,7 @@ const Navbar = (props) => {
           <img src="/assets/logoluxury.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
-      <div className="cart" onClick={toogleMenu}>
+      <div className="cart mr-6" onClick={toogleMenu}>
         <FaShoppingCart class="text-5xl" />
         <span className="item__total">{carrito.length}</span>
       </div>
@@ -48,29 +48,29 @@ const Navbar = (props) => {
           </svg>
         </button>
       </div>
-      <div class="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
-        <div class="md:hidden lg:flex-grow lg:flex items-center">
+      <div className="relative w-full flex flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col">
+        <div className="md:hidden lg:flex-grow lg:flex items-center">
           <Link
             to="/"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase text-md font-semibold over:border-white border-transparent"
           >
             Home
           </Link>
           <Link
             to="/Nosotros"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white text-base uppercase text-lg font-bold hover:border-white border-transparent"
           >
             Nosotros
           </Link>
           <Link
             to="/NuestrosGins"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base  hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase text-lg font-bold text-base  hover:border-white border-transparent"
           >
             Nuestros Gins
           </Link>
           <Link
             to="/Cocktails"
-            class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
+            className="navtexto block lg:inline-block lg:mt-0 text-zinc-50 hover:text-white uppercase text-lg font-bold text-base hover:border-white border-transparent"
           >
             Cocktails
           </Link>
@@ -78,14 +78,14 @@ const Navbar = (props) => {
             <>
               <Link
                 to="/Registrarse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
   
               >
                 Registrate
               </Link>
               <Link
                 to="/Loguearse"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
               >
                 Ingresa
               </Link>
@@ -94,33 +94,33 @@ const Navbar = (props) => {
             <>
               <div
                 onClick={() => setUserMenu(!userMenu)}
-                class="w-64 justify-center items-center inline-block"
+                className="w-64 justify-center items-center inline-block"
               >
-                <div class="relative border-b-4 border-transparent py-3">
-                  <div class="flex justify-center items-center space-x-3 cursor-pointer">
-                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                <div className="relative border-b-4 border-transparent py-3">
+                  <div className="flex justify-center items-center space-x-3 cursor-pointer">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                       <img
                         src={user.userImg}
                         alt={user.firstName}
-                        class="w-full h-full object-cover"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div class="font-semibold dark:text-white text-gray-900 text-lg">
-                      <div class="cursor-pointer">{user.firstName}</div>
+                    <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                      <div className="cursor-pointer">{user.firstName}</div>
                     </div>
                   </div>
                   {userMenu && (
-                    <div class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
-                      <ul class="space-y-3 dark:text-white">
+                    <div className="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
+                      <ul className="space-y-3 dark:text-white">
                         {user.role === "admin" && (
-                          <li class="font-medium">
+                          <li className="font-medium">
                             <Link
                               to="/panelAdmin"
-                              class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
+                              className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                             >
-                              <div class="mr-3">
+                              <div className="mr-3">
                                 <svg
-                                  class="w-6 h-6"
+                                  className="w-6 h-6"
                                   fill="none"
                                   stroke="currentColor"
                                   viewBox="0 0 24 24"
@@ -144,15 +144,15 @@ const Navbar = (props) => {
                             </Link>
                           </li>
                         )}
-                        <hr class="dark:border-gray-700" />
-                        <li class="font-medium">
+                        <hr className="dark:border-gray-700" />
+                        <li className="font-medium">
                           <button
                             onClick={() => handleLogOut()}
-                            class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
+                            className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                           >
-                            <div class="mr-3 text-red-600">
+                            <div className="mr-3 text-red-600">
                               <svg
-                                class="w-6 h-6"
+                                className="w-6 h-6"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -179,28 +179,28 @@ const Navbar = (props) => {
         </div>
         {menu ? (
           <>
-            <div class="lg:hidden md:flex">
+            <div className="lg:hidden md:flex">
               <Link
                 to="/"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
                 HOME
               </Link>
               <Link
                 to="/Nosotros"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4 text-base active:border-b-2 hover:border-b-2"
               >
                 NOSOTROS
               </Link>
               <Link
                 to="/NuestrosGins"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
                 NUESTROS GINS
               </Link>
               <Link
                 to="/Cocktails"
-                class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
               >
                 COCKTAILS
               </Link>
@@ -208,13 +208,13 @@ const Navbar = (props) => {
                 <>
                   <Link
                     to="/Registrarse"
-                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2 Register"
+                    className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2 Register"
                   >
                     REGISTRATE
                   </Link>
                   <Link
                     to="/Loguearse"
-                    class="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
+                    className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base active:border-b-2 hover:border-b-2"
                   >
                     INGRESÁ
                   </Link>
@@ -223,33 +223,33 @@ const Navbar = (props) => {
                 <>
                   <div
                     onClick={() => setUserMenu(!userMenu)}
-                    class="w-64 justify-center items-center inline-block"
+                    className="w-64 justify-center items-center inline-block"
                   >
-                    <div class="relative border-b-4 border-transparent py-3">
-                      <div class="flex justify-center items-center space-x-3 cursor-pointer">
-                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
+                    <div className="relative border-b-4 border-transparent py-3">
+                      <div className="flex justify-center items-center space-x-3 cursor-pointer">
+                        <div className="w-12 h-12 rounded-full overflow-hidden border-2 dark:border-white border-gray-900">
                           <img
                             src={user.userImg}
                             alt={user.firstName}
-                            class="w-full h-full object-cover"
+                            className="w-full h-full object-cover"
                           />
                         </div>
-                        <div class="font-semibold dark:text-white text-gray-900 text-lg">
-                          <div class="cursor-pointer">{user.firstName}</div>
+                        <div className="font-semibold dark:text-white text-gray-900 text-lg">
+                          <div className="cursor-pointer">{user.firstName}</div>
                         </div>
                       </div>
                       {userMenu && (
-                        <div class="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
-                          <ul class="space-y-3 dark:text-white">
+                        <div className="absolute w-60 px-5 py-3 dark:bg-gray-800 bg-white rounded-lg shadow border dark:border-transparent mt-5 transition ease-out duration-100 inline">
+                          <ul className="space-y-3 dark:text-white">
                             {user.role === "admin" && (
-                              <li class="font-medium">
+                              <li className="font-medium">
                                 <Link
                                   to="/panelAdmin"
-                                  class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
+                                  className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700"
                                 >
-                                  <div class="mr-3">
+                                  <div className="mr-3">
                                     <svg
-                                      class="w-6 h-6"
+                                      className="w-6 h-6"
                                       fill="none"
                                       stroke="currentColor"
                                       viewBox="0 0 24 24"
@@ -273,15 +273,15 @@ const Navbar = (props) => {
                                 </Link>
                               </li>
                             )}
-                            <hr class="dark:border-gray-700" />
-                            <li class="font-medium">
+                            <hr className="dark:border-gray-700" />
+                            <li className="font-medium">
                               <button
                                 onClick={() => handleLogOut()}
-                                class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
+                                className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                               >
-                                <div class="mr-3 text-red-600">
+                                <div className="mr-3 text-red-600">
                                   <svg
-                                    class="w-6 h-6"
+                                    className="w-6 h-6"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"

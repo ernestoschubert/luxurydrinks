@@ -160,7 +160,7 @@ border-radius: 1rem;
     fill: #dc143c;
     width: 2rem;
     margin: 1rem;
-    height: 2rem;
+    height: 4rem;
     cursor: pointer;
 }
 .carrito__item .arrowStyle {
@@ -223,5 +223,21 @@ h2{
 .stock {
     font-size: 1.5rem;
     font-weight: 700;
+    height: 4.5rem;
     color: #dc143c;
+}
+
+
+.swal2-styled.swal2-confirm {
+    background-color: #dc143c;
+    outline: none;
+}
+
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: none;
+}
+
+.swal2-icon {
+    width: 5rem;
+    height: 5rem;
 }
