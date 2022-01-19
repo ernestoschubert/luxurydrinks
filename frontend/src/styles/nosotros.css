@@ -17,9 +17,12 @@
   font-weight: bold;
   text-shadow: 0 5px 5px rgba(10, 10, 10, 0.575);
   border-radius: 9px;
-  background: #ba1919af;
 }
-
+@media (max-width: 800px) {
+  .tittleNosotros {
+    font-size: 4.5rem;
+  }
+}
 .containerNosotros {
   margin: 0;
   padding: 0;

@@ -34,13 +34,14 @@ const NuestrosGins = (props) => {
       style={{ backgroundImage: `URL('/assets/fondoMarmol.jpg')` }}
     >
       <div className="tiendaHeader">
-        <h1 className="tittleTienda">Nuestros Gins</h1>
+        <h1 className="text-6xl font-bold text-white uppercase" style={{textShadow: '0 1px 2px #gray'}}>Nuestros Gins</h1>
       </div>
       <div className="w-72 m-4">
         <div className="relative flex items-center justify-center">
           <input
             type="text"
             className="rounded-lg mr-2 border-2 border-slate-400"
+            style={{width: '180px'}}
             placeholder="Search..."
             onChange={(e) =>
               filterProducts("search", productos, e.target.value)

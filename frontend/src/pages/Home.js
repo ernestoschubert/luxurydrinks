@@ -4,7 +4,7 @@ import Main from "../components/Main";
 
 const Home = () => {
     return (
-        <div>
+        <div style={{maxWidth: '100%'}}>
             <Header/>
             <Main/>
         </div>

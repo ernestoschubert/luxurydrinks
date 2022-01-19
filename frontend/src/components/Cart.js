@@ -16,20 +16,6 @@ const Cart = () => {
   const [carrito, setCarrito] = value.carrito;
   const [total] = value.total;
 
-  const Alert = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    background: "black",
-    color: "white",
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      toast.addEventListener("mouseenter", Swal.stopTimer);
-      toast.addEventListener("mouseleave", Swal.resumeTimer);
-    },
-  });
-
   const stockActualizado = (producto) => {
     const res = producto.stock - producto.quantity;
     if (res > 5) {
