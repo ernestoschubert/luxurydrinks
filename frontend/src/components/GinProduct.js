@@ -51,7 +51,7 @@ const GinProduct = ({ currentGin, user, editAProduct }) => {
   return (
     <>
       {gin && (
-        <div class="md:flex md:items-center md:justify-center">
+        <div class="md:flex md:items-center md:justify-center ">
           <div class="w-2/3 h-64 md:w-1/2 lg:h-auto ">
             {edit ? (
               <>
