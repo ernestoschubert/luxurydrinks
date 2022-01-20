@@ -1,5 +1,5 @@
 import "./App.css";
-import Navigator from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -35,7 +35,7 @@ function App(props) {
     <>
       <DataProvider>
         <BrowserRouter>
-          <Navigator />
+          <Navbar />
           <Cart />
           <Routes>
             <Route path="/" element={<Home />} />
