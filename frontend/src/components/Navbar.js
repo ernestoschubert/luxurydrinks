@@ -50,6 +50,7 @@ const Navbar = (props) => {
         </button>
       </div>
       <div className="relative w-full flex flex-grow justify-center">
+        
         {menu ? (
           <>
             <div className="flex items-center flex-col">

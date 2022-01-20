@@ -184,7 +184,7 @@ const SignUp = () => {
         Ingresa
         </Link>
       </h2>
-      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicNombre">
+      <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicNombre">
         <Form.Control
           type="text"
           placeholder="Nombre"
@@ -194,7 +194,7 @@ const SignUp = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicApellido">
+      <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicApellido">
         <Form.Control
           type="text"
           placeholder="Apellido"
@@ -204,7 +204,7 @@ const SignUp = () => {
         />{" "}
       </Form.Group>
 
-      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicEmail">
+      <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicEmail">
         <Form.Control
           type="text"
           placeholder="Email"
@@ -214,7 +214,7 @@ const SignUp = () => {
         />{" "}
       </Form.Group>
 
-      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicPassword">
+      <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicPassword">
         <Form.Control
           type="password"
           placeholder="Contraseña"
@@ -224,7 +224,7 @@ const SignUp = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-5 col-12 flex justify-center items-center" controlId="formBasicAge">
+      <Form.Group className="m-3 col-12 flex justify-center items-center" controlId="formBasicAge">
         <Form.Control
           type="date"
           placeholder="Edad"
@@ -258,8 +258,8 @@ const SignUp = () => {
         </div>
       )}
       {loading ? <Loader /> : null}
-      <div className="flex mb-2">
-        <Button className="button-send" type="submit" class="">
+      <div className="flex m-4">
+        <Button className="bg-red-600 hover:bg-red-700 font-semibold py-3 px-5 mr-4 rounded-lg" style={{border: 'none'}} type="submit">
           Registrarse
         </Button>
 
@@ -268,7 +268,7 @@ const SignUp = () => {
           render={(renderProps) => (
             <button
               onClick={renderProps.onClick}
-              className="bg-red-600 px-2 rounded-lg"
+              className="bg-red-600 hover:bg-red-700 px-4 rounded-lg"
               disabled={renderProps.disabled}
             >
               <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />

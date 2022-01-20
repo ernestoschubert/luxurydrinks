@@ -107,7 +107,7 @@ const LogIn = () => {
       </div>
       <div className="form">
         <Form
-          className="d-flex flex-column form-container col-10"
+          className="flex flex-column justify-center items-center py-5"
           variant="light"
           onSubmit={loguearse}
         >
@@ -115,24 +115,30 @@ const LogIn = () => {
 
           <h2 class="text-center text-2xl">
             Aùn no estas registrado?
-            <Link to="/Registrarse"> Registrate</Link>
+            <Link to="/Registrarse" className="text-red-600"> Registrate</Link>
           </h2>
-          <Form.Group className="mb-5 col-5" controlId="formBasicEmail">
-            <Form.Label className="text-light">Email</Form.Label>
-            <Form.Control type="email" placeholder="Email" ref={email} />
+          <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicEmail">
+            <Form.Control 
+              type="email" 
+              placeholder="Email" 
+              ref={email} 
+              className="shadow-lg"
+              style={{maxWidth: '300px', width: '300px'}}
+            />
           </Form.Group>
 
-          <Form.Group className="mb-5 col-5" controlId="formBasicPassword">
-            <Form.Label className="text-light">Contraseña</Form.Label>
+          <Form.Group className="m-3 flex justify-center items-center" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Contraseña"
               ref={password}
+              className="shadow-lg"
+              style={{maxWidth: '300px', width: '300px'}}
             />
           </Form.Group>
 
           <div className="d-flex justify-content-center align-center container-buttons">
-            <Button className="button-send" type="submit">
+            <Button className="bg-red-600 hover:bg-red-700 font-semibold py-3 px-5 mr-4 rounded-lg" style={{border: 'none'}} type="submit">
               Ingresar
             </Button>
 
@@ -143,7 +149,7 @@ const LogIn = () => {
               render={(renderProps) => (
                 <button
                   onClick={renderProps.onClick}
-                  className="btn-google button-send"
+                  className="bg-red-600 hover:bg-red-700 px-4 rounded-lg"
                   disabled={renderProps.disabled}
                 >
                   <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />

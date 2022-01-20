@@ -89,7 +89,6 @@
 
 .buttonAccess {
   width           : 50%;
-  margin          : 2rem 5rem 2rem 20rem;
   padding         : 20px 10px;
   background-color: #fff;
   color           : rgb(248, 8, 8);
@@ -191,7 +190,6 @@
   }
   .buttonAccess {
     width           : 40%;
-    margin          : 2rem 5rem 2rem 13rem;
     padding         : 15px 7px;
     background-color: #fff;
     color           : rgb(248, 8, 8);
@@ -221,7 +219,6 @@
   }
   .buttonAccess {
     width           : 40%;
-    margin          : 2rem 5rem 2rem 13rem;
     padding         : 15px 7px;
     background-color: #fff;
     color           : rgb(248, 8, 8);
@@ -249,7 +246,6 @@
   }
   .buttonAccess {
     width           : 40%;
-    margin          : 2rem 5rem 2rem 15rem;
     padding         : 15px 7px;
     background-color: #fff;
     color           : rgb(248, 8, 8);
