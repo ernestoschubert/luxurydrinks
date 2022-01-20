@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b155cb96.css",
+    "main.js": "/static/js/main.db4e34e7.js",
+    "static/media/Beefeater_.mp4": "/static/media/Beefeater_.0770123caa0659af9558.mp4",
+    "static/media/cocktails.jpeg": "/static/media/cocktails.849ce9490f37e53183aa.jpeg",
+    "static/media/luxuriuslogo.png": "/static/media/luxuriuslogo.f0e3ed792e79ddb32f88.png",
+    "index.html": "/index.html",
+    "main.b155cb96.css.map": "/static/css/main.b155cb96.css.map",
+    "main.db4e34e7.js.map": "/static/js/main.db4e34e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b155cb96.css",
+    "static/js/main.db4e34e7.js"
+  ]
+}
