@@ -85,13 +85,13 @@ const Navbar = (props) => {
                 to="/Registrarse"
                 className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white Register border-transparent"
               >
-                Registrate
+                REGISTRATE
               </Link>
               <Link
                 to="/Loguearse"
                 className="navtexto block mt-4 lg:inline-block lg:mt-0 text-zinc-50 hover:text-white mr-4  text-base hover:border-white border-transparent"
               >
-                Ingresa
+                INGRESA
               </Link>
             </>
           ) : (
@@ -184,29 +184,32 @@ const Navbar = (props) => {
                         
                         <hr class="dark:border-gray-700" />
                         <li class="font-medium">
-                          <button
-                            onClick={() => handleLogOut()}
-                            className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
-                          >
-                            <div className="mr-3 text-red-600">
-                              <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
+                        <Link to="/">
+                              <button
+                                onClick={() => handleLogOut()}
+                                className="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600"
                               >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                                ></path>
-                              </svg>
-                            </div>
-                            Logout
-                          </button>
-                        </li>
+                                <div className="mr-3 text-red-600">
+                                  <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                                    ></path>
+                                  </svg>
+                                </div>
+                                Salir
+                              </button>
+                              </Link>
+                            </li>
+                        
                       </ul>
                     </div>
                   )}
