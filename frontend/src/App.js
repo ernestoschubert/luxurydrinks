@@ -12,7 +12,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/LogIn";
 import GinNoProps from "./pages/Gin";
 import Legales from "./pages/ConsumoResponsable";
-import PanelAdmin from "./components/panelAdmin";
+import PanelAdmin from "./components/PanelAdmin";
 import PanelUser from "./components/PanelUser";
 import authActions from "./redux/actions/authActions";
 import { connect } from "react-redux";
@@ -49,7 +49,7 @@ function App(props) {
             {!props.user && <Route path="/Registrarse" element={<SignUp />} />}
             {!props.user && <Route path="/Loguearse" element={<Login />} />}
             {props.role === "admin" && (
-              <Route path="/panelAdmin" element={<PanelAdmin />} />
+              <Route path="/PanelAdmin" element={<PanelAdmin />} />
             )}
           </Routes>
           <Footer />

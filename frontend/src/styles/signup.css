@@ -19,6 +19,16 @@
     border-radius: 9px;
     background: #ba1919af;
   }
+  @media (max-width: 800px) {
+    .tittleRegistro {
+      font-size: 5rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .tittleRegistro {
+      font-size: 3rem;
+    }
+  }
   .form {
       background-image: url('https://d1vcwv1mow27o.cloudfront.net/prod/v2.beefeatergin.com/101/static/images/Beefeater-PINK-Paper.96d6fdcf.jpg')
   }

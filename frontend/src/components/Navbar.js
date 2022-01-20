@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 const Navbar = (props) => {
   console.log(props)
   const { user } = props;
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   const [userMenu, setUserMenu] = useState(false);
   const value = useContext(DataContext);
   const [carrito] = value.carrito;
@@ -30,14 +30,10 @@ const Navbar = (props) => {
           <img src="/assets/logoluxury.png" alt="logo" class="w-30 h-20" />
         </Link>
       </div>
-      {user && (
-        <>
-          <div className="cart mr-6" onClick={toogleMenu}>
-            <FaShoppingCart class="text-5xl" />
-            <span className="item__total">{carrito.length}</span>
-          </div>
-        </>
-      )}
+      <div className="cart mr-6" onClick={toogleMenu}>
+        <FaShoppingCart class="text-5xl" />
+        <span className="item__total">{carrito.length}</span>
+      </div>
       <div className="block ">
         <button
           onClick={() => setMenu(!menu)}

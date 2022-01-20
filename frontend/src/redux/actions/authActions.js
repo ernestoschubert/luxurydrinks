@@ -5,7 +5,7 @@ const authActions = {
   signUpUser: (newUser) => {
     return async (dispatch, getState) => {
       const res = await axios.post(
-        "http://localhost:4000/api/user/signup",
+        "https://luxurydrinks.herokuapp.com/api/user/signup",
         newUser
       );
       if (res.data.success && !res.data.error) {
@@ -29,7 +29,7 @@ const authActions = {
   },
   signInUser: (logUser) => {
     return async (dispatch, getState) => {
-      const res = await axios.post("http://localhost:4000/api/user/login", {
+      const res = await axios.post("https://luxurydrinks.herokuapp.com/api/user/login", {
         ...logUser,
       });
       console.log(res)
@@ -61,7 +61,7 @@ const authActions = {
     return async (dispatch, getState) => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/user/auth",
+          "https://luxurydrinks.herokuapp.com/api/user/auth",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ const authActions = {
     return async (dispatch, getState) => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:4000/api/admin/users", {
+        const res = await axios.get("https://luxurydrinks.herokuapp.com/api/admin/users", {
           headers: { Authorization: "Bearer " + token },
         });
         dispatch({ type: "GET_USERS", payload: res.data.users });
@@ -97,7 +97,7 @@ const authActions = {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.delete(
-          `http://localhost:4000/api/admin/user/${userId}`,
+          `https://luxurydrinks.herokuapp.com/api/admin/user/${userId}`,
           {
             headers: { Authorization: "Bearer " + token },
           }
@@ -124,7 +124,7 @@ const authActions = {
   editUser: (id, newInfo, token) => {
     return async (dispatch, getState) => {
       const res = await axios.put(
-        `http://localhost:4000/api/admin/user/` + id,
+        `https://luxurydrinks.herokuapp.com/api/admin/user/` + id,
         { newInfo },
         { headers: { Authorization: "Bearer " + token } }
       );

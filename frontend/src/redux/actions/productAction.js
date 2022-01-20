@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const productActions = {
   fetchProducts: () => {
     return async (dispatch, getState) => {
-      const res = await axios.get("http://localhost:4000/api/drinks");
+      const res = await axios.get("https://luxurydrinks.herokuapp.com/api/drinks");
       if (res.data.success) {
         dispatch({ type: "GET_PRODUCTS", payload: res.data });
       } else {
@@ -25,7 +25,7 @@ const productActions = {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.delete(
-          `http://localhost:4000/api/admin/drink/${productId}`,
+          `https://luxurydrinks.herokuapp.com/api/admin/drink/${productId}`,
           {
             headers: { Authorization: "Bearer " + token },
           }
@@ -52,7 +52,7 @@ const productActions = {
   fetchUnCoctel: (id, props) => {
     return (dispatch, getState) => {
       axios
-        .get("http://localhost:4000/api/drinks" + id)
+        .get("https://luxurydrinks.herokuapp.com/api/drinks" + id)
         .then((respuesta) =>
           dispatch({ type: "FETCH_UNA_CITY", payload: respuesta.data })
         );
@@ -61,7 +61,7 @@ const productActions = {
   postAProduct: (newProduct, token) => {
     return async (dispatch, getState) => {
       const res = await axios.post(
-        "http://localhost:4000/api/admin/adddrink",
+        "https://luxurydrinks.herokuapp.com/api/admin/adddrink",
         { ...newProduct },
         { headers: { Authorization: "Bearer " + token } }
       );
@@ -72,7 +72,7 @@ const productActions = {
   editAProduct: (id, product, token) => {
     return async (dispatch, getState) => {
       const res = await axios.put(
-        `http://localhost:4000/api/admin/drink/` + id,
+        `https://luxurydrinks.herokuapp.com/api/admin/drink/` + id,
         { product },
         { headers: { Authorization: "Bearer " + token } }
       );
@@ -86,7 +86,7 @@ const productActions = {
   getDrink: (id) => {
     return async(dispatch, getState) => {
       try {
-          let res = await axios.get('http://localhost:4000/api/drink/'+id)
+          let res = await axios.get('https://luxurydrinks.herokuapp.com/api/drink/'+id)
           console.log(res);
           
           dispatch({type: 'GET_DRINK', payload: res.data.drink[0]})

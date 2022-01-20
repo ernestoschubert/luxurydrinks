@@ -69,12 +69,15 @@ const Card = ({ card }) => {
               <div className="mt-2  flex items-center justify-center flex-column">
                 <Link to={`/Gin/${card._id}`}>
                   <button
-                    className="btnCard mb-2 font-semibold py-2 px-4"
-                    style={{ outline: "none", boxShadow: "1px 2px 5px gray"}}
+                    className="font-semibold py-2 px-4"
                   >
-                    <FaCompress className="mr-1" 
-                    />
-                    Ver mas 
+                    <p
+                      className="btnCard  py-2 px-4"
+                      style={{ outline: "none", boxShadow: "1px 2px 5px gray"}}
+                    >
+                      <FaCompress className="mr-1" />
+                      Ver mas 
+                    </p>
                   </button>
                 </Link>
                 <button

@@ -24,7 +24,7 @@ const DataProvider = (props) => {
 	  })
 
 	useEffect(() => {
-		axios.get('http://localhost:4000/api/drinks')
+		axios.get('https://luxurydrinks.herokuapp.com/api/drinks')
 		.then(res => setProductos(res.data.drinks))
 		.catch(error => console.log(error))
 	}, [])

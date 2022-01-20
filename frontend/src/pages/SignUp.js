@@ -173,70 +173,70 @@ const SignUp = () => {
     <div className="registroHeader">
     <h1 className="tittleRegistro">REGISTRATE</h1>
   </div>
-  <div className="form">
-    <Form className="form-container" variant="light" onSubmit={crearUsuario}>
-      <h1 className="titleForm">
+  <div className="form flex justify-center items-center" style={{heigth: 'auto'}}>
+    <Form className="flex flex-column justify-center items-center" variant="light" onSubmit={crearUsuario}>
+      <h1 className="titleForm mt-4">
         {" "}
         COMPLETÁ EL FORMULARIO{" "}
       </h1>
-      <h2 class="text-center text-2xl">Ya estas registrado?
-        <Link to="/Loguearse">
+      <h2 class="text-center text-2xl mb-4">Ya estas registrado?
+        <Link to="/Loguearse" className="ml-1 text-red-600">
         Ingresa
         </Link>
       </h2>
-      <Form.Group className="mb-5 col-6" controlId="formBasicNombre">
-        <Form.Label className="text-light"> Nombre </Form.Label>
+      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicNombre">
         <Form.Control
           type="text"
           placeholder="Nombre"
           ref={firstName}
-          className="Nombre"
+          className="Nombre shadow-lg"
+          style={{maxWidth: '300px', width: '300px'}}
         />
       </Form.Group>
 
-      <Form.Group className="mb-5 " controlId="formBasicApellido">
-        <Form.Label className="text-light"> Apellido </Form.Label>{" "}
+      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicApellido">
         <Form.Control
           type="text"
           placeholder="Apellido"
           ref={lastName}
-          className="Apellido"
+          className="Apellido shadow-lg"
+          style={{maxWidth: '300px', width: '300px'}}
         />{" "}
       </Form.Group>
 
-      <Form.Group className="mb-5 " controlId="formBasicEmail">
-        <Form.Label className="text-light"> Email </Form.Label>{" "}
+      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicEmail">
         <Form.Control
           type="text"
           placeholder="Email"
           ref={email}
-          className="Email"
+          className="Email shadow-lg"
+          style={{maxWidth: '300px', width: '300px'}}
         />{" "}
       </Form.Group>
 
-      <Form.Group className="mb-5 col-5" controlId="formBasicPassword">
-        <Form.Label className="text-light"> Contraseña </Form.Label>{" "}
+      <Form.Group className="mb-5 flex justify-center items-center" controlId="formBasicPassword">
         <Form.Control
           type="password"
           placeholder="Contraseña"
           ref={password}
-          className="Contraseña"
-        />{" "}
+          className="Contraseña shadow-lg"
+          style={{maxWidth: '300px', width: '300px'}}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-5 col-6" controlId="formBasicAge">
-        <Form.Label className="text-light"> Edad </Form.Label>{" "}
+      <Form.Group className="mb-5 col-12 flex justify-center items-center" controlId="formBasicAge">
         <Form.Control
           type="date"
           placeholder="Edad"
           ref={age}
           onChange={handleDate}
-          className="Edad"
+          className="Edad shadow-lg"
+          style={{maxWidth: '300px', width: '300px'}}
         />{" "}
       </Form.Group>
 
-      <label class="text-xl text-left">Imagen</label>
-      <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-5">
+      <label class="text-xl text-center">Imagen</label>
+      <label class="w-64 flex flex-col items-center px-2 py-3 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-500 m-2">
         <svg
           class="w-8 h-8"
           fill="currentColor"
@@ -258,7 +258,7 @@ const SignUp = () => {
         </div>
       )}
       {loading ? <Loader /> : null}
-      <div className="d-flex container-buttons">
+      <div className="flex mb-2">
         <Button className="button-send" type="submit" class="">
           Registrarse
         </Button>
@@ -268,7 +268,7 @@ const SignUp = () => {
           render={(renderProps) => (
             <button
               onClick={renderProps.onClick}
-              className="btn-google button-send"
+              className="bg-red-600 px-2 rounded-lg"
               disabled={renderProps.disabled}
             >
               <FcGoogle className="mx-3" style={{ fontSize: "2rem" }} />
