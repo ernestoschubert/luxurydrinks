@@ -259,7 +259,7 @@ const SignUp = () => {
       )}
       {loading ? <Loader /> : null}
       <div className="flex m-4">
-        <Button className="bg-red-600 hover:bg-red-700 font-semibold py-3 px-5 mr-4 rounded-lg" style={{border: 'none'}} type="submit">
+        <Button className="bg-red-600 hover:bg-red-700 font-semibold py-3 px-5 mr-4 rounded-lg" style={{border: 'none'}} type="submit" id="register">
           Registrarse
         </Button>
 
