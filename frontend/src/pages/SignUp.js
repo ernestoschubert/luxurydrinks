@@ -248,7 +248,7 @@ const SignUp = () => {
         <span class="mt-2 text-base leading-normal">Seleccione un archivo</span>
         <input type="file" class="hidden" onChange={archivoHandler} id="fileupload" />
       </label>
-      {fileUrl && (
+     {/*  {fileUrl && (
         <div>
           <FaTrash
             class=" text-red-500 cursor-pointer"
@@ -256,13 +256,12 @@ const SignUp = () => {
           />
           <img src={fileUrl} alt="avatar" class="h-40 w-50 m-5" />
         </div>
-      )}
-      {loading ? <Loader /> : null}
+      )} */}
+      
       <div className="flex m-4">
         <Button className="bg-red-600 hover:bg-red-700 font-semibold py-3 px-5 mr-4 rounded-lg" style={{border: 'none'}} type="submit" id="register">
           Registrarse
         </Button>
-
         <GoogleLogin
           clientId="251218806552-1ecbg0qlvip7gnl9qi6v0f1ifs18junr.apps.googleusercontent.com"
           render={(renderProps) => (
